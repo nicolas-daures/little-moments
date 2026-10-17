@@ -1,0 +1,118 @@
+@media print {
+  @page {
+    size: auto;
+    margin: 14mm;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    background: #fff;
+    color: #17251f;
+    font-size: 11pt;
+  }
+  body > header,
+  body > main {
+    display: none !important;
+  }
+
+  dialog#detail {
+    display: block !important;
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  dialog#detail::backdrop {
+    display: none;
+  }
+  .close,
+  .detail-actions {
+    display: none !important;
+  }
+
+  .print-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    color: #174d3c;
+  }
+
+  .print-brand span {
+    font-size: 24pt;
+    line-height: 1;
+  }
+  .print-brand strong {
+    font:
+      800 15pt/1.1 Manrope,
+      sans-serif;
+  }
+  .print-brand small {
+    margin-left: auto;
+    color: #66736c;
+    font-size: 8.5pt;
+  }
+
+  .detail-head {
+    padding: 0 0 18px !important;
+    background: transparent !important;
+    border-bottom: 2px solid #174d3c;
+  }
+
+  .detail-head h2 {
+    margin: 8px 0;
+    font-size: 24pt;
+    line-height: 1.15;
+  }
+  .detail-head > p {
+    margin: 0 0 12px;
+    color: #38473f;
+    font-size: 11pt;
+  }
+  .detail-meta span {
+    border: 1px solid #b9c6bd;
+    background: transparent;
+  }
+  .detail-body {
+    padding: 20px 0 0 !important;
+  }
+  .detail-body h3 {
+    break-after: avoid;
+    margin-top: 0;
+  }
+  .materials {
+    margin-bottom: 22px;
+  }
+  .materials li {
+    border-color: #b9c6bd;
+  }
+  .steps li {
+    break-inside: avoid;
+    margin-bottom: 11px;
+  }
+  .steps li::before {
+    border: 1px solid #afbeae;
+    background: transparent;
+  }
+  .extra {
+    break-inside: avoid;
+    border: 1px solid #d7ddcf;
+    background: #f8f7ed !important;
+  }
+  .estimate {
+    margin-top: 16px;
+    font-size: 8.5pt;
+  }
+}

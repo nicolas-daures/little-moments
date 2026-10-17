@@ -1,0 +1,44 @@
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.install-app {
+  min-height: 44px;
+  border: 1px solid #174d3c;
+  border-radius: 9px;
+  padding: 10px 15px;
+  color: #174d3c;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+.install-app:hover {
+  background: #edf3ed;
+}
+.install-app span {
+  margin-right: 5px;
+  font-size: 18px;
+}
+@media (max-width: 560px) {
+  .header-actions {
+    gap: 6px;
+  }
+  .install-app {
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 390px) {
+  .install-app span {
+    margin-right: 0;
+  }
+  .install-app {
+    font-size: 0;
+    width: 42px;
+    padding: 8px;
+  }
+  .install-app span {
+    font-size: 19px;
+  }
+}

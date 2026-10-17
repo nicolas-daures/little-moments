@@ -1,0 +1,49 @@
+.completed-filter {
+  border-color: #b9cdbf !important;
+  background: #f3f8f4 !important;
+  color: #35634e !important;
+}
+
+.completed-filter[aria-pressed='true'] {
+  border-color: #35634e !important;
+  background: #35634e !important;
+  color: #fff !important;
+}
+
+.completed-filter span {
+  display: inline-grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  margin-left: 3px;
+  padding: 0 5px;
+  border-radius: 10px;
+  background: #fff;
+  color: #35634e;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.completed-badge {
+  color: #35634e;
+  font-size: 11px;
+  font-weight: 800;
+}
+.completed-toggle {
+  margin-top: 18px;
+  border: 1px solid #ffffffc9;
+  border-radius: 8px;
+  background: #ffffffb8;
+  color: var(--tone);
+  padding: 10px 14px;
+  font-weight: 700;
+}
+
+.completed-toggle:hover {
+  background: #fff;
+}
+.completed-toggle[aria-pressed='true'] {
+  background: #35634e;
+  border-color: #35634e;
+  color: #fff;
+}

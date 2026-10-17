@@ -1,0 +1,22 @@
+{
+  "name": "little-moments",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A bilingual static website with activities for parents and children.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "packageManager": "npm@11.9.0",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/preview.mjs",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "check": "node scripts/check.mjs"
+  },
+  "devDependencies": {
+    "prettier": "3.9.10"
+  }
+}

@@ -1,0 +1,203 @@
+<!doctype html>
+
+<html data-page="home" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="#174d3c" name="theme-color" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="default" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="Petits moments" name="apple-mobile-web-app-title" />
+    <title>Les petits moments — What shall we do together?</title>
+    <meta
+      content="Find activities to enjoy with your children, filtered by age, time and budget. Simple ideas, everyday materials and steps to get started."
+      name="description"
+    />
+    <link href="manifest.webmanifest" rel="manifest" />
+    <link href="../app-icon-192.png" rel="apple-touch-icon" />
+    <link href="../app-icon.svg" rel="icon" type="image/svg+xml" />
+    <link href="../fonts.css" rel="stylesheet" />
+    <link href="../style.css" rel="stylesheet" />
+    <link href="../legal.css" rel="stylesheet" />
+    <link href="../favorites.css" rel="stylesheet" />
+    <link href="../search.css" rel="stylesheet" />
+    <link href="../seasonal.css" rel="stylesheet" />
+    <link href="../completed.css" rel="stylesheet" />
+    <link href="../pwa.css" rel="stylesheet" />
+    <link href="../print.css" rel="stylesheet" />
+    <script defer="" src="../locale.js"></script>
+    <script defer="" src="../data/activities.en.js"></script>
+    <script defer="" src="../app.js"></script>
+    <link href="../language.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <a aria-label="Les petits moments, home" class="brand" href="index.html"
+        ><span class="brandmark">✳</span><span>les petits<br /><b>moments.</b></span></a
+      ><span class="header-note">Less “I’m bored”, more memories.</span>
+      <div class="header-actions">
+        <nav aria-label="Website language" class="language-switch">
+          <a
+            aria-current="false"
+            data-language="fr"
+            href="../index.html"
+            hreflang="fr"
+            lang="fr"
+            title="Français"
+            >FR</a
+          ><a
+            aria-current="true"
+            data-language="en"
+            href="../en/index.html"
+            hreflang="en"
+            lang="en"
+            title="English"
+            >EN</a
+          >
+        </nav>
+        <button class="install-app" hidden="" id="install-app">
+          <span aria-hidden="true">↓</span> Install</button
+        ><button class="surprise header-surprise">
+          <span aria-hidden="true">✧</span> Surprise us
+        </button>
+      </div>
+    </header>
+    <main>
+      <div class="intro">
+        <div>
+          <p class="eyebrow">THE FAMILY IDEA BOX</p>
+          <h1>What shall we do <span>together?</span></h1>
+          <p>A little time, so many possibilities.</p>
+        </div>
+        <div class="intro-note">The best moments<br />often start with a little idea.</div>
+      </div>
+      <div class="workspace">
+        <aside aria-label="Your filters" class="filters">
+          <div class="filter-title">
+            <h2>Your little plan</h2>
+            <button class="text-button" id="reset">Reset</button>
+          </div>
+          <label for="age">Children’s ages</label
+          ><select id="age">
+            <option value="all">All ages · 3 and up</option>
+            <option value="3">Ages 3–5</option>
+            <option value="6">Ages 6–8</option>
+            <option value="9">Ages 9–12</option>
+            <option value="13">Ages 13+</option></select
+          ><label for="duration">How much time do you have?</label
+          ><select id="duration">
+            <option value="999">No time limit</option>
+            <option value="20">Up to 20 minutes</option>
+            <option value="45">Up to 45 minutes</option>
+            <option value="60">Up to 1 hour</option></select
+          ><label for="budget">Budget for the whole family</label
+          ><select id="budget">
+            <option value="999">Any budget</option>
+            <option value="0">No purchases</option>
+            <option value="5">Up to €5</option>
+            <option value="15">Up to €15</option></select
+          ><label for="weather">Your weather</label
+          ><select id="weather">
+            <option value="all">Any weather</option>
+            <option value="sun">It’s sunny</option>
+            <option value="rain">It’s raining · stay sheltered</option>
+          </select>
+          <fieldset>
+            <legend>Where shall we go?</legend>
+            <div class="segmented">
+              <button aria-pressed="true" data-place="all">Anywhere</button
+              ><button aria-pressed="false" data-place="inside">Indoors</button
+              ><button aria-pressed="false" data-place="outside">Outdoors</button>
+            </div>
+          </fieldset>
+          <div class="filter-tip">
+            <span aria-hidden="true">✦</span>
+            <p>It does not take much to have a lovely time together.</p>
+          </div>
+        </aside>
+        <section aria-label="Activity ideas" class="discover">
+          <article class="spotlight" id="spotlight">
+            <div class="spotlight-copy">
+              <span class="ribbon">A LITTLE IDEA THAT CHANGES EVERYTHING</span>
+              <div aria-hidden="true" class="feature-icon">✳</div>
+              <h2>A cardboard town,<br />a whole world to invent.</h2>
+              <p>
+                Boxes, pens and plenty of imagination. What if you built your ideal neighbourhood?
+              </p>
+              <div class="feature-meta">
+                <span>Ages 6+</span><span>45 min</span><span>No purchases</span>
+              </div>
+              <button class="primary" id="featured-open">
+                Let’s try it! <span aria-hidden="true">✧</span>
+              </button>
+            </div>
+            <div class="spotlight-photo">
+              <img
+                alt="A parent and two children build a miniature cardboard town together"
+                height="900"
+                src="../atelier.webp"
+                width="1200"
+              /><span class="photo-label">Little hands.<br />Big ideas.</span>
+            </div>
+          </article>
+          <div class="results-heading">
+            <div>
+              <p class="eyebrow">THE CHOICE IS YOURS</p>
+              <h2>What do you feel like today?</h2>
+            </div>
+            <span aria-live="polite" id="count"></span>
+          </div>
+          <div class="activity-search">
+            <span aria-hidden="true" class="search-icon">⌕</span
+            ><label class="visually-hidden" for="search">Search activities</label
+            ><input
+              autocomplete="off"
+              id="search"
+              placeholder="Search for an activity or materials…"
+              type="search"
+            /><span class="search-examples">Try cardboard, eggs, memory</span>
+          </div>
+          <div aria-label="Activity type" class="categories">
+            <button aria-pressed="true" data-category="all">Explore everything</button
+            ><button aria-pressed="false" data-category="Créer">✂ Create</button
+            ><button aria-pressed="false" data-category="Explorer">☀ Explore</button
+            ><button aria-pressed="false" data-category="Jouer">✧ Play</button
+            ><button aria-pressed="false" data-category="Cuisiner">♧ Cook</button
+            ><button aria-pressed="false" data-category="Découvrir">⌕ Discover</button
+            ><button aria-pressed="false" class="seasonal-filter" id="seasonal-filter">
+              🍂 Autumn special <span id="seasonal-count">0</span></button
+            ><button aria-pressed="false" class="completed-filter" id="completed-filter">
+              ✓ Already tried <span id="completed-count">0</span></button
+            ><button aria-pressed="false" class="favorites-filter" id="favorites-filter">
+              ♡ My favourites <span id="favorites-count">0</span>
+            </button>
+          </div>
+          <div class="grid" id="results"></div>
+          <div class="empty" hidden="" id="empty">
+            <span aria-hidden="true">☁</span>
+            <h3>A little pause in the ideas…</h3>
+            <p id="empty-message">
+              No activities match all these filters. Try another location, more time or a different
+              category.
+            </p>
+            <button class="primary" id="empty-reset">See all ideas</button>
+          </div>
+        </section>
+      </div>
+      <footer class="legal-footer">
+        <a class="footer-brand" href="index.html">les petits moments.</a>
+        <p>The best part is being together.</p>
+        <span>Ideas for ages 3+ · Enjoy with an adult</span>
+        <nav aria-label="Site information">
+          <a href="legal-notice.html">Legal notice</a
+          ><a href="privacy.html">Privacy &amp; local storage</a
+          ><a href="terms-of-use.html">Terms of use</a>
+        </nav>
+      </footer>
+    </main>
+    <dialog aria-labelledby="detail-title" id="detail">
+      <button aria-label="Close activity card" class="close" id="close-detail">×</button>
+      <div id="detail-content"></div>
+    </dialog>
+  </body>
+</html>

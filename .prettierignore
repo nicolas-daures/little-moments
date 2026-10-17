@@ -1,0 +1,5 @@
+dist/
+node_modules/
+.openai/
+public/fonts/
+package-lock.json
