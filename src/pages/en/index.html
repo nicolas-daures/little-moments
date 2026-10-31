@@ -20,13 +20,28 @@
     <link href="../style.css" rel="stylesheet" />
     <link href="../legal.css" rel="stylesheet" />
     <link href="../favorites.css" rel="stylesheet" />
+    <link href="../planning.css" rel="stylesheet" />
     <link href="../search.css" rel="stylesheet" />
+    <link href="../active-filters.css" rel="stylesheet" />
+    <link href="../sort.css" rel="stylesheet" />
     <link href="../seasonal.css" rel="stylesheet" />
+    <link href="../halloween.css" rel="stylesheet" />
     <link href="../completed.css" rel="stylesheet" />
+    <link href="../progress.css" rel="stylesheet" />
+    <link href="../quick-start.css" rel="stylesheet" />
+    <link href="../checklist.css" rel="stylesheet" />
+    <link href="../shopping-list.css" rel="stylesheet" />
+    <link href="../family-pick.css" rel="stylesheet" />
+    <link href="../share-search.css" rel="stylesheet" />
+    <link href="../timer.css" rel="stylesheet" />
+    <link href="../guided.css" rel="stylesheet" />
     <link href="../pwa.css" rel="stylesheet" />
     <link href="../print.css" rel="stylesheet" />
+    <link href="../seo.css" rel="stylesheet" />
+    <script defer="" src="../activity-routes.js"></script>
     <script defer="" src="../locale.js"></script>
     <script defer="" src="../data/activities.en.js"></script>
+    <script defer="" src="../activity-actions.js"></script>
     <script defer="" src="../app.js"></script>
     <link href="../language.css" rel="stylesheet" />
   </head>
@@ -114,6 +129,29 @@
             <span aria-hidden="true">✦</span>
             <p>It does not take much to have a lovely time together.</p>
           </div>
+          <section aria-labelledby="progress-title" class="family-progress">
+            <div class="progress-heading">
+              <span aria-hidden="true">✦</span>
+              <div>
+                <h3 id="progress-title">Your little moments</h3>
+                <p aria-live="polite" id="progress-message"></p>
+              </div>
+            </div>
+            <dl class="progress-stats">
+              <div>
+                <dt>Activities</dt>
+                <dd id="progress-activities">0</dd>
+              </div>
+              <div>
+                <dt>Time together</dt>
+                <dd id="progress-time">0 min</dd>
+              </div>
+              <div>
+                <dt>Worlds explored</dt>
+                <dd id="progress-categories">0</dd>
+              </div>
+            </dl>
+          </section>
         </aside>
         <section aria-label="Activity ideas" class="discover">
           <article class="spotlight" id="spotlight">
@@ -127,25 +165,78 @@
               <div class="feature-meta">
                 <span>Ages 6+</span><span>45 min</span><span>No purchases</span>
               </div>
-              <button class="primary" id="featured-open">
+              <a class="primary" id="featured-open" href="../en/activities/build-a-cardboard-city/">
                 Let’s try it! <span aria-hidden="true">✧</span>
-              </button>
+              </a>
             </div>
             <div class="spotlight-photo">
               <img
                 alt="A parent and two children build a miniature cardboard town together"
-                height="900"
+                height="1024"
                 src="../atelier.webp"
-                width="1200"
+                fetchpriority="high"
+                decoding="async"
+                width="1536"
               /><span class="photo-label">Little hands.<br />Big ideas.</span>
             </div>
           </article>
+          <section aria-labelledby="quick-start-title" class="quick-start">
+            <div class="quick-start-heading">
+              <p class="eyebrow">NO TIME TO SEARCH?</p>
+              <h2 id="quick-start-title">Choose your moment</h2>
+            </div>
+            <div class="quick-start-options">
+              <button aria-pressed="false" data-preset="quick" type="button">
+                <span aria-hidden="true" class="quick-start-icon">⚡</span>
+                <span
+                  ><strong>Quick and free</strong><small>20 minutes with what you have</small></span
+                >
+              </button>
+              <button aria-pressed="false" data-preset="cozy" type="button">
+                <span aria-hidden="true" class="quick-start-icon">⌂</span>
+                <span><strong>A cosy moment</strong><small>A calm idea for indoors</small></span>
+              </button>
+              <button aria-pressed="false" data-preset="outside" type="button">
+                <span aria-hidden="true" class="quick-start-icon">☀</span>
+                <span><strong>Get some fresh air</strong><small>A simple, free outing</small></span>
+              </button>
+            </div>
+          </section>
+          <section aria-labelledby="family-pick-heading" class="family-pick">
+            <span aria-hidden="true" class="family-pick-mark">3</span>
+            <div>
+              <p class="eyebrow">THE FAMILY PICK</p>
+              <h2 id="family-pick-heading">Three ideas, one shared choice</h2>
+              <p>A quick draw from the activities that match your current filters.</p>
+            </div>
+            <button class="primary" id="family-pick-open" type="button">
+              Suggest 3 ideas <span aria-hidden="true">→</span>
+            </button>
+          </section>
           <div class="results-heading">
             <div>
               <p class="eyebrow">THE CHOICE IS YOURS</p>
               <h2>What do you feel like today?</h2>
             </div>
-            <span aria-live="polite" id="count"></span>
+            <div class="results-tools">
+              <span aria-live="polite" id="count"></span>
+              <span class="share-search-wrap">
+                <button class="share-search" id="share-search" type="button">
+                  <span aria-hidden="true">↗</span> Share search
+                </button>
+                <span aria-live="polite" id="share-search-status" role="status"></span>
+              </span>
+              <label class="sort-control" for="sort">
+                <span>Sort by</span>
+                <select id="sort">
+                  <option value="recommended">Suggested order</option>
+                  <option value="untried">Untried first</option>
+                  <option value="time">Quickest first</option>
+                  <option value="cost">Lowest cost first</option>
+                  <option value="age">Youngest first</option>
+                </select>
+              </label>
+            </div>
           </div>
           <div class="activity-search">
             <span aria-hidden="true" class="search-icon">⌕</span
@@ -157,6 +248,11 @@
               type="search"
             /><span class="search-examples">Try cardboard, eggs, memory</span>
           </div>
+          <div aria-label="Active filters" class="active-filters" hidden id="active-filters">
+            <span class="active-filters-title">Active filters</span>
+            <div class="active-filter-list" id="active-filter-list"></div>
+            <button class="clear-active-filters" id="clear-active-filters">Clear all</button>
+          </div>
           <div aria-label="Activity type" class="categories">
             <button aria-pressed="true" data-category="all">Explore everything</button
             ><button aria-pressed="false" data-category="Créer">✂ Create</button
@@ -164,12 +260,24 @@
             ><button aria-pressed="false" data-category="Jouer">✧ Play</button
             ><button aria-pressed="false" data-category="Cuisiner">♧ Cook</button
             ><button aria-pressed="false" data-category="Découvrir">⌕ Discover</button
+            ><button aria-pressed="false" class="halloween-filter" id="halloween-filter">
+              🎃 Halloween special <span id="halloween-count">0</span></button
             ><button aria-pressed="false" class="seasonal-filter" id="seasonal-filter">
               🍂 Autumn special <span id="seasonal-count">0</span></button
             ><button aria-pressed="false" class="completed-filter" id="completed-filter">
               ✓ Already tried <span id="completed-count">0</span></button
             ><button aria-pressed="false" class="favorites-filter" id="favorites-filter">
               ♡ My favourites <span id="favorites-count">0</span>
+            </button>
+          </div>
+          <div class="favorites-prep" hidden id="favorites-prep">
+            <span aria-hidden="true" class="favorites-prep-icon">♧</span>
+            <p>
+              <strong>Prepare your favourite activities</strong>
+              <span>Gather all the materials in one handy list.</span>
+            </p>
+            <button id="shopping-list-open" type="button">
+              View the list · <span id="shopping-list-count">0</span>
             </button>
           </div>
           <div class="grid" id="results"></div>
@@ -199,5 +307,28 @@
       <button aria-label="Close activity card" class="close" id="close-detail">×</button>
       <div id="detail-content"></div>
     </dialog>
+    <dialog aria-labelledby="shopping-list-title" id="shopping-list-dialog">
+      <button aria-label="Close the list" class="close" id="shopping-list-close">×</button>
+      <div id="shopping-list-content"></div>
+    </dialog>
+    <dialog aria-labelledby="family-pick-title" id="family-pick-dialog">
+      <button aria-label="Close suggestions" class="close" id="family-pick-close">×</button>
+      <div id="family-pick-content"></div>
+    </dialog>
+    <dialog aria-labelledby="guided-title" id="guided-dialog">
+      <button aria-label="Close step-by-step mode" class="close" id="guided-close">×</button>
+      <div id="guided-content"></div>
+    </dialog>
+    <aside aria-label="Activity timer" class="activity-timer" hidden id="activity-timer">
+      <div class="timer-identity">
+        <span>TIMER</span>
+        <strong id="timer-activity-title"></strong>
+      </div>
+      <output id="timer-display">00:00</output>
+      <button id="timer-toggle" type="button"></button>
+      <button id="timer-reset" type="button"></button>
+      <button aria-label="Close and stop the timer" id="timer-close" type="button">×</button>
+      <span aria-live="assertive" id="timer-status" role="status"></span>
+    </aside>
   </body>
 </html>

@@ -40,7 +40,9 @@
 
 .favorite-toggle,
 .share-activity,
-.print-activity {
+.print-activity,
+.timer-activity,
+.guided-activity {
   margin-top: 18px;
   border: 1px solid #ffffffc9;
   border-radius: 8px;
@@ -66,13 +68,23 @@
   gap: 9px;
 }
 .share-activity,
-.print-activity {
+.print-activity,
+.timer-activity {
   background: transparent;
   color: var(--tone);
 }
 .share-activity:hover,
-.print-activity:hover {
+.print-activity:hover,
+.timer-activity:hover,
+.timer-activity[aria-expanded='true'] {
   background: #fff;
+}
+.guided-activity {
+  background: var(--tone);
+  color: #fff;
+}
+.guided-activity:hover {
+  filter: brightness(0.92);
 }
 .share-status {
   margin-top: 18px;

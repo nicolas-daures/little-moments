@@ -44,6 +44,88 @@
     .forEach((node) => (node.hidden = !isSites));
   const eraseButton = document.getElementById('erase-local-preferences'),
     eraseStatus = document.getElementById('erase-local-status');
+  const exportButton = document.getElementById('export-local-preferences'),
+    importButton = document.getElementById('import-local-trigger'),
+    importInput = document.getElementById('import-local-preferences'),
+    backupStatus = document.getElementById('backup-local-status'),
+    favoritesKey = 'les-petits-moments-favorites',
+    completedKey = 'les-petits-moments-completed';
+
+  function readStoredIds(key) {
+    const value = JSON.parse(localStorage.getItem(key) || '[]');
+    if (!Array.isArray(value)) throw new Error('Invalid stored preferences');
+    return [...new Set(value.filter((id) => typeof id === 'string'))];
+  }
+
+  function validateBackup(data) {
+    if (!data || data.app !== 'les-petits-moments' || data.version !== 1) return null;
+    if (!Array.isArray(data.favorites) || !Array.isArray(data.completed)) return null;
+    const validIds = (ids) =>
+      ids.length <= 500 && ids.every((id) => typeof id === 'string' && /^[a-z0-9-]+$/.test(id));
+    if (!validIds(data.favorites) || !validIds(data.completed)) return null;
+    return {
+      favorites: [...new Set(data.favorites)],
+      completed: [...new Set(data.completed)],
+    };
+  }
+
+  if (exportButton)
+    exportButton.addEventListener('click', () => {
+      try {
+        const favorites = readStoredIds(favoritesKey),
+          completed = readStoredIds(completedKey),
+          backup = {
+            app: 'les-petits-moments',
+            version: 1,
+            exportedAt: new Date().toISOString(),
+            favorites,
+            completed,
+          },
+          blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' }),
+          url = URL.createObjectURL(blob),
+          link = document.createElement('a');
+        link.href = url;
+        link.download = `les-petits-moments-${new Date().toISOString().slice(0, 10)}.json`;
+        document.body.append(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 0);
+        backupStatus.textContent = t('backupExported', {
+          favorites: favorites.length,
+          completed: completed.length,
+        });
+      } catch {
+        backupStatus.textContent = t('backupBlocked');
+      }
+    });
+
+  if (importInput)
+    importInput.addEventListener('change', async () => {
+      const file = importInput.files && importInput.files[0];
+      if (!file) return;
+      try {
+        if (file.size > 128 * 1024) throw new Error('File too large');
+        const backup = validateBackup(JSON.parse(await file.text()));
+        if (!backup) {
+          backupStatus.textContent = t('backupInvalid');
+          return;
+        }
+        localStorage.setItem(favoritesKey, JSON.stringify(backup.favorites));
+        localStorage.setItem(completedKey, JSON.stringify(backup.completed));
+        backupStatus.textContent = t('backupImported', {
+          favorites: backup.favorites.length,
+          completed: backup.completed.length,
+        });
+      } catch (error) {
+        backupStatus.textContent =
+          error instanceof SyntaxError ? t('backupInvalid') : t('backupBlocked');
+      } finally {
+        importInput.value = '';
+      }
+    });
+  if (importButton && importInput)
+    importButton.addEventListener('click', () => importInput.click());
+
   let eraseArmed = false;
   if (eraseButton)
     eraseButton.addEventListener('click', () => {
@@ -54,8 +136,8 @@
         return;
       }
       try {
-        localStorage.removeItem('les-petits-moments-favorites');
-        localStorage.removeItem('les-petits-moments-completed');
+        localStorage.removeItem(favoritesKey);
+        localStorage.removeItem(completedKey);
         eraseStatus.textContent = t('eraseSuccess');
       } catch {
         eraseStatus.textContent = t('eraseBlocked');

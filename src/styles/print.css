@@ -38,7 +38,11 @@
     display: none;
   }
   .close,
-  .detail-actions {
+  .detail-actions,
+  .plan-panel,
+  .timer-panel,
+  #guided-dialog,
+  #activity-timer {
     display: none !important;
   }
 

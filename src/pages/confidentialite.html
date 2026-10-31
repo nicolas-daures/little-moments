@@ -95,9 +95,9 @@
         </p>
         <p>
           Le site s’adresse aux parents et aux adultes accompagnants. Il ne demande aucun compte
-          utilisateur, nom d’enfant, date de naissance, photo, localisation précise ou paiement. Les
-          critères d’âge servent uniquement à filtrer les fiches et ne sont pas enregistrés par le
-          site.
+          utilisateur, nom d’enfant, date de naissance, photo ou localisation précise. Aucun
+          paiement n’est nécessaire pour utiliser le site. Les critères d’âge servent uniquement à
+          filtrer les fiches et ne sont pas enregistrés par le site.
         </p>
       </section>
       <section class="legal-section">
@@ -168,6 +168,29 @@
           les retrouver. Elles sont communes aux pages françaises et anglaises du même site, mais ne
           sont pas synchronisées entre appareils.
         </p>
+        <div class="privacy-control privacy-backup">
+          <strong>Sauvegarder ou transférer votre carnet</strong>
+          <p>
+            Téléchargez une petite sauvegarde de vos favoris et activités vécues. Vous pourrez la
+            restaurer sur cet appareil ou sur un autre. Le fichier est créé et lu localement : il
+            n’est jamais envoyé au site.
+          </p>
+          <div class="privacy-actions">
+            <button class="primary" id="export-local-preferences" type="button">
+              Télécharger ma sauvegarde
+            </button>
+            <button class="privacy-upload" id="import-local-trigger" type="button">
+              Restaurer une sauvegarde
+            </button>
+            <input
+              accept="application/json,.json"
+              hidden
+              id="import-local-preferences"
+              type="file"
+            />
+          </div>
+          <p aria-live="polite" id="backup-local-status" role="status"></p>
+        </div>
         <div class="privacy-control">
           <strong>Effacer vos listes sur cet appareil</strong>
           <p>
@@ -208,6 +231,22 @@
           Le bouton « Partager » utilise le service de partage du système ou copie un lien à votre
           demande. Le site ne charge pas de module de réseau social. Si vous choisissez une
           application ou un site tiers, ses propres règles de confidentialité s’appliquent.
+        </p>
+        <h3>Un soutien entièrement facultatif</h3>
+        <p>
+          Si le bouton « Offrir un café » est proposé, il ouvre une page Ko-fi dans un nouvel
+          onglet. Aucun widget ni ressource Ko-fi n’est chargé avant votre clic, et l’adresse de la
+          page d’origine n’est pas transmise. Le soutien est réservé aux adultes et ne conditionne
+          jamais l’accès aux activités.
+        </p>
+        <p>
+          Le paiement est traité sur le service tiers, selon ses propres conditions et sa
+          <a href="https://ko-fi.com/privacy" rel="noreferrer">politique de confidentialité</a>,
+          ainsi que celles du prestataire de paiement choisi. Le site ne collecte ni ne stocke votre
+          numéro de carte. Certaines informations du soutien (nom affiché, e-mail, montant, message
+          éventuel) peuvent être accessibles à l’éditeur dans l’espace de paiement pour le suivi des
+          soutiens et les obligations applicables. Ne transmettez aucune donnée concernant un
+          enfant.
         </p>
       </section>
       <section class="legal-section">

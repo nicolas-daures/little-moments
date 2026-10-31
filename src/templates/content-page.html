@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="{{lang}}" data-page="{{page}}" {{attributes}}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#174d3c" />
+    <title>{{title}}</title>
+    <meta name="description" content="{{description}}" />
+    <link rel="icon" type="image/svg+xml" href="{{assets}}app-icon.svg" />
+    <link rel="stylesheet" href="{{assets}}fonts.css" />
+    <link rel="stylesheet" href="{{assets}}style.css" />
+    <link rel="stylesheet" href="{{assets}}legal.css" />
+    <link rel="stylesheet" href="{{assets}}language.css" />
+    <link rel="stylesheet" href="{{assets}}favorites.css" />
+    <link rel="stylesheet" href="{{assets}}planning.css" />
+    <link rel="stylesheet" href="{{assets}}seo.css" />
+    <link rel="stylesheet" href="{{assets}}print.css" />
+    {{metadata}}
+    <script defer src="{{assets}}activity-routes.js"></script>
+    <script defer src="{{assets}}locale.js"></script>
+    {{scripts}}
+  </head>
+  <body>
+    {{header}}
+    <main class="content-main">{{main}}</main>
+    {{footer}}
+  </body>
+</html>

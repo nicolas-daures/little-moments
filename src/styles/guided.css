@@ -1,0 +1,182 @@
+#guided-dialog {
+  max-width: 760px;
+  background: #fffdf8;
+}
+
+.guided-shell {
+  min-height: min(680px, 86dvh);
+  padding-bottom: 28px;
+}
+
+.guided-head {
+  padding: 34px 72px 24px 30px;
+  background: var(--tint);
+}
+
+.guided-head .eyebrow {
+  margin: 0 0 6px;
+  color: var(--tone);
+}
+
+.guided-head h2 {
+  margin: 0 0 18px;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.guided-progress {
+  display: grid;
+  gap: 7px;
+  color: #51645a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.guided-progress-track {
+  height: 7px;
+  overflow: hidden;
+  border-radius: 7px;
+  background: #ffffff9c;
+}
+
+.guided-progress-track > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--tone);
+  transition: width 180ms ease;
+}
+
+.guided-complete {
+  margin: 22px 30px 0;
+  padding: 12px 15px;
+  border: 1px solid #a9c6ae;
+  border-radius: 10px;
+  background: #edf7ea;
+  color: #2d6448;
+  font-weight: 800;
+}
+
+.guided-step {
+  margin: 24px 30px 18px;
+  padding: 26px;
+  border: 1px solid #dce3d8;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 9px 24px #243d320b;
+}
+
+.guided-step.is-done {
+  border-color: #a9c6ae;
+  background: #f4f9f1;
+}
+
+.guided-step-count {
+  color: var(--tone);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.guided-step p {
+  margin: 15px 0 24px;
+  color: #253a30;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 26px;
+  line-height: 1.35;
+}
+
+.guided-step button {
+  min-height: 44px;
+  border: 1px solid var(--tone);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--tone);
+  padding: 9px 15px;
+  font-weight: 800;
+}
+
+.guided-step button[aria-pressed='true'] {
+  background: var(--tone);
+  color: #fff;
+}
+
+.guided-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 30px 22px;
+}
+
+.guided-navigation button {
+  min-height: 42px;
+  border: 1px solid #c4cec2;
+  border-radius: 9px;
+  background: #fff;
+  color: #365b49;
+  padding: 9px 15px;
+  font-weight: 700;
+}
+
+.guided-navigation button:disabled {
+  opacity: 0.38;
+}
+
+.guided-reference {
+  margin: 10px 30px;
+  padding: 12px 15px;
+  border: 1px solid #e1e5dc;
+  border-radius: 10px;
+  background: #faf9f3;
+}
+
+.guided-reference summary {
+  color: #3b5d4d;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.guided-reference ul,
+.guided-reference p {
+  margin: 12px 0 0;
+  color: #5d6a62;
+  line-height: 1.65;
+}
+
+@media (max-width: 560px) {
+  .guided-shell {
+    min-height: 84dvh;
+  }
+
+  .guided-head {
+    padding: 28px 65px 20px 20px;
+  }
+
+  .guided-head h2 {
+    font-size: 25px;
+  }
+
+  .guided-step {
+    margin: 18px 16px 15px;
+    padding: 21px 18px;
+  }
+
+  .guided-step p {
+    font-size: 22px;
+  }
+
+  .guided-navigation,
+  .guided-reference {
+    margin-right: 16px;
+    margin-left: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .guided-progress-track > span {
+    transition: none;
+  }
+}

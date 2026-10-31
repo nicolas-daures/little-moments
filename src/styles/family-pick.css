@@ -1,0 +1,154 @@
+.family-pick {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  margin: 14px 0 25px;
+  padding: 18px 20px;
+  border: 1px solid #d9e2d4;
+  border-radius: 14px;
+  background: linear-gradient(120deg, #edf4ec, #fffdf7 70%);
+}
+
+.family-pick-mark {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 50%;
+  background: #2f684f;
+  color: #fff;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 27px;
+}
+
+.family-pick .eyebrow {
+  margin: 0 0 3px;
+  color: #397159;
+  font-size: 10px;
+}
+
+.family-pick h2 {
+  margin: 0;
+  color: #294b3d;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 21px;
+  font-weight: 400;
+}
+
+.family-pick p:last-child {
+  margin: 3px 0 0;
+  color: #69766d;
+  font-size: 12px;
+}
+
+.family-pick .primary {
+  white-space: nowrap;
+}
+
+.family-pick .primary:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+#family-pick-dialog {
+  max-width: 1040px;
+}
+
+.family-pick-dialog-head {
+  padding: 32px 76px 20px 28px;
+}
+
+.family-pick-dialog-head .eyebrow {
+  margin: 0 0 5px;
+  color: #397159;
+}
+
+.family-pick-dialog-head h2 {
+  margin: 0;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.family-pick-dialog-head p:not(.eyebrow) {
+  max-width: 650px;
+  margin: 7px 0 15px;
+  color: #66746a;
+  line-height: 1.55;
+}
+
+.family-pick-refresh {
+  padding: 9px 13px;
+  border: 1px solid #b7c7b5;
+  border-radius: 8px;
+  background: #fff;
+  color: #315d49;
+  font-weight: 700;
+}
+
+.family-pick-refresh:hover {
+  border-color: #4d795f;
+  background: #f4f8f1;
+}
+
+.family-pick-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  padding: 0 28px 28px;
+}
+
+.family-pick-grid .card {
+  min-height: 310px;
+}
+
+@media (max-width: 800px) {
+  .family-pick {
+    grid-template-columns: auto 1fr;
+  }
+
+  .family-pick .primary {
+    grid-column: 1 / -1;
+  }
+
+  .family-pick-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .family-pick {
+    gap: 11px;
+    padding: 16px;
+  }
+
+  .family-pick-mark {
+    width: 42px;
+    height: 42px;
+    font-size: 24px;
+  }
+
+  .family-pick h2 {
+    font-size: 19px;
+  }
+
+  .family-pick-dialog-head {
+    padding: 28px 68px 18px 18px;
+  }
+
+  .family-pick-dialog-head h2 {
+    font-size: 25px;
+  }
+
+  .family-pick-grid {
+    padding: 0 18px 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .family-pick-refresh,
+  .family-pick .primary {
+    transition: none;
+  }
+}

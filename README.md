@@ -1,6 +1,6 @@
 # Les petits moments
 
-Un site gratuit, en français et en anglais, pour trouver des activités à vivre en famille. Il propose 95 fiches, des filtres, une recherche, des favoris, un historique local, le partage, l’impression et un mode hors ligne.
+Un site gratuit, en français et en anglais, pour trouver des activités à vivre en famille. Il propose 100 fiches, des filtres, une recherche, des favoris, un historique local, le partage, l’impression et un mode hors ligne.
 
 Le projet utilise du HTML, du CSS et du JavaScript classiques. Le navigateur n’utilise aucune dépendance externe. Node.js sert à préparer les fichiers et à lancer le serveur local ; Prettier est le seul outil installé pour formater le code.
 
@@ -65,7 +65,7 @@ Dans Cloudflare Pages, reliez votre dépôt et utilisez :
 | Racine du projet   | Le dossier contenant `package.json` |
 | Version de Node.js | 22 ou plus                          |
 
-Pour un envoi manuel, exécutez `npm run build`, puis envoyez tout le contenu de `dist/`, y compris `en/`, `data/` et `fonts/`. Les URL restent identiques à celles de la version précédente.
+Pour un envoi manuel, exécutez `npm run build`, puis envoyez tout le contenu de `dist/`, y compris `en/`, `data/` et `fonts/`. Les anciennes URL partagées avec `#activity=` continuent d’ouvrir la fiche dans l’accueil. Les nouveaux partages pointent vers les pages dédiées.
 
 ## Modifier les activités ou les langues
 
@@ -81,6 +81,20 @@ Consultez [docs/LEGAL_SETUP.md](docs/LEGAL_SETUP.md) pour les coordonnées, les 
 
 Pour conserver le comportement décrit par la politique de confidentialité, vérifiez vos réglages Cloudflare avant d’activer des statistiques ou des intégrations supplémentaires. L’application ne modifie pas votre compte Cloudflare.
 
+## Soutenir le projet
+
+Le bouton discret « Offrir un café » / « Buy me a coffee » est prêt à être activé en renseignant votre lien Ko-fi dans `src/config/support.json`, puis en reconstruisant le site. Il reste absent tant qu’aucun destinataire n’est configuré. C’est un simple lien externe, sans widget, traceur ni ressource tierce chargée avant le clic. Consultez [docs/SUPPORT.md](docs/SUPPORT.md) pour l’activation et les vérifications de confidentialité.
+
 ## Ressources et licences
 
 Les polices DM Sans et Manrope sont auto-hébergées ; leurs licences SIL OFL 1.1 sont dans `public/fonts/`. L’origine et les droits de l’illustration `public/atelier.webp` restent à documenter comme indiqué dans les notices. Aucune nouvelle licence générale n’est attribuée au contenu par ce README.
+
+## Référencement et pages d’activités
+
+Le build génère une page HTML complète par activité et par langue, ainsi que quatre sélections éditoriales dans chacune des langues. Les fiches et les listes de liens restent lisibles sans JavaScript. Les boutons et filtres de l’accueil conservent leur comportement ; chaque fiche propose aussi un lien vers sa page dédiée.
+
+Les sources de génération sont `scripts/seo.mjs`, `src/templates/content-page.html` et `src/config/seo.json`. Le build produit les URL canoniques, les correspondances FR/EN, les métadonnées de partage, des données structurées descriptives, `sitemap.xml`, `robots.txt` et les routes des activités.
+
+**Sur Cloudflare Pages, ajoutez la variable de build `SITE_URL` avec l’adresse publique définitive du site**, par exemple votre sous-domaine `pages.dev` ou votre domaine personnalisé. Le build refuse d’utiliser l’adresse privée Sites d’origine sur Cloudflare. N’utilisez pas l’adresse temporaire d’un déploiement. Pour l’envoi manuel, renseignez `siteUrl` dans `src/config/seo.json` avant de reconstruire puis d’envoyer `dist/`.
+
+Consultez [docs/SEO.md](docs/SEO.md) pour la configuration, la Search Console et les points à vérifier après publication.

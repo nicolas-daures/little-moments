@@ -14,6 +14,7 @@ const mimeTypes = {
   '.webp': 'image/webp',
   '.ttf': 'font/ttf',
   '.txt': 'text/plain; charset=utf-8',
+  '.xml': 'application/xml; charset=utf-8',
 };
 
 export function createRequestHandler({ development = false } = {}) {

@@ -1,0 +1,129 @@
+.quick-start {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 18px;
+  align-items: center;
+  margin-top: 22px;
+  padding: 18px 20px;
+  border: 1px solid #e3ded0;
+  border-radius: 14px;
+  background: #fffdf7;
+}
+
+.quick-start-heading .eyebrow {
+  margin: 0 0 3px;
+  color: #9b7424;
+  font-size: 9px;
+}
+
+.quick-start-heading h2 {
+  margin: 0;
+  color: #294b3d;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.quick-start-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.quick-start-options button {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  min-width: 0;
+  padding: 11px 10px;
+  border: 1px solid #dfe5d9;
+  border-radius: 10px;
+  background: #fff;
+  color: #315343;
+  text-align: left;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.quick-start-options button:hover {
+  border-color: #88a18e;
+  background: #f5f8f1;
+  transform: translateY(-1px);
+}
+
+.quick-start-options button[aria-pressed='true'] {
+  border-color: #35634e;
+  background: #edf4ec;
+  box-shadow: inset 0 0 0 1px #35634e;
+}
+
+.quick-start-icon {
+  display: grid;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 50%;
+  background: #f4edcf;
+  color: #8e6920;
+  font-size: 15px;
+}
+
+.quick-start-options strong,
+.quick-start-options small {
+  display: block;
+}
+
+.quick-start-options strong {
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.quick-start-options small {
+  margin-top: 2px;
+  color: #778078;
+  font-size: 9px;
+  line-height: 1.3;
+}
+
+@media (max-width: 900px) {
+  .quick-start {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .quick-start-heading h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 650px) {
+  .quick-start {
+    padding: 16px;
+  }
+
+  .quick-start-options {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-start-options button {
+    padding: 10px 12px;
+  }
+
+  .quick-start-options strong {
+    font-size: 12px;
+  }
+
+  .quick-start-options small {
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quick-start-options button {
+    transition: none;
+  }
+}

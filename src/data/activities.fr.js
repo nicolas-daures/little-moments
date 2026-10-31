@@ -17,6 +17,7 @@ window.SITE_ACTIVITIES = [
       'Réunissez les personnages sur une affiche et inventez le nom de votre équipe.',
     ],
     tip: 'Les petits dictent les couleurs à un adulte. Les ados créent aussi une version de profil en gardant la même palette.',
+    slug: 'vos-portraits-en-pixels',
   },
   {
     id: 'balade-miniatures',
@@ -35,6 +36,7 @@ window.SITE_ACTIVITIES = [
       'Racontez le voyage d’une fourmi dans ce décor, puis trouvez un second paysage.',
     ],
     tip: 'Regardez aussi depuis un banc ou une table de jardin : chacun peut choisir une hauteur confortable.',
+    slug: 'le-monde-a-hauteur-de-fourmi',
   },
   {
     id: 'statues-emotions',
@@ -53,6 +55,7 @@ window.SITE_ACTIVITIES = [
       'Changez de rôle, puis créez une statue collective qui raconte une petite scène.',
     ],
     tip: 'Chacun peut passer son tour. Les grands testent des émotions proches, comme la fierté et le soulagement, sans se moquer des interprétations.',
+    slug: 'le-musee-des-statues-expressives',
   },
   {
     id: 'couleurs-superposees',
@@ -71,6 +74,7 @@ window.SITE_ACTIVITIES = [
       'Recommencez avec deux autres paires et comparez les mélanges obtenus.',
     ],
     tip: 'Les résultats dépendent des crayons et de la pression. Les grands testent deux intensités plutôt que de chercher une unique bonne réponse.',
+    slug: 'le-laboratoire-des-couleurs',
   },
   {
     id: 'bateaux-concombre',
@@ -89,6 +93,7 @@ window.SITE_ACTIVITIES = [
       'Disposez-les sur un plat, inventez le nom de la flottille et dégustez, ou gardez au réfrigérateur.',
     ],
     tip: 'Pas besoin de piques pour les voiles. Pour les plus petits, l’adulte adapte la taille et la texture des morceaux au moment de servir.',
+    slug: 'les-petits-bateaux-de-concombre',
   },
   {
     id: 'livre-accordeon',
@@ -107,6 +112,7 @@ window.SITE_ACTIVITIES = [
       'Dessinez la fin sur le dernier panneau et racontez l’histoire en dépliant le livre.',
     ],
     tip: 'Les petits dictent les phrases. Les plus grands créent un second livre raconté par un autre personnage de la même histoire.',
+    slug: 'un-mini-livre-qui-se-deplie',
   },
   {
     id: 'alphabet-balade',
@@ -125,6 +131,7 @@ window.SITE_ACTIVITIES = [
       'Au retour, inventez une phrase avec trois des mots récoltés.',
     ],
     tip: 'Pour les petits, utilisez trois dessins à retrouver. Les ados prennent des lettres moins faciles ou cherchent deux réponses différentes par lettre.',
+    slug: 'la-promenade-de-l-alphabet',
   },
   {
     id: 'balle-missions',
@@ -143,6 +150,7 @@ window.SITE_ACTIVITIES = [
       'Inventez un troisième défi accessible à tous et recommencez avec une distance adaptée.',
     ],
     tip: 'Une balle qui tombe ne remet pas le compteur à zéro. Les grands peuvent annoncer le prénom du prochain destinataire avant chaque passe.',
+    slug: 'la-balle-aux-missions-cooperatives',
   },
   {
     id: 'message-chiffre',
@@ -161,6 +169,7 @@ window.SITE_ACTIVITIES = [
       'Déchiffrez en faisant le chemin inverse, puis choisissez ensemble un autre décalage.',
     ],
     tip: 'A devient D, B devient E et Z devient C. Ce code est un jeu facile à casser : il ne sert pas à protéger des informations personnelles.',
+    slug: 'le-code-secret-des-espions',
   },
   {
     id: 'pain-perdu',
@@ -185,6 +194,7 @@ window.SITE_ACTIVITIES = [
       'Laissez tiédir, ajoutez un peu de sucre si vous le souhaitez et dégustez ensemble.',
     ],
     tip: 'Les grands calculent combien de tranches préparer pour chacun. Utilisez uniquement du pain conservé correctement et sans moisissure.',
+    slug: 'le-pain-perdu-qui-sauve-le-gouter',
   },
   {
     id: 'fanions-famille',
@@ -208,6 +218,7 @@ window.SITE_ACTIVITIES = [
       'L’adulte installe la guirlande en hauteur, hors de portée des jeunes enfants ; lisez les messages ensemble.',
     ],
     tip: 'Chacun choisit librement les mots qu’il souhaite partager. Sans ficelle, disposez simplement les fanions sur une table.',
+    slug: 'la-guirlande-des-petits-compliments',
   },
   {
     id: 'carnet-saisons',
@@ -226,6 +237,7 @@ window.SITE_ACTIVITIES = [
       'Décidez quand revenir au même endroit et gardez une page pour comparer les changements.',
     ],
     tip: 'La première sortie suffit pour commencer. Les ados séparent leurs observations de leurs hypothèses sur ce qui explique les changements.',
+    slug: 'votre-carnet-des-saisons',
   },
   {
     id: 'plateau-sur-mesure',
@@ -244,6 +256,7 @@ window.SITE_ACTIVITIES = [
       'Jouez une partie courte, puis changez une seule règle pour rendre la seconde plus amusante.',
     ],
     tip: 'Notez les règles avant de jouer pour éviter les changements en pleine partie. Les ados inventent une version où tous les pions doivent arriver ensemble.',
+    slug: 'inventez-votre-jeu-de-plateau',
   },
   {
     id: 'papier-absorbant',
@@ -267,6 +280,7 @@ window.SITE_ACTIVITIES = [
       'Recommencez avec de nouveaux morceaux pour vérifier si vous obtenez un résultat semblable, puis essuyez et rangez.',
     ],
     tip: 'Les grands gardent la même quantité d’eau et distinguent vitesse d’absorption, étalement de la tache et résistance du papier mouillé.',
+    slug: 'quel-papier-boit-le-mieux',
   },
   {
     id: 'quesadillas',
@@ -291,6 +305,7 @@ window.SITE_ACTIVITIES = [
       'L’adulte les coupe, laisse tiédir et sert avec les légumes disponibles.',
     ],
     tip: 'Les enfants peuvent proposer deux garnitures avec des ingrédients déjà présents. Gardez les restes au réfrigérateur et réchauffez-les avant de les servir.',
+    slug: 'les-tortillas-dorees-au-fromage',
   },
   {
     id: 'sculpture-papier',
@@ -313,6 +328,7 @@ window.SITE_ACTIVITIES = [
       'Présentez-la et expliquez le pli qui vous a le plus aidé ; essayez ensuite une version avec moins d’adhésif.',
     ],
     tip: 'Pour les plus jeunes, l’adulte prépare des bandes à plier. Les grands ajoutent la contrainte de n’utiliser qu’une seule feuille.',
+    slug: 'les-sculptures-qui-tiennent-debout',
   },
   {
     id: 'panneaux-chemins',
@@ -331,6 +347,7 @@ window.SITE_ACTIVITIES = [
       'À l’arrivée, dessinez trois repères permettant de revenir au départ.',
     ],
     tip: 'Restez sur les chemins autorisés et ne transformez pas le jeu en course. Les ados discutent de ce qui rend un panneau clair ou ambigu.',
+    slug: 'les-indices-qui-montrent-le-chemin',
   },
   {
     id: 'dictionnaire-invente',
@@ -349,6 +366,7 @@ window.SITE_ACTIVITIES = [
       'Révélez la vraie réponse, relisez l’entrée du dictionnaire et changez de meneur.',
     ],
     tip: 'Si quelqu’un connaît le mot, choisissez-en un autre. Sans dictionnaire, inventez tous les mots et votez pour la définition la plus convaincante.',
+    slug: 'le-dictionnaire-des-mots-impossibles',
   },
   {
     id: 'image-compressee',
@@ -367,6 +385,7 @@ window.SITE_ACTIVITIES = [
       'Reconstituez l’image puis comparez le nombre de nombres à écrire pour une grande zone unie et pour un damier.',
     ],
     tip: 'Chaque ligne doit totaliser huit cases. Les ados discutent des images où cette méthode raccourcit les instructions et de celles où elle les rallonge.',
+    slug: 'dessinez-comme-un-fichier-compresse',
   },
   {
     id: 'sables-formes',
@@ -391,6 +410,7 @@ window.SITE_ACTIVITIES = [
       'L’adulte enfourne sur une plaque couverte de papier cuisson pour douze à quinze minutes, jusqu’aux bords légèrement dorés, puis laisse refroidir avant dégustation.',
     ],
     tip: 'La durée inclut le repos, la cuisson et le refroidissement. Faites des biscuits d’épaisseur similaire pour qu’ils cuisent ensemble.',
+    slug: 'les-sables-aux-formes-inventees',
   },
   {
     id: 'bande-annonce-famille',
@@ -409,6 +429,7 @@ window.SITE_ACTIVITIES = [
       'Regardez les trois clips dans l’ordre et terminez par une annonce du titre, filmée ou dite à voix haute.',
     ],
     tip: 'Pas besoin de montage pour la première version. Gardez les vidéos en famille et laissez chacun décider s’il souhaite apparaître.',
+    slug: 'la-bande-annonce-d-un-film-imaginaire',
   },
   {
     id: 'trajet-eau',
@@ -427,6 +448,7 @@ window.SITE_ACTIVITIES = [
       'Comparez un sol pavé et une zone végétalisée, puis formulez deux questions à vérifier ultérieurement.',
     ],
     tip: 'Vous pouvez enquêter même s’il ne pleut pas. Une grille ne dit pas à elle seule où l’eau finit : distinguez ce que vous voyez de ce que vous supposez.',
+    slug: 'ou-va-l-eau-de-pluie',
   },
   {
     id: 'doublage-improvise',
@@ -445,6 +467,7 @@ window.SITE_ACTIVITIES = [
       'Rejouez une scène avec un genre inattendu, comme une aventure spatiale ou une comédie.',
     ],
     tip: 'À deux, un joueur mime et l’autre raconte. Les ados s’amusent avec le décalage entre un geste banal et une réplique très dramatique.',
+    slug: 'le-doublage-des-scenes-silencieuses',
   },
   {
     id: 'arbre-liens',
@@ -463,6 +486,7 @@ window.SITE_ACTIVITIES = [
       'Chacun présente un lien qu’il a choisi, puis vous trouvez une façon simple de remercier cette personne.',
     ],
     tip: 'Il n’y a pas de modèle familial imposé. Chacun choisit ce qu’il veut raconter et peut garder certains liens privés.',
+    slug: 'l-arbre-des-liens-qui-comptent',
   },
   {
     id: 'pois-chiches-dores',
@@ -487,6 +511,7 @@ window.SITE_ACTIVITIES = [
       'Laissez tiédir et comparez les textures avant de servir avec le repas. Adaptez le temps de cuisson s’ils dorent trop vite.',
     ],
     tip: 'Les ados divisent la préparation en deux pour comparer deux assaisonnements. Réservez cette version aux enfants à l’aise avec les aliments fermes.',
+    slug: 'les-pois-chiches-dores-aux-epices',
   },
   {
     id: 'photo-perspective',
@@ -505,6 +530,7 @@ window.SITE_ACTIVITIES = [
       'Prenez trois essais, comparez-les et racontez comment vous avez fabriqué l’illusion.',
     ],
     tip: 'Vous pouvez utiliser uniquement des objets si personne ne souhaite apparaître. Les ados montrent une photo du dispositif à côté de l’image finale.',
+    slug: 'des-geants-et-des-miniatures-en-photo',
   },
   {
     id: 'textures-balade',
@@ -523,6 +549,7 @@ window.SITE_ACTIVITIES = [
       'Cherchez deux surfaces qui semblent semblables puis trouvez ce qui les différencie. Lavez-vous les mains au retour.',
     ],
     tip: 'On peut jouer uniquement en observant. Les grands créent un classement et expliquent les critères qu’ils ont choisis.',
+    slug: 'la-balade-des-textures',
   },
   {
     id: 'tresor-lettres',
@@ -541,6 +568,7 @@ window.SITE_ACTIVITIES = [
       'Changez de meneur et inventez une histoire reliant trois objets trouvés.',
     ],
     tip: 'Les petits peuvent simplement associer deux objets nommés par l’adulte. Pour les ados, demandez un mot contenant deux lettres imposées.',
+    slug: 'le-tresor-des-sons-et-des-lettres',
   },
   {
     id: 'notice-testee',
@@ -559,6 +587,7 @@ window.SITE_ACTIVITIES = [
       'Réécrivez la notice, puis testez-la une seconde fois pour voir ce qui s’est amélioré.',
     ],
     tip: 'Définissez le point de vue pour gauche et droite et utilisez des mesures simples. Les plus jeunes peuvent remplacer les phrases par des dessins.',
+    slug: 'la-notice-a-l-epreuve-des-autres',
   },
   {
     id: 'soupe-lentilles',
@@ -584,6 +613,7 @@ window.SITE_ACTIVITIES = [
       'Assaisonnez à votre goût, laissez tiédir et servez en quatre bols avec le pain. Conservez les restes au réfrigérateur.',
     ],
     tip: 'Inutile de mixer : les lentilles corail se défont à la cuisson. Les ados organisent les rôles, le rangement et le service pendant que l’adulte gère les gestes chauds.',
+    slug: 'la-soupe-orange-des-petits-chefs',
   },
   {
     id: 'collage',
@@ -602,6 +632,7 @@ window.SITE_ACTIVITIES = [
       'Donnez-lui un nom, un habitat et un talent extraordinaire, puis présentez-la à la famille.',
     ],
     tip: 'Les plus petits choisissent et collent. Les plus grands écrivent une fiche de naturaliste pour leur espèce imaginaire.',
+    slug: 'un-animal-completement-invente',
   },
   {
     id: 'bingo-nature',
@@ -620,6 +651,7 @@ window.SITE_ACTIVITIES = [
       'Si une case reste vide, remplacez-la ensemble par une découverte inattendue.',
     ],
     tip: 'Les plus grands cherchent des relations : un insecte sur une fleur, une plante dans une fissure ou une ombre en mouvement.',
+    slug: 'le-bingo-des-petits-explorateurs',
   },
   {
     id: 'bataille-papier',
@@ -638,6 +670,7 @@ window.SITE_ACTIVITIES = [
       'La partie s’arrête quand une flotte est trouvée. Rejouez en échangeant vos stratégies.',
     ],
     tip: 'À plusieurs, formez deux équipages et décidez ensemble de chaque tir. Pour les petits, utilisez une grille de quatre sur quatre.',
+    slug: 'la-bataille-navale-sur-papier',
   },
   {
     id: 'flotte',
@@ -656,6 +689,7 @@ window.SITE_ACTIVITIES = [
       'Classez les résultats et cherchez si votre règle fonctionne pour tous les objets. Videz la bassine après le jeu.',
     ],
     tip: 'Les plus grands peuvent tester une boule puis une barquette fabriquées avec la même feuille d’aluminium, manipulée par l’adulte.',
+    slug: 'le-laboratoire-de-ce-qui-flotte',
   },
   {
     id: 'wraps',
@@ -680,6 +714,7 @@ window.SITE_ACTIVITIES = [
       'Repliez le bas puis roulez les côtés. Dégustez ensemble ou gardez au réfrigérateur jusqu’au repas.',
     ],
     tip: 'Les plus petits peuvent tartiner et assembler. Les ados calculent le coût approximatif par wrap avec les prix de vos achats.',
+    slug: 'les-wraps-arc-en-ciel',
   },
   {
     id: 'mini-musee',
@@ -698,6 +733,7 @@ window.SITE_ACTIVITIES = [
       'Organisez une visite guidée : chacun présente une pièce pendant que les autres posent des questions.',
     ],
     tip: 'Pour les ados, ajoutez deux cartels : une description factuelle et une histoire inventée. Les visiteurs cherchent laquelle est laquelle.',
+    slug: 'le-musee-des-objets-ordinaires',
   },
   {
     id: 'oiseaux',
@@ -716,6 +752,7 @@ window.SITE_ACTIVITIES = [
       'Comparez vos notes et inventez des surnoms provisoires à partir des détails réellement vus.',
     ],
     tip: 'Pas besoin de les nourrir ni de s’approcher des nids. Les plus grands distinguent dans leurs notes ce qu’ils voient et ce qu’ils supposent.',
+    slug: 'a-l-affut-des-oiseaux',
   },
   {
     id: 'dessin-plie',
@@ -734,6 +771,7 @@ window.SITE_ACTIVITIES = [
       'Le dernier termine ; dépliez ensemble et inventez le nom et le métier du personnage.',
     ],
     tip: 'À deux, alternez les feuilles. Les ados peuvent utiliser le même principe pour créer une phrase avec sujet, verbe et complément.',
+    slug: 'le-dessin-qui-se-passe-sous-la-table',
   },
   {
     id: 'helicoptere',
@@ -752,6 +790,7 @@ window.SITE_ACTIVITIES = [
       'Lâchez l’hélicoptère à hauteur d’épaule dans un espace dégagé et comparez deux largeurs de pales, sans monter sur un meuble.',
     ],
     tip: 'Les grands font trois essais par modèle et notent ce qui tourne le mieux. Modifiez une seule chose à la fois.',
+    slug: 'un-helicoptere-en-papier',
   },
   {
     id: 'verrines',
@@ -775,6 +814,7 @@ window.SITE_ACTIVITIES = [
       'Donnez un nom à votre dessert et dégustez-le, ou placez-le au réfrigérateur.',
     ],
     tip: 'Les petits peuvent écraser la banane. Changez les fruits selon ce que vous avez, en adaptant leur préparation à l’âge.',
+    slug: 'les-verrines-du-gouter',
   },
   {
     id: 'capsule-futur',
@@ -793,6 +833,7 @@ window.SITE_ACTIVITIES = [
       'Fermez l’enveloppe, inscrivez la date et rangez-la dans un endroit connu de tous.',
     ],
     tip: 'Les petits peuvent dicter leur lettre. Les ados peuvent garder une partie privée, dans une enveloppe personnelle.',
+    slug: 'une-lettre-a-votre-famille-du-futur',
   },
   {
     id: 'ombres-sol',
@@ -811,6 +852,7 @@ window.SITE_ACTIVITIES = [
       'Si c’est autorisé, tracez une silhouette à la craie, puis trouvez une nouvelle pose qui rentre dedans.',
     ],
     tip: 'Choisissez cette activité quand les ombres sont visibles. Les plus grands peuvent revenir plus tard observer leur changement de direction.',
+    slug: 'a-la-poursuite-de-votre-ombre',
   },
   {
     id: 'dessin-guide',
@@ -829,6 +871,7 @@ window.SITE_ACTIVITIES = [
       'Comparez les deux dessins, puis échangez les rôles en améliorant les indications.',
     ],
     tip: 'Les grands peuvent essayer une première manche sans questions, puis une seconde avec questions pour comparer les résultats.',
+    slug: 'dessine-ce-que-je-te-raconte',
   },
   {
     id: 'robot-debranche',
@@ -847,6 +890,7 @@ window.SITE_ACTIVITIES = [
       'Corrigez ensemble les instructions, puis échangez les rôles.',
     ],
     tip: 'Les ados ajoutent une instruction « répéter trois fois ». Une erreur devient une occasion de comprendre, jamais une pénalité.',
+    slug: 'programme-ton-parent-robot',
   },
   {
     id: 'tartinade',
@@ -871,6 +915,7 @@ window.SITE_ACTIVITIES = [
       'Goûtez avec une cuillère propre, ajustez ensemble et tartinez sur du pain. Gardez les restes au réfrigérateur.',
     ],
     tip: 'Les ados préparent deux versions en changeant une seule épice disponible et comparent les saveurs.',
+    slug: 'la-tartinade-des-apprentis-chefs',
   },
   {
     id: 'radio',
@@ -889,6 +934,7 @@ window.SITE_ACTIVITIES = [
       'Écoutez ensemble et choisissez le passage qui vous ressemble le plus. Gardez l’enregistrement en famille.',
     ],
     tip: 'Sans téléphone, jouez l’émission en direct. Les ados peuvent interviewer un parent sur son enfance.',
+    slug: 'votre-emission-de-radio-familiale',
   },
   {
     id: 'carte-sonore',
@@ -907,6 +953,7 @@ window.SITE_ACTIVITIES = [
       'Comparez vos cartes : quels sons avez-vous tous entendus, lesquels vous ont échappé ?',
     ],
     tip: 'Les petits dessinent simplement trois sons. Les ados peuvent comparer deux endroits et décrire ce qui change.',
+    slug: 'la-carte-des-sons-du-parc',
   },
   {
     id: 'golf-chaussettes',
@@ -925,6 +972,7 @@ window.SITE_ACTIVITIES = [
       'Essayez ensemble d’atteindre les trois cibles avec le moins de lancers possible.',
     ],
     tip: 'Les plus grands inventent des parcours avec rebond contre une boîte. Pas de lancer en hauteur près des objets fragiles.',
+    slug: 'le-mini-golf-des-chaussettes',
   },
   {
     id: 'tri-algorithme',
@@ -943,6 +991,7 @@ window.SITE_ACTIVITIES = [
       'Mélangez et proposez une autre méthode : à chaque tour, chercher la plus petite carte restante. Comparez vos façons de faire.',
     ],
     tip: 'Les plus grands comptent les comparaisons et essaient un ordre initial différent, plutôt que de conclure à partir d’un seul essai.',
+    slug: 'trier-comme-un-ordinateur',
   },
   {
     id: 'salade-fruits',
@@ -961,6 +1010,7 @@ window.SITE_ACTIVITIES = [
       'Servez dans quatre à six petits bols et inventez un nom de restaurant pour votre dessert.',
     ],
     tip: 'Utilisez des fruits déjà présents plutôt que d’acheter tous ceux de la liste. Les ados estiment les quantités avant de préparer.',
+    slug: 'la-salade-de-fruits-et-ses-petits-defis',
   },
   {
     id: 'bruitages',
@@ -979,6 +1029,7 @@ window.SITE_ACTIVITIES = [
       'Jouez-la à quelqu’un qui ne connaît pas l’histoire et demandez-lui ce qu’il a imaginé.',
     ],
     tip: 'Les plus grands peuvent accompagner un extrait vidéo muet déjà disponible, sans le publier.',
+    slug: 'le-studio-de-bruitages',
   },
   {
     id: 'facades',
@@ -997,6 +1048,7 @@ window.SITE_ACTIVITIES = [
       'Au retour, composez une façade imaginaire avec les trois détails choisis.',
     ],
     tip: 'Les ados peuvent aussi repérer les usages d’un bâtiment et expliquer ce qu’ils changeraient pour le rendre plus agréable.',
+    slug: 'les-detectives-de-l-architecture',
   },
   {
     id: 'objet-mystere',
@@ -1015,6 +1067,7 @@ window.SITE_ACTIVITIES = [
       'Quand l’objet est trouvé, racontez quelle question a le plus aidé puis changez de meneur.',
     ],
     tip: 'Pour les petits, limitez le choix à cinq objets. Les ados peuvent choisir un concept ou un personnage connu de tous.',
+    slug: 'le-detective-aux-vingt-questions',
   },
   {
     id: 'titres-trompeurs',
@@ -1033,6 +1086,7 @@ window.SITE_ACTIVITIES = [
       'Séparez ensuite ce qui est visible, ce qui est supposé et ce qu’il faudrait vérifier avant de croire une histoire.',
     ],
     tip: 'Gardez cet exercice en famille. Avec les plus jeunes, comparez simplement deux légendes opposées.',
+    slug: 'une-photo-trois-titres',
   },
   {
     id: 'pancakes',
@@ -1058,6 +1112,7 @@ window.SITE_ACTIVITIES = [
       'Quand des bulles apparaissent et les bords se tiennent, l’adulte retourne les pancakes et termine la cuisson. Servez tiède.',
     ],
     tip: 'Cette quantité donne environ huit petits pancakes. Les plus grands doublent ou divisent les proportions selon le nombre de gourmands.',
+    slug: 'les-pancakes-du-dimanche',
   },
   {
     id: 'portrait',
@@ -1076,6 +1131,7 @@ window.SITE_ACTIVITIES = [
       'Donnez un titre bienveillant à chaque portrait et créez une petite exposition.',
     ],
     tip: 'On rit de la technique, jamais du visage de l’autre. Les ados peuvent essayer en regardant uniquement leur modèle.',
+    slug: 'des-portraits-sans-lever-le-crayon',
   },
   {
     id: 'micro-expedition',
@@ -1094,6 +1150,7 @@ window.SITE_ACTIVITIES = [
       'Au retour, comparez votre estimation à la durée réelle et racontez votre meilleure découverte.',
     ],
     tip: 'Pour les ados, ajoutez une contrainte : éviter les grands axes ou trouver un passage que vous ne connaissez pas encore.',
+    slug: 'la-micro-expedition-preparee-par-les-enfants',
   },
   {
     id: 'danse-memoire',
@@ -1112,6 +1169,7 @@ window.SITE_ACTIVITIES = [
       'Lorsque la suite devient difficile, refaites-la au ralenti et donnez un nom à votre danse.',
     ],
     tip: 'Tous les gestes peuvent se faire assis. Les plus grands peuvent essayer d’exécuter la suite à l’envers.',
+    slug: 'la-choregraphie-qui-grandit',
   },
   {
     id: 'estimation',
@@ -1130,6 +1188,7 @@ window.SITE_ACTIVITIES = [
       'Choisissez un nouvel objet et utilisez une mesure connue pour améliorer votre estimation.',
     ],
     tip: 'Les petits comparent plus court et plus long. Les ados calculent les écarts relatifs pour comparer des objets de tailles différentes.',
+    slug: 'les-champions-de-l-estimation',
   },
   {
     id: 'pommes-four',
@@ -1153,6 +1212,7 @@ window.SITE_ACTIVITIES = [
       'L’adulte enfourne environ 25 à 30 minutes, jusqu’à ce que les pommes soient tendres. Laissez tiédir avant de servir.',
     ],
     tip: 'Vérifiez les ingrédients en cas d’allergie. Les enfants comparent la texture avant et après cuisson, sans toucher le plat chaud.',
+    slug: 'les-pommes-au-four-toutes-simples',
   },
   {
     id: 'quartier-accessible',
@@ -1171,6 +1231,7 @@ window.SITE_ACTIVITIES = [
       'Dessinez une amélioration simple et discutez de ceux à qui elle pourrait être utile.',
     ],
     tip: 'Restez dans l’observation : vos hypothèses ne remplacent pas l’expérience des personnes concernées. Les plus jeunes peuvent repérer les bancs et les panneaux.',
+    slug: 'votre-quartier-vu-autrement',
   },
   {
     id: 'marche-budget',
@@ -1189,6 +1250,7 @@ window.SITE_ACTIVITIES = [
       'Comparez les paniers et discutez des compromis : quantité, plaisir, variété et argent restant.',
     ],
     tip: 'Les ados ajoutent une dépense imprévue de 4 euros et révisent leurs choix. Il s’agit de prix de jeu, pas d’un budget alimentaire réel.',
+    slug: 'le-marche-des-20-euros-imaginaires',
   },
   {
     id: 'memoire-enquete',
@@ -1207,6 +1269,7 @@ window.SITE_ACTIVITIES = [
       'Découvrez la scène et comparez sans reproche : quels détails chacun a-t-il retenus ou confondus ?',
     ],
     tip: 'Les ados distinguent une affirmation certaine d’un souvenir incertain. Une erreur de mémoire ne signifie pas que quelqu’un ment.',
+    slug: 'deux-temoins-une-meme-scene',
   },
   {
     id: 'menu-restes',
@@ -1225,6 +1288,7 @@ window.SITE_ACTIVITIES = [
       'Dressez les assiettes et notez votre recette pour pouvoir la refaire, avec les quantités réellement utilisées.',
     ],
     tip: 'Budget indicatif pour compléter le placard. Respectez les dates limites, la conservation et les allergies ; n’utilisez pas un aliment dont la sécurité est incertaine.',
+    slug: 'le-defi-cuisine-du-placard',
   },
   {
     id: 'choix-collectif',
@@ -1243,6 +1307,7 @@ window.SITE_ACTIVITIES = [
       'Modifiez une hypothèse et observez si le résultat change. Discutez aussi de ce que votre tableau oublie.',
     ],
     tip: 'Il n’y a pas de bonne réponse cachée. Les chiffres organisent la discussion sans décider à votre place.',
+    slug: 'le-conseil-des-projets-impossibles',
   },
   {
     id: 'eaux-parfumees',
@@ -1267,6 +1332,7 @@ window.SITE_ACTIVITIES = [
       'L’adulte sert l’eau sans les morceaux aux jeunes enfants. Comparez les parfums et gardez le reste au frais.',
     ],
     tip: 'Les enfants peuvent proposer des mélanges avec des ingrédients alimentaires connus. Ne cueillez pas de plantes sauvages pour cette activité.',
+    slug: 'le-bar-a-eaux-parfumees',
   },
   {
     id: 'ville',
@@ -1285,6 +1351,7 @@ window.SITE_ACTIVITIES = [
       'Inventez une visite guidée : qui habite ici et que se passe-t-il aujourd’hui ?',
     ],
     tip: 'Les plus jeunes décorent les façades. Les plus grands dessinent le plan et inventent les règles de la ville.',
+    slug: 'construire-une-ville-en-carton',
   },
   {
     id: 'couleurs',
@@ -1303,6 +1370,7 @@ window.SITE_ACTIVITIES = [
       'Pour finir, chacun choisit sa découverte préférée et raconte pourquoi.',
     ],
     tip: 'À partir de 9 ans, cherchez plutôt six textures, des formes géométriques ou des détails que personne n’avait remarqués.',
+    slug: 'la-chasse-aux-couleurs',
   },
   {
     id: 'ombres',
@@ -1321,6 +1389,7 @@ window.SITE_ACTIVITIES = [
       'Jouez une histoire de trois minutes, puis échangez les rôles.',
     ],
     tip: 'Les plus grands peuvent découper des silhouettes avec un adulte et ajouter un narrateur.',
+    slug: 'le-theatre-des-ombres',
   },
   {
     id: 'cookies',
@@ -1345,6 +1414,7 @@ window.SITE_ACTIVITIES = [
       'L’adulte enfourne 10 à 12 minutes, jusqu’à ce que les bords dorent. Laissez refroidir avant de déguster.',
     ],
     tip: 'Chacun peut décorer un cookie. Les plus grands recalculent les quantités pour une demi-recette.',
+    slug: 'les-cookies-a-quatre-mains',
   },
   {
     id: 'cabane',
@@ -1363,6 +1433,7 @@ window.SITE_ACTIVITIES = [
       'Glissez-vous dedans pour lire une histoire ou inventer les règles de votre refuge.',
     ],
     tip: 'Les plus grands transforment la cabane en base d’exploration et dessinent une carte imaginaire.',
+    slug: 'une-cabane-dans-le-salon',
   },
   {
     id: 'avions',
@@ -1381,6 +1452,7 @@ window.SITE_ACTIVITIES = [
       'Modifiez seulement un détail, comme la largeur des ailes, puis comparez les distances.',
     ],
     tip: 'Ce n’est pas une compétition : essayez ensemble de battre le meilleur résultat de la famille.',
+    slug: 'le-grand-defi-des-avions',
   },
   {
     id: 'landart',
@@ -1399,6 +1471,7 @@ window.SITE_ACTIVITIES = [
       'Admirez votre œuvre, puis laissez les lieux propres et les passages libres.',
     ],
     tip: 'Avec les plus petits, faites un visage. Avec les plus grands, imposez une symétrie ou une palette de trois couleurs.',
+    slug: 'un-mandala-de-nature',
   },
   {
     id: 'mimes',
@@ -1417,6 +1490,7 @@ window.SITE_ACTIVITIES = [
       'Pour la dernière manche, mimez tous ensemble une scène inventée.',
     ],
     tip: 'À partir de 9 ans, essayez des expressions ou des scènes de films que tout le monde connaît.',
+    slug: 'le-bocal-a-mimes',
   },
   {
     id: 'pizza',
@@ -1435,6 +1509,7 @@ window.SITE_ACTIVITIES = [
       'L’adulte enfourne 8 à 10 minutes, jusqu’à ce que le fromage fonde. Laissez tiédir.',
     ],
     tip: 'Vérifiez les allergies et adaptez les garnitures. Les plus grands inventent le nom et la carte de leur pizzeria.',
+    slug: 'des-tartines-facon-pizza',
   },
   {
     id: 'carte',
@@ -1453,6 +1528,7 @@ window.SITE_ACTIVITIES = [
       'Guidez un autre membre de la famille sur la carte, ou racontez-lui votre trajet.',
     ],
     tip: 'Les plus grands estiment les distances et ajoutent une échelle. Gardez votre adresse privée si vous montrez la carte.',
+    slug: 'la-carte-de-votre-quartier',
   },
   {
     id: 'bruit',
@@ -1471,6 +1547,7 @@ window.SITE_ACTIVITIES = [
       'Inversez les rôles et inventez une petite histoire uniquement avec des bruits.',
     ],
     tip: 'Augmentez la difficulté avec deux sons successifs. Gardez un volume confortable.',
+    slug: 'les-detectives-du-son',
   },
   {
     id: 'photo',
@@ -1489,6 +1566,7 @@ window.SITE_ACTIVITIES = [
       'À la maison, choisissez une photo par thème et inventez ses légendes.',
     ],
     tip: 'Sans appareil, dessinez vos découvertes. Les ados peuvent raconter une histoire en cinq images.',
+    slug: 'un-safari-photo-de-details',
   },
   {
     id: 'pont',
@@ -1507,6 +1585,7 @@ window.SITE_ACTIVITIES = [
       'Comparez vos résultats et imaginez ensemble un pont encore plus solide.',
     ],
     tip: 'Faites une prédiction avant chaque essai. Avec un jeune enfant présent, gardez les petits objets hors de sa portée.',
+    slug: 'un-pont-avec-une-feuille',
   },
   {
     id: 'bd',
@@ -1525,6 +1604,7 @@ window.SITE_ACTIVITIES = [
       'Terminez ensemble l’histoire, ajoutez les bulles et un titre.',
     ],
     tip: 'Les plus petits dictent les dialogues. Les ados peuvent détourner un petit incident du quotidien en aventure fantastique.',
+    slug: 'votre-famille-en-bande-dessinee',
   },
   {
     id: 'parcours',
@@ -1543,6 +1623,7 @@ window.SITE_ACTIVITIES = [
       'Inventez une mission collective : tous les explorateurs doivent arriver à la base.',
     ],
     tip: 'Pas besoin de sauter : marcher sur une ligne ou faire rouler la balle permet d’adapter le parcours.',
+    slug: 'le-parcours-des-aventuriers',
   },
   {
     id: 'histoire',
@@ -1561,6 +1642,7 @@ window.SITE_ACTIVITIES = [
       'Terminez par une solution qui utilise cet objet, puis trouvez un titre.',
     ],
     tip: 'Pour les plus jeunes, posez une question : « Qui ouvre la boîte ? » Pour les grands, imposez un genre, comme le mystère.',
+    slug: 'l-histoire-qui-part-dans-tous-les-sens',
   },
   {
     id: 'gouter',
@@ -1579,6 +1661,7 @@ window.SITE_ACTIVITIES = [
       'Révélez les aliments et échangez les rôles. Buvez un peu d’eau entre les essais.',
     ],
     tip: 'On peut simplement sentir ou toucher plutôt que goûter. Le but est de découvrir, pas de piéger.',
+    slug: 'le-gouter-a-l-aveugle',
   },
   {
     id: 'nuages',
@@ -1597,6 +1680,7 @@ window.SITE_ACTIVITIES = [
       'Regardez la même forme quelques minutes plus tard : qu’est-elle devenue ?',
     ],
     tip: 'S’il n’y a pas de nuages, cherchez les formes dans les silhouettes des arbres.',
+    slug: 'des-histoires-dans-les-nuages',
   },
   {
     id: 'stopmotion',
@@ -1615,6 +1699,7 @@ window.SITE_ACTIVITIES = [
       'Parcourez rapidement les photos dans la galerie pour voir le mouvement. Si vous avez déjà un outil de stop motion, assemblez-les.',
     ],
     tip: 'Un enfant déplace les personnages, l’autre prend les photos. Changez les rôles à mi-parcours.',
+    slug: 'un-film-image-par-image',
   },
   {
     id: 'escape',
@@ -1633,6 +1718,7 @@ window.SITE_ACTIVITIES = [
       'Accompagnez les chercheurs et proposez des coups de pouce. Le trésor peut être le choix du prochain jeu familial.',
     ],
     tip: 'Comptez 30 minutes de préparation et 30 minutes de jeu. Pour les plus jeunes, remplacez les énigmes par des dessins.',
+    slug: 'une-mission-secrete-a-la-maison',
   },
   {
     id: 'debat',
@@ -1651,6 +1737,7 @@ window.SITE_ACTIVITIES = [
       'Inversez les positions et choisissez ensemble l’argument le plus inventif.',
     ],
     tip: 'On critique les idées, jamais les personnes. Les adolescents peuvent proposer des dilemmes plus subtils.',
+    slug: 'le-tribunal-des-questions-absurdes',
   },
   {
     id: 'pique',
@@ -1669,6 +1756,7 @@ window.SITE_ACTIVITIES = [
       'Après le repas, chacun partage son meilleur moment de la semaine, puis vous rangez tout.',
     ],
     tip: 'S’il pleut, le pique-nique peut devenir une activité intérieure : réinitialisez le lieu pour explorer d’autres idées.',
+    slug: 'le-pique-nique-a-deux-pas',
   },
   {
     id: 'pub',
@@ -1687,6 +1775,7 @@ window.SITE_ACTIVITIES = [
       'Présentez votre invention pendant une minute. Les autres posent des questions de clients très sérieux.',
     ],
     tip: 'Avec les ados, ajoutez un budget fictif et distinguez arguments réels et promesses publicitaires.',
+    slug: 'les-inventeurs-de-l-inutile',
   },
   {
     id: 'memoire',
@@ -1705,6 +1794,7 @@ window.SITE_ACTIVITIES = [
       'Trouvez ce qui manque, puis échangez les rôles et augmentez doucement la difficulté.',
     ],
     tip: 'À partir de 9 ans, changez la place de deux objets plutôt que d’en enlever un.',
+    slug: 'qu-est-ce-qui-a-disparu',
   },
   {
     id: 'empreintes-feuilles',
@@ -1727,6 +1817,7 @@ window.SITE_ACTIVITIES = [
       'Comparez les nervures, assemblez les empreintes et inventez le nom de votre collection.',
     ],
     tip: 'Lavez-vous les mains après la manipulation et évitez toute plante inconnue irritante. Les grands peuvent légender les formes observées.',
+    slug: 'les-empreintes-secretes-des-feuilles',
   },
   {
     id: 'monstres-feuilles',
@@ -1750,6 +1841,7 @@ window.SITE_ACTIVITIES = [
       'Donnez un nom, une qualité et un pouvoir inutile à chaque monstre, puis présentez la famille.',
     ],
     tip: 'Un adulte manipule la colle avec les plus petits. Les feuilles très sèches cassent facilement : gardez aussi les morceaux pour créer des écailles.',
+    slug: 'la-famille-des-monstres-feuilles',
   },
   {
     id: 'pommes-pin-meteo',
@@ -1768,6 +1860,7 @@ window.SITE_ACTIVITIES = [
       'Photographiez ou dessinez un spécimen, puis revenez après un temps plus sec ou plus humide pour comparer.',
     ],
     tip: 'Une seule observation ne prouve rien : l’intérêt est de revenir et de confronter la prédiction aux changements réels.',
+    slug: 'les-pommes-de-pin-jouent-a-la-meteo',
   },
   {
     id: 'signes-automne',
@@ -1786,6 +1879,7 @@ window.SITE_ACTIVITIES = [
       'À la fin, choisissez l’indice le plus surprenant et expliquez ce qu’il raconte de la saison.',
     ],
     tip: 'Adaptez la liste à votre région et à la météo. Les plus grands peuvent distinguer observation certaine et interprétation.',
+    slug: 'la-chasse-aux-signes-de-l-automne',
   },
   {
     id: 'crumble-pomme-poire',
@@ -1811,5 +1905,118 @@ window.SITE_ACTIVITIES = [
       'Répartissez les miettes sur les fruits. L’adulte enfourne environ vingt-cinq minutes et laisse tiédir avant de servir.',
     ],
     tip: 'Observez la différence entre la texture avant et après cuisson. Les quantités et le temps sont à adapter au plat et au four.',
+    slug: 'le-crumble-pomme-poire-des-jours-frais',
+  },
+  {
+    id: 'lanternes-fantomes',
+    title: 'Les lanternes fantômes de récupération',
+    category: 'Créer',
+    age: 6,
+    time: 30,
+    cost: 0,
+    place: 'inside',
+    desc: 'Transformez des emballages en petites lumières qui font sourire plutôt que peur.',
+    materials: [
+      'Pots ou gobelets translucides propres',
+      'Papier',
+      'Feutres',
+      'Ruban adhésif',
+      'Bougies LED uniquement',
+    ],
+    steps: [
+      'Nettoyez et séchez les contenants, puis vérifiez qu’aucun bord n’est coupant.',
+      'Dessinez sur du papier des yeux et des bouches de fantômes, puis découpez-les avec l’aide d’un adulte.',
+      'Fixez les visages sur les contenants et inventez une émotion différente pour chaque personnage.',
+      'Glissez une bougie LED dans chaque lanterne, éteignez la lumière et racontez leur rencontre.',
+    ],
+    tip: 'N’utilisez jamais de vraie flamme. Les plus grands peuvent créer une série d’émotions et composer une petite scène lumineuse.',
+    slug: 'les-lanternes-fantomes-de-recuperation',
+  },
+  {
+    id: 'potion-couleurs',
+    title: 'La potion qui change de couleur',
+    category: 'Découvrir',
+    age: 6,
+    time: 30,
+    cost: 5,
+    place: 'inside',
+    desc: 'Une expérience de chimie colorée déguisée en préparation de sorcier.',
+    materials: [
+      'Un peu de chou rouge',
+      'Eau chaude',
+      'Trois verres transparents',
+      'Jus de citron',
+      'Bicarbonate alimentaire',
+    ],
+    steps: [
+      'Un adulte fait tremper quelques morceaux de chou rouge dans de l’eau très chaude, puis laisse refroidir et filtre le liquide violet.',
+      'Répartissez ce liquide dans trois verres et gardez le premier comme couleur témoin.',
+      'Ajoutez quelques gouttes de citron dans le deuxième verre, puis une petite pincée de bicarbonate dans le troisième.',
+      'Comparez les couleurs et cherchez ce que chaque ingrédient a pu changer.',
+    ],
+    tip: 'Cette préparation n’est pas une boisson. Ajoutez les produits doucement, sur une surface protégée, sous la surveillance d’un adulte.',
+    slug: 'la-potion-qui-change-de-couleur',
+  },
+  {
+    id: 'chasse-fantomes',
+    title: 'La chasse aux petits fantômes',
+    category: 'Jouer',
+    age: 3,
+    time: 20,
+    cost: 0,
+    place: 'inside',
+    desc: 'Cachez une famille de fantômes en papier et partez à sa recherche dans la maison.',
+    materials: ['Papier de récupération', 'Crayon', 'Ciseaux', 'Ruban adhésif repositionnable'],
+    steps: [
+      'Dessinez ensemble six petits fantômes et donnez à chacun un signe distinctif.',
+      'Un adulte les découpe, puis un joueur les cache dans des endroits accessibles et sans danger.',
+      'Les chercheurs disposent de cinq minutes et annoncent le nom de chaque fantôme retrouvé.',
+      'Échangez les rôles, puis inventez une cachette finale avec un indice simple.',
+    ],
+    tip: 'Ne cachez rien près d’une prise, d’un appareil chaud, d’un escalier ou d’un objet fragile.',
+    slug: 'la-chasse-aux-petits-fantomes',
+  },
+  {
+    id: 'escape-citrouille',
+    title: 'Le mini escape game de la citrouille',
+    category: 'Jouer',
+    age: 9,
+    time: 45,
+    cost: 0,
+    place: 'inside',
+    desc: 'Trois énigmes maison mènent au code qui libérera la citrouille imaginaire.',
+    materials: ['Papier', 'Crayons', 'Une boîte', 'Trois petits objets familiers'],
+    steps: [
+      'Le maître du jeu choisit un code à trois chiffres et cache chaque chiffre derrière une énigme courte.',
+      'Préparez une énigme d’observation, une de logique et une utilisant trois objets de la pièce.',
+      'Placez les énigmes dans l’ordre et donnez trente minutes aux enquêteurs pour reconstituer le code.',
+      'Quand le code est trouvé, ouvrez la boîte et échangez les rôles pour créer une nouvelle aventure.',
+    ],
+    tip: 'Le trésor peut être un message drôle ou le choix du film du soir : aucun achat n’est nécessaire.',
+    slug: 'le-mini-escape-game-de-la-citrouille',
+  },
+  {
+    id: 'pommes-monstres',
+    title: 'Les pommes monstres à croquer',
+    category: 'Cuisiner',
+    age: 6,
+    time: 30,
+    cost: 5,
+    place: 'inside',
+    desc: 'Des quartiers de pomme deviennent de drôles de mâchoires pour un goûter d’Halloween.',
+    materials: [
+      'Pommes',
+      'Purée de graines de tournesol ou pâte à tartiner adaptée',
+      'Graines de courge ou morceaux de banane',
+      'Raisins secs',
+    ],
+    steps: [
+      'Lavez-vous les mains et vérifiez les allergies de tous les participants.',
+      'Un adulte coupe les pommes en quartiers et retire le cœur pour former une bouche.',
+      'Étalez une fine couche de purée adaptée, puis placez des graines ou de petits morceaux de banane comme dents.',
+      'Ajoutez deux raisins secs pour les yeux, inventez le nom du monstre et dégustez sans attendre.',
+    ],
+    tip: 'Un adulte manipule le couteau. Adaptez la taille et la texture des morceaux à l’âge des enfants afin d’éviter les risques d’étouffement.',
+    slug: 'les-pommes-monstres-a-croquer',
   },
 ];

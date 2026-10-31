@@ -24,6 +24,7 @@
       outside: 'Au grand air',
       age: 'Dès {age} ans',
       viewActivity: 'Voir l’activité : {title}',
+      fullActivityPage: 'Ouvrir la page de l’activité',
       favoriteBadge: '♥ Favori',
       favoriteLabel: 'Dans vos favoris',
       completedBadge: '✓ Vécue',
@@ -31,6 +32,7 @@
       ideas: '{n} idée{s} à partager',
       favorites: '{n} favori{s}',
       completed: '{n} activité{s} vécue{s}',
+      halloween: '{n} idée{s} d’Halloween',
       emptyQuery: 'Aucune idée ne correspond à « {query} » avec ces critères.',
       emptyCompleted:
         'Vous n’avez pas encore marqué d’activité comme vécue. Ouvrez une fiche après l’avoir réalisée ensemble.',
@@ -40,6 +42,20 @@
         'Aucune activité ne correspond à tous ces critères. Essayez un autre lieu, plus de temps ou une autre envie.',
       surpriseHint: 'Une idée au hasard parmi vos résultats',
       surpriseDisabled: 'Modifiez vos critères pour retrouver des idées',
+      familyPickTitle: 'À vous de choisir',
+      familyPickIntro:
+        'Ces trois idées respectent vos critères. Chacun défend sa préférée, puis lancez-vous !',
+      familyPickRefresh: '↻ Trois autres idées',
+      familyPickDisabled: 'Modifiez vos critères pour retrouver des idées',
+      removeFilter: 'Retirer le filtre {label}',
+      queryFilter: 'Recherche : « {query} »',
+      activeFavorites: 'Mes favoris',
+      activeCompleted: 'Déjà vécues',
+      activeAutumn: 'Spécial automne',
+      activeHalloween: 'Spécial Halloween',
+      activeSharedSelection: 'Sélection partagée ({n})',
+      progressEmpty: 'Vos activités vécues composeront ici un joli carnet de souvenirs.',
+      progressStarted: 'Votre collection de souvenirs prend forme.',
       unknownActivity: 'Activité inconnue',
       shareText: 'Une idée à faire ensemble : {title}',
       copied: 'Lien copié !',
@@ -52,9 +68,58 @@
       favoriteOn: '♥ Dans mes favoris',
       favoriteOff: '♡ Ajouter à mes favoris',
       share: '↗ Partager',
+      plan: '▣ Planifier',
+      planTitle: 'Planifier cette activité',
+      planDate: 'Date',
+      planTime: 'Heure',
+      addCalendar: 'Ajouter au calendrier',
+      calendarReady: 'Événement téléchargé — ouvrez-le pour l’ajouter à votre calendrier.',
+      calendarDateRequired: 'Choisissez une date.',
       print: '▤ Imprimer',
+      timer: '◷ Minuteur',
+      timerTitle: 'Minuteur de l’activité',
+      timerDuration: 'Durée',
+      timerMinutes: '{time} min',
+      timerStart: 'Démarrer',
+      timerPause: 'Pause',
+      timerResume: 'Reprendre',
+      timerRestart: 'Relancer',
+      timerReset: 'Recommencer',
+      timerDone: 'C’est terminé !',
+      timerStarted: 'Le minuteur continue même si vous fermez la fiche.',
+      guided: '▶ Mode pas à pas',
+      guidedLabel: 'MODE PAS À PAS',
+      guidedStep: 'Étape {current} sur {total}',
+      guidedPrevious: '← Précédente',
+      guidedNext: 'Suivante →',
+      guidedMark: 'Marquer comme faite',
+      guidedMarked: '✓ Étape terminée',
+      guidedComplete: 'Bravo, toutes les étapes sont terminées !',
+      guidedMaterials: 'Revoir le matériel',
       materials: 'Ce qu’il vous faut',
       steps: 'À vous de jouer',
+      checklistHint: 'Préparez le matériel, puis cochez chaque étape au fur et à mesure.',
+      stepsProgress: '{done}/{total} étapes cochées',
+      stepsComplete: 'Toutes les étapes sont cochées !',
+      shoppingListTitle: 'La liste de préparation',
+      shoppingListIntro:
+        'Le matériel de {n} activité(s) favorite(s), regroupé pour ne rien oublier.',
+      shoppingListCopy: 'Copier toute la liste',
+      shoppingListShare: 'Partager la sélection',
+      shoppingListCopied: 'Liste copiée !',
+      shoppingListCopyFailed: 'Impossible de copier automatiquement cette liste.',
+      sharedSelectionTitle: 'Une sélection des Petits moments',
+      sharedSelectionText: '{n} idées d’activités à découvrir ensemble.',
+      sharedSelectionSent: 'Sélection partagée !',
+      sharedSelectionCopied: 'Lien de la sélection copié !',
+      sharedSelectionFailed: 'Impossible de partager cette sélection automatiquement.',
+      shareSearchHint: 'Partager ces critères et les résultats correspondants',
+      shareSearchDisabled: 'Choisissez au moins un critère à partager',
+      sharedSearchTitle: 'Des idées pour notre prochain petit moment',
+      sharedSearchText: '{n} activités correspondent à cette recherche.',
+      sharedSearchSent: 'Recherche partagée !',
+      sharedSearchCopied: 'Lien de la recherche copié !',
+      sharedSearchFailed: 'Impossible de partager cette recherche automatiquement.',
       tip: 'Le petit truc en plus',
       estimate:
         'Durée et budget indicatifs. « Sans achat » suppose que vous avez déjà le matériel courant. À faire ensemble, avec un adulte.',
@@ -86,6 +151,13 @@
       eraseBlocked:
         'Le navigateur empêche l’accès au stockage. Utilisez ses réglages pour supprimer les données de ce site.',
       eraseButton: 'Effacer mes favoris et activités vécues',
+      backupExported:
+        'Sauvegarde téléchargée : {favorites} favori(s) et {completed} activité(s) vécue(s).',
+      backupImported:
+        'Sauvegarde restaurée : {favorites} favori(s) et {completed} activité(s) vécue(s).',
+      backupInvalid: 'Ce fichier ne correspond pas à une sauvegarde valide des Petits moments.',
+      backupBlocked:
+        'Le navigateur empêche l’accès au stockage ou au fichier. Vérifiez ses autorisations.',
     },
     en: {
       noPurchase: 'No purchases',
@@ -93,6 +165,7 @@
       outside: 'Outdoors',
       age: 'Ages {age}+',
       viewActivity: 'View activity: {title}',
+      fullActivityPage: 'Open the activity page',
       favoriteBadge: '♥ Favourite',
       favoriteLabel: 'In your favourites',
       completedBadge: '✓ Done',
@@ -100,6 +173,7 @@
       ideas: '{n} idea{s} to share',
       favorites: '{n} favourite{s}',
       completed: '{n} completed activit{ies}',
+      halloween: '{n} Halloween idea{s}',
       emptyQuery: 'No ideas match “{query}” with these filters.',
       emptyCompleted:
         'You have not marked any activities as completed yet. Open a card after trying it together.',
@@ -108,6 +182,20 @@
         'No activities match all these filters. Try another location, more time or a different category.',
       surpriseHint: 'A random idea from your results',
       surpriseDisabled: 'Change your filters to find more ideas',
+      familyPickTitle: 'Your family’s choice',
+      familyPickIntro:
+        'These three ideas match your filters. Each person picks a favourite, then get started!',
+      familyPickRefresh: '↻ Three more ideas',
+      familyPickDisabled: 'Change your filters to find more ideas',
+      removeFilter: 'Remove the {label} filter',
+      queryFilter: 'Search: “{query}”',
+      activeFavorites: 'My favourites',
+      activeCompleted: 'Already tried',
+      activeAutumn: 'Autumn special',
+      activeHalloween: 'Halloween special',
+      activeSharedSelection: 'Shared selection ({n})',
+      progressEmpty: 'Completed activities will build a lovely memory book here.',
+      progressStarted: 'Your collection of memories is taking shape.',
       unknownActivity: 'Unknown activity',
       shareText: 'An idea to try together: {title}',
       copied: 'Link copied!',
@@ -120,9 +208,57 @@
       favoriteOn: '♥ In my favourites',
       favoriteOff: '♡ Add to my favourites',
       share: '↗ Share',
+      plan: '▣ Plan',
+      planTitle: 'Plan this activity',
+      planDate: 'Date',
+      planTime: 'Time',
+      addCalendar: 'Add to calendar',
+      calendarReady: 'Event downloaded — open it to add it to your calendar.',
+      calendarDateRequired: 'Choose a date.',
       print: '▤ Print',
+      timer: '◷ Timer',
+      timerTitle: 'Activity timer',
+      timerDuration: 'Duration',
+      timerMinutes: '{time} min',
+      timerStart: 'Start',
+      timerPause: 'Pause',
+      timerResume: 'Resume',
+      timerRestart: 'Restart',
+      timerReset: 'Reset',
+      timerDone: 'Time is up!',
+      timerStarted: 'The timer keeps running if you close this card.',
+      guided: '▶ Step-by-step mode',
+      guidedLabel: 'STEP-BY-STEP MODE',
+      guidedStep: 'Step {current} of {total}',
+      guidedPrevious: '← Previous',
+      guidedNext: 'Next →',
+      guidedMark: 'Mark as done',
+      guidedMarked: '✓ Step completed',
+      guidedComplete: 'Well done, every step is complete!',
+      guidedMaterials: 'Review the materials',
       materials: 'What you will need',
       steps: 'Let’s get started',
+      checklistHint: 'Gather the materials, then tick off each step as you go.',
+      stepsProgress: '{done}/{total} steps checked',
+      stepsComplete: 'All the steps are checked!',
+      shoppingListTitle: 'Your preparation list',
+      shoppingListIntro: 'Materials for {n} favourite activity/activities, gathered in one place.',
+      shoppingListCopy: 'Copy the whole list',
+      shoppingListShare: 'Share this selection',
+      shoppingListCopied: 'List copied!',
+      shoppingListCopyFailed: 'This list could not be copied automatically.',
+      sharedSelectionTitle: 'A Les petits moments selection',
+      sharedSelectionText: '{n} activity ideas to discover together.',
+      sharedSelectionSent: 'Selection shared!',
+      sharedSelectionCopied: 'Selection link copied!',
+      sharedSelectionFailed: 'This selection could not be shared automatically.',
+      shareSearchHint: 'Share these filters and their matching results',
+      shareSearchDisabled: 'Choose at least one filter to share',
+      sharedSearchTitle: 'Ideas for our next little moment',
+      sharedSearchText: '{n} activities match this search.',
+      sharedSearchSent: 'Search shared!',
+      sharedSearchCopied: 'Search link copied!',
+      sharedSearchFailed: 'This search could not be shared automatically.',
       tip: 'A little extra idea',
       estimate:
         'Times and budgets are estimates. “No purchases” assumes you already have the usual materials. Try activities together with an adult.',
@@ -152,6 +288,12 @@
       eraseBlocked:
         'Your browser is blocking storage access. Use its settings to delete this site’s data.',
       eraseButton: 'Delete my favourites and completed activities',
+      backupExported:
+        'Backup downloaded: {favorites} favourite(s) and {completed} completed activity/activities.',
+      backupImported:
+        'Backup restored: {favorites} favourite(s) and {completed} completed activity/activities.',
+      backupInvalid: 'This file is not a valid Les petits moments backup.',
+      backupBlocked: 'The browser blocked storage or file access. Check its permissions.',
     },
   };
   const categoryNames = {
@@ -182,7 +324,13 @@
       return categoryNames[lang][key] || key;
     },
     url(page, target = lang) {
-      return new URL(pages[target][page], base).href;
+      return new URL(pages[target][page] || pages[target].home, base).href;
+    },
+    activityUrl(id, target = lang) {
+      const route = window.SITE_ACTIVITY_ROUTES?.[id]?.[target];
+      return route
+        ? new URL(route, base).href
+        : this.url('home', target) + '#activity=' + encodeURIComponent(id);
     },
     count(key, n) {
       return this.t(key, {
@@ -195,9 +343,19 @@
   };
   window.SITE_I18N = api;
   const page = document.documentElement.dataset.page || 'home';
+  const languageUrl = (target) => {
+    if (page === 'activity')
+      return api.activityUrl(document.documentElement.dataset.activityId, target);
+    if (page === 'selection')
+      return new URL(
+        document.documentElement.dataset[target === 'fr' ? 'alternateFr' : 'alternateEn'],
+        base,
+      ).href;
+    return api.url(page, target);
+  };
   document.querySelectorAll('[data-language]').forEach((link) => {
     const target = link.dataset.language;
-    link.href = api.url(page, target) + location.hash;
+    link.href = languageUrl(target) + location.hash;
     link.setAttribute('aria-current', String(target === lang));
     link.addEventListener('click', () => {
       try {
@@ -208,8 +366,7 @@
       const activity = detail?.open
         ? detail.querySelector('[data-favorite-id]')?.dataset.favoriteId
         : null;
-      if (activity) hash = '#activity=' + encodeURIComponent(activity);
-      link.href = api.url(page, target) + hash;
+      link.href = activity ? api.activityUrl(activity, target) : languageUrl(target) + hash;
     });
   });
   // Only a visit to the bare French homepage follows a saved English choice.

@@ -104,8 +104,9 @@
         </p>
         <p>
           The website is intended for parents and accompanying adults. It does not request user
-          accounts, children’s names, dates of birth, photos, precise locations or payments. Age
-          filters only help select activity cards and are not saved by the website.
+          accounts, children’s names, dates of birth, photos or precise locations. No payment is
+          required to use the website. Age filters only help select activity cards and are not saved
+          by the website.
         </p>
       </section>
       <section class="legal-section">
@@ -169,6 +170,29 @@
           shared between the French and English pages on the same site, but are not synchronised
           between devices.
         </p>
+        <div class="privacy-control privacy-backup">
+          <strong>Back up or transfer your collection</strong>
+          <p>
+            Download a small backup of your favourites and completed activities. You can restore it
+            on this device or another one. The file is created and read locally: it is never sent to
+            the website.
+          </p>
+          <div class="privacy-actions">
+            <button class="primary" id="export-local-preferences" type="button">
+              Download my backup
+            </button>
+            <button class="privacy-upload" id="import-local-trigger" type="button">
+              Restore a backup
+            </button>
+            <input
+              accept="application/json,.json"
+              hidden
+              id="import-local-preferences"
+              type="file"
+            />
+          </div>
+          <p aria-live="polite" id="backup-local-status" role="status"></p>
+        </div>
         <div class="privacy-control">
           <strong>Delete your lists on this device</strong>
           <p>
@@ -208,6 +232,20 @@
           The Share button uses your system’s sharing service or copies a link at your request. The
           website does not load a social-network module. If you choose a third-party application or
           website, its own privacy rules apply.
+        </p>
+        <h3>Entirely optional support</h3>
+        <p>
+          If a “Buy me a coffee” button is available, it opens a Ko-fi page in a new tab. No Ko-fi
+          widget or resource is loaded before you click, and the original page address is not sent.
+          Support is for adults only and is never required to access activities.
+        </p>
+        <p>
+          Payment is handled on the external service under its own terms and
+          <a href="https://ko-fi.com/privacy" rel="noreferrer">privacy policy</a>, together with
+          those of the chosen payment provider. This website does not collect or store your card
+          number. Some support details (display name, email, amount and optional message) may be
+          accessible to the publisher in the payment dashboard to keep track of support and meet
+          applicable obligations. Do not send any information about a child.
         </p>
       </section>
       <section class="legal-section">

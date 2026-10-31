@@ -17,6 +17,7 @@ window.SITE_ACTIVITIES = [
       'Put the characters together on a poster and invent a name for your team.',
     ],
     tip: 'Younger children can tell an adult which colours to use. Teens can create a side-view version using the same palette.',
+    slug: 'your-family-in-pixels',
   },
   {
     id: 'balade-miniatures',
@@ -35,6 +36,7 @@ window.SITE_ACTIVITIES = [
       'Tell the story of an ant travelling through it, then find a second landscape.',
     ],
     tip: 'You can also explore from a bench or garden table: everyone can choose a comfortable height.',
+    slug: 'the-world-from-an-ant-s-point-of-view',
   },
   {
     id: 'statues-emotions',
@@ -53,6 +55,7 @@ window.SITE_ACTIVITIES = [
       'Swap roles, then create a group statue that tells a short story.',
     ],
     tip: 'Anyone can pass. Older children can try similar emotions, such as pride and relief, without making fun of anyone’s interpretation.',
+    slug: 'the-museum-of-expressive-statues',
   },
   {
     id: 'couleurs-superposees',
@@ -71,6 +74,7 @@ window.SITE_ACTIVITIES = [
       'Repeat with two other pairs and compare your mixtures.',
     ],
     tip: 'Results depend on the pencils and the pressure you use. Older children can test two intensities rather than looking for a single right answer.',
+    slug: 'the-colour-laboratory',
   },
   {
     id: 'bateaux-concombre',
@@ -89,6 +93,7 @@ window.SITE_ACTIVITIES = [
       'Arrange them on a plate, name your fleet and enjoy, or keep refrigerated.',
     ],
     tip: 'There is no need for cocktail sticks or sails. For younger children, an adult should adapt the size and texture of the pieces before serving.',
+    slug: 'little-cucumber-boats',
   },
   {
     id: 'livre-accordeon',
@@ -107,6 +112,7 @@ window.SITE_ACTIVITIES = [
       'Draw the ending on the last panel and tell the story as you unfold the book.',
     ],
     tip: 'Younger children can dictate the words. Older ones can make a second book telling the same story from another character’s perspective.',
+    slug: 'a-little-book-that-unfolds',
   },
   {
     id: 'alphabet-balade',
@@ -125,6 +131,7 @@ window.SITE_ACTIVITIES = [
       'Back home, invent a sentence using three of the words you found.',
     ],
     tip: 'For younger children, use three pictures to find. Teens can choose trickier letters or find two different answers for each one.',
+    slug: 'the-alphabet-walk',
   },
   {
     id: 'balle-missions',
@@ -143,6 +150,7 @@ window.SITE_ACTIVITIES = [
       'Invent a third challenge everyone can join in, adjusting the distance as needed.',
     ],
     tip: 'Dropping the ball does not reset the count. Older children can name the next receiver before each pass.',
+    slug: 'team-ball-challenges',
   },
   {
     id: 'message-chiffre',
@@ -161,6 +169,7 @@ window.SITE_ACTIVITIES = [
       'Decode it by working backwards, then choose a different shift together.',
     ],
     tip: 'A becomes D, B becomes E and Z becomes C. This is an easy-to-break game code, not a way to protect personal information.',
+    slug: 'the-spies-secret-code',
   },
   {
     id: 'pain-perdu',
@@ -185,6 +194,7 @@ window.SITE_ACTIVITIES = [
       'Let them cool a little, add a little sugar if you like and enjoy together.',
     ],
     tip: 'Older children can calculate how many slices to prepare for everyone. Only use properly stored bread with no mould.',
+    slug: 'french-toast-to-rescue-snack-time',
   },
   {
     id: 'fanions-famille',
@@ -203,6 +213,7 @@ window.SITE_ACTIVITIES = [
       'An adult hangs the bunting up high, out of young children’s reach; read the messages together.',
     ],
     tip: 'Everyone chooses what they want to share. Without string, simply arrange the flags on a table.',
+    slug: 'a-bunting-of-little-compliments',
   },
   {
     id: 'carnet-saisons',
@@ -221,6 +232,7 @@ window.SITE_ACTIVITIES = [
       'Decide when to return to the same spot and leave a page to compare the changes.',
     ],
     tip: 'One outing is enough to get started. Teens can separate observations from ideas about what explains the changes.',
+    slug: 'your-seasonal-nature-journal',
   },
   {
     id: 'plateau-sur-mesure',
@@ -239,6 +251,7 @@ window.SITE_ACTIVITIES = [
       'Play a short game, then change just one rule to make the second game more fun.',
     ],
     tip: 'Write the rules before playing to avoid changing them mid-game. Teens can create a version where all the counters must reach the finish together.',
+    slug: 'invent-your-own-board-game',
   },
   {
     id: 'papier-absorbant',
@@ -262,6 +275,7 @@ window.SITE_ACTIVITIES = [
       'Repeat with fresh pieces to see whether the results are similar, then dry and tidy up.',
     ],
     tip: 'Older children keep the water quantity the same and distinguish absorption speed, the spread of the wet patch and the strength of the wet paper.',
+    slug: 'which-paper-absorbs-the-most',
   },
   {
     id: 'quesadillas',
@@ -286,6 +300,7 @@ window.SITE_ACTIVITIES = [
       'An adult cuts them, lets them cool a little and serves them with whatever vegetables are available.',
     ],
     tip: 'Children can suggest two fillings using ingredients you already have. Refrigerate leftovers and reheat before serving.',
+    slug: 'golden-cheese-tortillas',
   },
   {
     id: 'sculpture-papier',
@@ -304,6 +319,7 @@ window.SITE_ACTIVITIES = [
       'Present it and explain which fold helped most; then try a version using less tape.',
     ],
     tip: 'For younger children, an adult can prepare strips to fold. Older children can add the challenge of using just one sheet.',
+    slug: 'paper-sculptures-that-stand-up',
   },
   {
     id: 'panneaux-chemins',
@@ -322,6 +338,7 @@ window.SITE_ACTIVITIES = [
       'At the destination, draw three landmarks that will help you return to the start.',
     ],
     tip: 'Stay on permitted paths and do not turn it into a race. Teens can discuss what makes a sign clear or ambiguous.',
+    slug: 'clues-that-show-the-way',
   },
   {
     id: 'dictionnaire-invente',
@@ -340,6 +357,7 @@ window.SITE_ACTIVITIES = [
       'Reveal the answer, read the dictionary entry together and change hosts.',
     ],
     tip: 'If someone knows the word, pick another. Without a dictionary, invent all the words and vote for the most convincing definition.',
+    slug: 'the-dictionary-of-impossible-words',
   },
   {
     id: 'image-compressee',
@@ -358,6 +376,7 @@ window.SITE_ACTIVITIES = [
       'Reconstruct the picture, then compare how many numbers you need for a large solid area and for a chequerboard.',
     ],
     tip: 'Each row must add up to eight squares. Teens can discuss which images this method describes more briefly and which ones it makes longer.',
+    slug: 'draw-like-a-compressed-file',
   },
   {
     id: 'sables-formes',
@@ -382,6 +401,7 @@ window.SITE_ACTIVITIES = [
       'An adult bakes them on a lined tray for twelve to fifteen minutes, until the edges are lightly golden, then lets them cool before eating.',
     ],
     tip: 'The stated time includes chilling, baking and cooling. Make biscuits of a similar thickness so they bake evenly.',
+    slug: 'shortbread-style-biscuits-in-your-own-shapes',
   },
   {
     id: 'bande-annonce-famille',
@@ -400,6 +420,7 @@ window.SITE_ACTIVITIES = [
       'Watch the three clips in order and finish with the title, filmed or spoken aloud.',
     ],
     tip: 'The first version does not need editing. Keep the videos within the family and let everyone decide whether to appear.',
+    slug: 'a-trailer-for-an-imaginary-film',
   },
   {
     id: 'trajet-eau',
@@ -418,6 +439,7 @@ window.SITE_ACTIVITIES = [
       'Compare a paved surface with a planted area and write two questions to investigate later.',
     ],
     tip: 'You can investigate even when it is not raining. A drain alone does not reveal where the water ends up: separate what you see from what you suppose.',
+    slug: 'where-does-rainwater-go',
   },
   {
     id: 'doublage-improvise',
@@ -436,6 +458,7 @@ window.SITE_ACTIVITIES = [
       'Replay a scene in an unexpected genre, such as a space adventure or a comedy.',
     ],
     tip: 'With two people, one acts and the other narrates. Teens can play with the mismatch between an everyday gesture and a very dramatic line.',
+    slug: 'give-silent-scenes-a-voice',
   },
   {
     id: 'arbre-liens',
@@ -454,6 +477,7 @@ window.SITE_ACTIVITIES = [
       'Everyone presents a connection they chose, then you find a simple way to thank that person.',
     ],
     tip: 'There is no single family model to follow. Everyone chooses what to share and may keep some connections private.',
+    slug: 'the-tree-of-people-who-matter',
   },
   {
     id: 'pois-chiches-dores',
@@ -478,6 +502,7 @@ window.SITE_ACTIVITIES = [
       'Let them cool a little and compare textures before serving with a meal. Shorten the cooking time if they brown too quickly.',
     ],
     tip: 'Teens can split the batch to compare two seasonings. Keep this version for children who are comfortable eating firm foods.',
+    slug: 'golden-spiced-chickpeas',
   },
   {
     id: 'photo-perspective',
@@ -496,6 +521,7 @@ window.SITE_ACTIVITIES = [
       'Take three attempts, compare them and explain how you created the illusion.',
     ],
     tip: 'Use only objects if nobody wants to appear. Teens can show a photo of the setup next to the finished illusion.',
+    slug: 'giants-and-miniatures-in-a-photo',
   },
   {
     id: 'textures-balade',
@@ -514,6 +540,7 @@ window.SITE_ACTIVITIES = [
       'Find two surfaces that look similar, then work out how they differ. Wash your hands when you return.',
     ],
     tip: 'You can play just by looking. Older children can create categories and explain the criteria they chose.',
+    slug: 'a-walk-full-of-textures',
   },
   {
     id: 'tresor-lettres',
@@ -532,6 +559,7 @@ window.SITE_ACTIVITIES = [
       'Change leaders and invent a story linking three objects you found.',
     ],
     tip: 'Younger children can simply match two objects named by an adult. For teens, look for a word containing two chosen letters.',
+    slug: 'the-treasure-of-sounds-and-letters',
   },
   {
     id: 'notice-testee',
@@ -550,6 +578,7 @@ window.SITE_ACTIVITIES = [
       'Rewrite the instructions and test them a second time to see what improved.',
     ],
     tip: 'Define whose left and right you mean and use simple measurements. Younger children can replace sentences with drawings.',
+    slug: 'instructions-put-to-the-test',
   },
   {
     id: 'soupe-lentilles',
@@ -575,6 +604,7 @@ window.SITE_ACTIVITIES = [
       'Season to taste, let it cool a little and serve in four bowls with bread. Refrigerate leftovers.',
     ],
     tip: 'There is no need to blend: red lentils break down as they cook. Teens can organise the jobs, tidying and serving while an adult handles hot tasks.',
+    slug: 'the-little-chefs-orange-soup',
   },
   {
     id: 'collage',
@@ -593,6 +623,7 @@ window.SITE_ACTIVITIES = [
       'Give it a name, a habitat and an extraordinary talent, then introduce it to the family.',
     ],
     tip: 'Younger children choose and glue. Older ones can write a naturalist’s fact sheet for their imaginary species.',
+    slug: 'an-animal-of-your-own-invention',
   },
   {
     id: 'bingo-nature',
@@ -611,6 +642,7 @@ window.SITE_ACTIVITIES = [
       'If a square stays empty, replace it together with an unexpected discovery.',
     ],
     tip: 'Older children can look for connections: an insect on a flower, a plant in a crack or a moving shadow.',
+    slug: 'little-explorers-nature-bingo',
   },
   {
     id: 'bataille-papier',
@@ -629,6 +661,7 @@ window.SITE_ACTIVITIES = [
       'The game ends when one fleet is found. Play again and share your strategies.',
     ],
     tip: 'With more players, make two crews and decide each shot together. For younger children, use a four-by-four grid.',
+    slug: 'paper-battleships',
   },
   {
     id: 'flotte',
@@ -647,6 +680,7 @@ window.SITE_ACTIVITIES = [
       'Sort the results and see whether your rule works for every object. Empty the basin afterwards.',
     ],
     tip: 'Older children can compare a ball and a boat made from the same sheet of aluminium foil, handled by an adult.',
+    slug: 'the-floating-laboratory',
   },
   {
     id: 'wraps',
@@ -671,6 +705,7 @@ window.SITE_ACTIVITIES = [
       'Fold up the bottom and roll in the sides. Eat together or refrigerate until the meal.',
     ],
     tip: 'Younger children can spread and assemble. Teens can calculate the approximate cost per wrap using your shopping prices.',
+    slug: 'rainbow-wraps',
   },
   {
     id: 'mini-musee',
@@ -689,6 +724,7 @@ window.SITE_ACTIVITIES = [
       'Give a guided tour: everyone presents one exhibit while the others ask questions.',
     ],
     tip: 'For teens, add two labels: a factual description and an invented story. Visitors try to tell which is which.',
+    slug: 'the-museum-of-ordinary-objects',
   },
   {
     id: 'oiseaux',
@@ -707,6 +743,7 @@ window.SITE_ACTIVITIES = [
       'Compare notes and invent temporary nicknames based on details you actually observed.',
     ],
     tip: 'There is no need to feed birds or approach nests. Older children can separate what they saw from what they assumed.',
+    slug: 'watch-the-birds',
   },
   {
     id: 'dessin-plie',
@@ -725,6 +762,7 @@ window.SITE_ACTIVITIES = [
       'The last player finishes; unfold it together and invent the character’s name and job.',
     ],
     tip: 'With two people, take turns with several sheets. Teens can use the same idea to create sentences with a subject, verb and object.',
+    slug: 'the-hidden-drawing-relay',
   },
   {
     id: 'helicoptere',
@@ -743,6 +781,7 @@ window.SITE_ACTIVITIES = [
       'Drop it from shoulder height in a clear space and compare two blade widths, without climbing on furniture.',
     ],
     tip: 'Older children can make three attempts per design and record which spins best. Change only one thing at a time.',
+    slug: 'a-paper-helicopter',
   },
   {
     id: 'verrines',
@@ -766,6 +805,7 @@ window.SITE_ACTIVITIES = [
       'Name your dessert and enjoy it, or put it in the fridge.',
     ],
     tip: 'Younger children can mash the banana. Use whatever fruit you have, preparing it in a way suitable for their age.',
+    slug: 'layered-snack-pots',
   },
   {
     id: 'capsule-futur',
@@ -784,6 +824,7 @@ window.SITE_ACTIVITIES = [
       'Seal the envelope, write the date on it and store it somewhere everyone knows.',
     ],
     tip: 'Younger children can dictate their letters. Teens can keep part of theirs private in a separate envelope.',
+    slug: 'a-letter-to-your-future-family',
   },
   {
     id: 'ombres-sol',
@@ -802,6 +843,7 @@ window.SITE_ACTIVITIES = [
       'Where allowed, draw a silhouette in chalk, then find a new pose that fits inside it.',
     ],
     tip: 'Choose a time when shadows are visible. Older children can return later to see how their direction has changed.',
+    slug: 'chasing-your-shadow',
   },
   {
     id: 'dessin-guide',
@@ -820,6 +862,7 @@ window.SITE_ACTIVITIES = [
       'Compare the pictures, then swap roles and improve the instructions.',
     ],
     tip: 'Older children can try one round without questions and another with questions, then compare the results.',
+    slug: 'draw-what-i-describe',
   },
   {
     id: 'robot-debranche',
@@ -838,6 +881,7 @@ window.SITE_ACTIVITIES = [
       'Debug the instructions together, then swap roles.',
     ],
     tip: 'Teens can add a repeat-three-times command. An error is a chance to understand, never a penalty.',
+    slug: 'program-your-parent-robot',
   },
   {
     id: 'tartinade',
@@ -862,6 +906,7 @@ window.SITE_ACTIVITIES = [
       'Taste with a clean spoon, adjust together and spread on bread. Keep leftovers refrigerated.',
     ],
     tip: 'Teens can make two versions, changing just one spice you already have, and compare the flavours.',
+    slug: 'the-apprentice-chefs-chickpea-spread',
   },
   {
     id: 'radio',
@@ -880,6 +925,7 @@ window.SITE_ACTIVITIES = [
       'Listen together and pick the moment that feels most like your family. Keep the recording within the family.',
     ],
     tip: 'Without a phone, perform the show live. Teens can interview a parent about their childhood.',
+    slug: 'your-family-radio-show',
   },
   {
     id: 'carte-sonore',
@@ -898,6 +944,7 @@ window.SITE_ACTIVITIES = [
       'Compare your maps: which sounds did everyone hear, and which did some people miss?',
     ],
     tip: 'Younger children can simply draw three sounds. Teens can compare two locations and describe the differences.',
+    slug: 'a-sound-map-of-the-park',
   },
   {
     id: 'golf-chaussettes',
@@ -916,6 +963,7 @@ window.SITE_ACTIVITIES = [
       'Try to reach all three targets together in as few rolls as possible.',
     ],
     tip: 'Older children can invent courses where the ball bounces off a box. Avoid throwing upwards near fragile objects.',
+    slug: 'sock-ball-mini-golf',
   },
   {
     id: 'tri-algorithme',
@@ -934,6 +982,7 @@ window.SITE_ACTIVITIES = [
       'Shuffle and try another method: on each turn, find the smallest remaining card. Compare your approaches.',
     ],
     tip: 'Older children can count comparisons and try a different starting order rather than drawing conclusions from a single test.',
+    slug: 'sort-like-a-computer',
   },
   {
     id: 'salade-fruits',
@@ -952,6 +1001,7 @@ window.SITE_ACTIVITIES = [
       'Serve in four to six small bowls and invent a restaurant name for your dessert.',
     ],
     tip: 'Use fruit you already have rather than buying everything listed. Teens can estimate quantities before preparing it.',
+    slug: 'fruit-salad-with-little-challenges',
   },
   {
     id: 'bruitages',
@@ -970,6 +1020,7 @@ window.SITE_ACTIVITIES = [
       'Perform it for someone who does not know the story and ask what they imagined.',
     ],
     tip: 'Older children can add sound to a silent video clip they already have, without publishing it.',
+    slug: 'the-sound-effects-studio',
   },
   {
     id: 'facades',
@@ -988,6 +1039,7 @@ window.SITE_ACTIVITIES = [
       'Back home, create an imaginary building front using your three chosen details.',
     ],
     tip: 'Teens can also identify how a building is used and explain what they would change to make it more pleasant.',
+    slug: 'architecture-detectives',
   },
   {
     id: 'objet-mystere',
@@ -1006,6 +1058,7 @@ window.SITE_ACTIVITIES = [
       'When you find the object, explain which question helped most, then change leaders.',
     ],
     tip: 'For younger children, limit the choice to five objects. Teens can choose a concept or a character everyone knows.',
+    slug: 'the-twenty-question-detective',
   },
   {
     id: 'titres-trompeurs',
@@ -1024,6 +1077,7 @@ window.SITE_ACTIVITIES = [
       'Separate what is visible, what is assumed and what you would need to check before believing a story.',
     ],
     tip: 'Keep the exercise within the family. With younger children, simply compare two contrasting captions.',
+    slug: 'one-photo-three-headlines',
   },
   {
     id: 'pancakes',
@@ -1049,6 +1103,7 @@ window.SITE_ACTIVITIES = [
       'When bubbles appear and the edges hold their shape, an adult flips the pancakes and finishes cooking them. Serve warm.',
     ],
     tip: 'This makes about eight small pancakes. Older children can double or halve the quantities for the number of people eating.',
+    slug: 'sunday-pancakes',
   },
   {
     id: 'portrait',
@@ -1067,6 +1122,7 @@ window.SITE_ACTIVITIES = [
       'Give each portrait a kind title and create a small exhibition.',
     ],
     tip: 'Laugh at the technique, never at someone’s face. Teens can try drawing while looking only at their model.',
+    slug: 'portraits-without-lifting-your-pencil',
   },
   {
     id: 'micro-expedition',
@@ -1085,6 +1141,7 @@ window.SITE_ACTIVITIES = [
       'Back home, compare the estimate with the actual time and share your best discovery.',
     ],
     tip: 'For teens, add a constraint: avoid major roads or find a path you have never used before.',
+    slug: 'a-mini-expedition-planned-by-the-children',
   },
   {
     id: 'danse-memoire',
@@ -1103,6 +1160,7 @@ window.SITE_ACTIVITIES = [
       'When the sequence gets difficult, repeat it slowly and name your dance.',
     ],
     tip: 'Every move can be done sitting down. Older children can try performing the sequence backwards.',
+    slug: 'the-ever-growing-dance',
   },
   {
     id: 'estimation',
@@ -1121,6 +1179,7 @@ window.SITE_ACTIVITIES = [
       'Choose another object and use a known measurement to improve your estimate.',
     ],
     tip: 'Younger children can compare shorter and longer. Teens can calculate relative differences to compare objects of different sizes.',
+    slug: 'estimation-champions',
   },
   {
     id: 'pommes-four',
@@ -1144,6 +1203,7 @@ window.SITE_ACTIVITIES = [
       'An adult bakes for about 25 to 30 minutes, until the apples are tender. Let them cool a little before serving.',
     ],
     tip: 'Check ingredients for allergies. Children can compare the texture before and after baking without touching the hot dish.',
+    slug: 'simple-baked-apples',
   },
   {
     id: 'quartier-accessible',
@@ -1162,6 +1222,7 @@ window.SITE_ACTIVITIES = [
       'Draw one simple improvement and discuss who could benefit from it.',
     ],
     tip: 'Keep it observational: your assumptions do not replace the experiences of the people concerned. Younger children can look for benches and signs.',
+    slug: 'see-your-neighbourhood-differently',
   },
   {
     id: 'marche-budget',
@@ -1180,6 +1241,7 @@ window.SITE_ACTIVITIES = [
       'Compare baskets and discuss the trade-offs: quantity, enjoyment, variety and money left over.',
     ],
     tip: 'Teens can add an unexpected four-euro expense and revise their choices. These are game prices, not a real food budget.',
+    slug: 'the-imaginary-twenty-euro-market',
   },
   {
     id: 'memoire-enquete',
@@ -1198,6 +1260,7 @@ window.SITE_ACTIVITIES = [
       'Uncover the scene and compare without blaming anyone: which details did each person remember or mix up?',
     ],
     tip: 'Teens can distinguish a confident statement from an uncertain memory. Remembering something incorrectly does not mean someone is lying.',
+    slug: 'two-witnesses-one-scene',
   },
   {
     id: 'menu-restes',
@@ -1221,6 +1284,7 @@ window.SITE_ACTIVITIES = [
       'Plate the meal and record your recipe with the quantities you actually used so you can make it again.',
     ],
     tip: 'The estimated budget is for extra ingredients. Respect use-by dates, storage requirements and allergies; do not use food whose safety is uncertain.',
+    slug: 'the-store-cupboard-cooking-challenge',
   },
   {
     id: 'choix-collectif',
@@ -1239,6 +1303,7 @@ window.SITE_ACTIVITIES = [
       'Change one assumption and see whether the result changes. Discuss what your table leaves out, too.',
     ],
     tip: 'There is no hidden right answer. Numbers organise the discussion without deciding for you.',
+    slug: 'the-impossible-project-council',
   },
   {
     id: 'eaux-parfumees',
@@ -1263,6 +1328,7 @@ window.SITE_ACTIVITIES = [
       'An adult serves the water without pieces to younger children. Compare the flavours and refrigerate the rest.',
     ],
     tip: 'Children can suggest combinations using familiar food ingredients. Do not pick wild plants for this activity.',
+    slug: 'the-flavoured-water-bar',
   },
   {
     id: 'ville',
@@ -1281,6 +1347,7 @@ window.SITE_ACTIVITIES = [
       'Invent a guided tour: who lives here and what is happening today?',
     ],
     tip: 'Younger children can decorate the buildings. Older ones can draw the plan and invent the town’s rules.',
+    slug: 'build-a-cardboard-city',
   },
   {
     id: 'couleurs',
@@ -1299,6 +1366,7 @@ window.SITE_ACTIVITIES = [
       'Finish by choosing a favourite discovery each and explaining why you like it.',
     ],
     tip: 'From age nine, try looking for six textures, geometric shapes or details nobody noticed before.',
+    slug: 'the-colour-hunt',
   },
   {
     id: 'ombres',
@@ -1317,6 +1385,7 @@ window.SITE_ACTIVITIES = [
       'Perform a three-minute story, then swap roles.',
     ],
     tip: 'Older children can cut out silhouettes with an adult and add a narrator.',
+    slug: 'the-shadow-theatre',
   },
   {
     id: 'cookies',
@@ -1341,6 +1410,7 @@ window.SITE_ACTIVITIES = [
       'An adult bakes them for 10 to 12 minutes, until the edges turn golden. Let them cool before eating.',
     ],
     tip: 'Everyone can decorate a cookie. Older children can work out quantities for half a batch.',
+    slug: 'cookies-made-together',
   },
   {
     id: 'cabane',
@@ -1359,6 +1429,7 @@ window.SITE_ACTIVITIES = [
       'Climb in to read a story or invent the rules of your hideaway.',
     ],
     tip: 'Older children can turn it into an exploration base and draw an imaginary map.',
+    slug: 'a-den-in-the-living-room',
   },
   {
     id: 'avions',
@@ -1377,6 +1448,7 @@ window.SITE_ACTIVITIES = [
       'Change just one detail, such as wing width, and compare distances.',
     ],
     tip: 'It is not a competition: work together to beat your family’s best result.',
+    slug: 'the-great-paper-plane-challenge',
   },
   {
     id: 'landart',
@@ -1395,6 +1467,7 @@ window.SITE_ACTIVITIES = [
       'Admire your artwork, then leave the place tidy and paths clear.',
     ],
     tip: 'With younger children, make a face. With older ones, use symmetry or a palette of three colours.',
+    slug: 'a-nature-mandala',
   },
   {
     id: 'mimes',
@@ -1413,6 +1486,7 @@ window.SITE_ACTIVITIES = [
       'For the final round, act out an invented scene together.',
     ],
     tip: 'From age nine, try expressions or scenes from films everyone knows.',
+    slug: 'the-charades-jar',
   },
   {
     id: 'pizza',
@@ -1431,6 +1505,7 @@ window.SITE_ACTIVITIES = [
       'An adult bakes them for 8 to 10 minutes, until the cheese melts. Let them cool a little.',
     ],
     tip: 'Check allergies and adapt the toppings. Older children can invent a name and menu for their pizzeria.',
+    slug: 'pizza-style-toast',
   },
   {
     id: 'carte',
@@ -1449,6 +1524,7 @@ window.SITE_ACTIVITIES = [
       'Guide another family member using the map, or describe the journey to them.',
     ],
     tip: 'Older children can estimate distances and add a scale. Keep your home address private if you show the map to others.',
+    slug: 'a-map-of-your-neighbourhood',
   },
   {
     id: 'bruit',
@@ -1467,6 +1543,7 @@ window.SITE_ACTIVITIES = [
       'Swap roles and invent a short story using only sounds.',
     ],
     tip: 'Make it harder with two sounds in a row. Keep the volume comfortable.',
+    slug: 'the-sound-detectives',
   },
   {
     id: 'photo',
@@ -1485,6 +1562,7 @@ window.SITE_ACTIVITIES = [
       'At home, choose one photo per theme and invent captions.',
     ],
     tip: 'Without a camera, draw your discoveries. Teens can tell a story in five images.',
+    slug: 'a-photo-safari-of-tiny-details',
   },
   {
     id: 'pont',
@@ -1503,6 +1581,7 @@ window.SITE_ACTIVITIES = [
       'Compare the results and design an even stronger bridge together.',
     ],
     tip: 'Make a prediction before each test. Keep small objects out of reach when a young child is present.',
+    slug: 'a-bridge-made-from-one-sheet',
   },
   {
     id: 'bd',
@@ -1521,6 +1600,7 @@ window.SITE_ACTIVITIES = [
       'Finish the story together, add speech bubbles and give it a title.',
     ],
     tip: 'Younger children can dictate the dialogue. Teens can turn a small everyday incident into a fantastic adventure.',
+    slug: 'your-family-as-a-comic-strip',
   },
   {
     id: 'parcours',
@@ -1539,6 +1619,7 @@ window.SITE_ACTIVITIES = [
       'Invent a shared mission: all the explorers must reach the base.',
     ],
     tip: 'Nobody has to jump: walking along a line or rolling the ball makes the course easier to adapt.',
+    slug: 'the-adventurers-obstacle-course',
   },
   {
     id: 'histoire',
@@ -1557,6 +1638,7 @@ window.SITE_ACTIVITIES = [
       'End with a solution that uses the object, then invent a title.',
     ],
     tip: 'For younger children, ask a question such as ‘Who opens the box?’ For older ones, choose a genre, such as mystery.',
+    slug: 'the-story-that-goes-everywhere',
   },
   {
     id: 'gouter',
@@ -1575,6 +1657,7 @@ window.SITE_ACTIVITIES = [
       'Reveal the foods and swap roles. Drink a little water between tastes.',
     ],
     tip: 'You can simply smell or touch rather than taste. The aim is discovery, not tricking anyone.',
+    slug: 'the-mystery-tasting-snack',
   },
   {
     id: 'nuages',
@@ -1593,6 +1676,7 @@ window.SITE_ACTIVITIES = [
       'Look at the same shape a few minutes later: what has it become?',
     ],
     tip: 'If there are no clouds, look for shapes in the outlines of trees.',
+    slug: 'stories-in-the-clouds',
   },
   {
     id: 'stopmotion',
@@ -1611,6 +1695,7 @@ window.SITE_ACTIVITIES = [
       'Quickly browse the photos in the gallery to see the movement. If you already have a stop-motion tool, assemble them.',
     ],
     tip: 'One child moves the characters and the other takes the photos. Swap roles halfway through.',
+    slug: 'a-film-one-frame-at-a-time',
   },
   {
     id: 'escape',
@@ -1629,6 +1714,7 @@ window.SITE_ACTIVITIES = [
       'Accompany the searchers and offer hints. The treasure could be choosing the next family game.',
     ],
     tip: 'Allow thirty minutes to prepare and thirty minutes to play. For younger children, replace riddles with drawings.',
+    slug: 'a-secret-mission-at-home',
   },
   {
     id: 'debat',
@@ -1647,6 +1733,7 @@ window.SITE_ACTIVITIES = [
       'Swap positions and choose the most inventive argument together.',
     ],
     tip: 'Challenge ideas, never people. Teens can suggest more subtle dilemmas.',
+    slug: 'the-court-of-absurd-questions',
   },
   {
     id: 'pique',
@@ -1665,6 +1752,7 @@ window.SITE_ACTIVITIES = [
       'After eating, everyone shares their best moment of the week, then you tidy up together.',
     ],
     tip: 'If it rains, turn the picnic into an indoor activity: reset the location filter to explore other ideas.',
+    slug: 'a-picnic-just-around-the-corner',
   },
   {
     id: 'pub',
@@ -1683,6 +1771,7 @@ window.SITE_ACTIVITIES = [
       'Pitch your invention for one minute. Everyone else asks questions as very serious customers.',
     ],
     tip: 'With teens, add a pretend budget and distinguish real arguments from advertising promises.',
+    slug: 'the-inventors-of-useless-things',
   },
   {
     id: 'memoire',
@@ -1701,6 +1790,7 @@ window.SITE_ACTIVITIES = [
       'Find what is missing, then swap roles and gradually increase the difficulty.',
     ],
     tip: 'From age nine, swap the positions of two objects instead of removing one.',
+    slug: 'what-has-disappeared',
   },
   {
     id: 'empreintes-feuilles',
@@ -1723,6 +1813,7 @@ window.SITE_ACTIVITIES = [
       'Compare the veins, arrange the prints and name your collection.',
     ],
     tip: 'Wash your hands afterwards and avoid unfamiliar plants that may irritate skin. Older children can label the shapes they observe.',
+    slug: 'the-secret-prints-of-leaves',
   },
   {
     id: 'monstres-feuilles',
@@ -1746,6 +1837,7 @@ window.SITE_ACTIVITIES = [
       'Give each monster a name, a quality and a useless superpower, then introduce the family.',
     ],
     tip: 'An adult handles glue with younger children. Very dry leaves break easily: save the fragments to make scales.',
+    slug: 'the-leaf-monster-family',
   },
   {
     id: 'pommes-pin-meteo',
@@ -1764,6 +1856,7 @@ window.SITE_ACTIVITIES = [
       'Photograph or draw one specimen, then return after drier or wetter weather to compare.',
     ],
     tip: 'One observation proves nothing: the point is to return and compare your prediction with actual changes.',
+    slug: 'pine-cones-play-weather-forecaster',
   },
   {
     id: 'signes-automne',
@@ -1782,6 +1875,7 @@ window.SITE_ACTIVITIES = [
       'Finish by choosing the most surprising clue and explaining what it tells you about the season.',
     ],
     tip: 'Adapt the list to your region and weather. Older children can distinguish direct observation from interpretation.',
+    slug: 'hunt-for-signs-of-autumn',
   },
   {
     id: 'crumble-pomme-poire',
@@ -1807,5 +1901,118 @@ window.SITE_ACTIVITIES = [
       'Scatter the crumbs over the fruit. An adult bakes for about twenty-five minutes and lets it cool a little before serving.',
     ],
     tip: 'Observe the difference in texture before and after baking. Adjust quantities and cooking time to your dish and oven.',
+    slug: 'apple-and-pear-crumble-for-cool-days',
+  },
+  {
+    id: 'lanternes-fantomes',
+    title: 'Recycled ghost lanterns',
+    category: 'Créer',
+    age: 6,
+    time: 30,
+    cost: 0,
+    place: 'inside',
+    desc: 'Turn clean packaging into little lights that are more cheerful than frightening.',
+    materials: [
+      'Clean translucent cups or containers',
+      'Paper',
+      'Felt-tip pens',
+      'Tape',
+      'LED tea lights only',
+    ],
+    steps: [
+      'Clean and dry the containers, checking that there are no sharp edges.',
+      'Draw ghost eyes and mouths on paper, then cut them out with help from an adult.',
+      'Attach the faces to the containers and give each character a different emotion.',
+      'Put an LED tea light inside each lantern, turn off the room lights and tell the story of their meeting.',
+    ],
+    tip: 'Never use a real flame. Older children can create a range of emotions and arrange a small illuminated scene.',
+    slug: 'recycled-ghost-lanterns',
+  },
+  {
+    id: 'potion-couleurs',
+    title: 'The colour-changing potion',
+    category: 'Découvrir',
+    age: 6,
+    time: 30,
+    cost: 5,
+    place: 'inside',
+    desc: 'A colourful chemistry experiment disguised as a wizard’s potion.',
+    materials: [
+      'A little red cabbage',
+      'Hot water',
+      'Three clear glasses',
+      'Lemon juice',
+      'Bicarbonate of soda',
+    ],
+    steps: [
+      'An adult soaks a few pieces of red cabbage in very hot water, then lets it cool and strains the purple liquid.',
+      'Divide the liquid between three glasses and keep the first one as your reference colour.',
+      'Add a few drops of lemon juice to the second glass and a small pinch of bicarbonate to the third.',
+      'Compare the colours and discuss what each ingredient may have changed.',
+    ],
+    tip: 'This mixture is not a drink. Add ingredients slowly on a protected surface under adult supervision.',
+    slug: 'the-colour-changing-potion',
+  },
+  {
+    id: 'chasse-fantomes',
+    title: 'The little ghost hunt',
+    category: 'Jouer',
+    age: 3,
+    time: 20,
+    cost: 0,
+    place: 'inside',
+    desc: 'Hide a paper ghost family and search for it around the house.',
+    materials: ['Scrap paper', 'Pencil', 'Scissors', 'Removable tape'],
+    steps: [
+      'Draw six little ghosts together and give each one a distinctive feature.',
+      'An adult cuts them out, then one player hides them in safe, reachable places.',
+      'The seekers have five minutes and call out the name of every ghost they find.',
+      'Swap roles, then create one final hiding place with a simple clue.',
+    ],
+    tip: 'Do not hide anything near sockets, hot appliances, stairs or fragile objects.',
+    slug: 'the-little-ghost-hunt',
+  },
+  {
+    id: 'escape-citrouille',
+    title: 'The pumpkin mini escape game',
+    category: 'Jouer',
+    age: 9,
+    time: 45,
+    cost: 0,
+    place: 'inside',
+    desc: 'Three homemade puzzles reveal the code that will free an imaginary pumpkin.',
+    materials: ['Paper', 'Pencils', 'A box', 'Three familiar small objects'],
+    steps: [
+      'The game master chooses a three-digit code and hides each digit behind a short puzzle.',
+      'Prepare one observation puzzle, one logic puzzle and one that uses three objects from the room.',
+      'Arrange the puzzles in order and give the investigators thirty minutes to rebuild the code.',
+      'When they solve it, open the box and swap roles to create a new adventure.',
+    ],
+    tip: 'The treasure can simply be a funny note or the right to choose tonight’s film: no purchase is needed.',
+    slug: 'the-pumpkin-mini-escape-game',
+  },
+  {
+    id: 'pommes-monstres',
+    title: 'Crunchy apple monsters',
+    category: 'Cuisiner',
+    age: 6,
+    time: 30,
+    cost: 5,
+    place: 'inside',
+    desc: 'Apple wedges become funny jaws for a Halloween snack.',
+    materials: [
+      'Apples',
+      'Sunflower seed butter or another suitable spread',
+      'Pumpkin seeds or banana pieces',
+      'Raisins',
+    ],
+    steps: [
+      'Wash your hands and check every participant’s allergies.',
+      'An adult cuts the apples into wedges and removes the core to form a mouth.',
+      'Spread a thin layer of the chosen filling, then add seeds or small banana pieces as teeth.',
+      'Add two raisins for eyes, name your monster and eat it straight away.',
+    ],
+    tip: 'An adult handles the knife. Adapt the size and texture of every piece to the children’s ages to reduce choking risks.',
+    slug: 'crunchy-apple-monsters',
   },
 ];

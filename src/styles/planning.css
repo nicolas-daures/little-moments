@@ -1,0 +1,82 @@
+.plan-activity {
+  margin-top: 18px;
+  border: 1px solid #ffffffc9;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--tone);
+  padding: 10px 14px;
+  font-weight: 700;
+}
+
+.plan-activity:hover,
+.plan-activity[aria-expanded='true'] {
+  background: #fff;
+}
+
+.plan-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: end;
+  gap: 10px;
+  margin-top: 13px;
+  padding: 15px;
+  border: 1px solid #ffffffc9;
+  border-radius: 10px;
+  background: #ffffff9e;
+}
+
+.plan-panel > strong,
+.plan-panel #plan-status {
+  grid-column: 1 / -1;
+}
+
+.plan-panel label {
+  display: grid;
+  gap: 5px;
+  color: #455d50;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.plan-panel input {
+  min-height: 42px;
+  width: 100%;
+  border: 1px solid #cbd6cb;
+  border-radius: 7px;
+  background: #fff;
+  color: #183e32;
+  padding: 8px 10px;
+  font: inherit;
+}
+
+.plan-save {
+  min-height: 42px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--green);
+  color: #fff;
+  padding: 9px 15px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.plan-save:hover {
+  background: #28664d;
+}
+
+.plan-panel #plan-status {
+  min-height: 1.4em;
+  color: #35634e;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@media (max-width: 560px) {
+  .plan-panel {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .plan-save {
+    grid-column: 1 / -1;
+  }
+}

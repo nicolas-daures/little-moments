@@ -4,9 +4,16 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import vm from 'node:vm';
 import { listFiles, projectRoot, sourceEntries } from './project.mjs';
+import { generateSeoFiles } from './seo.mjs';
+import { addSupportFooter } from './support.mjs';
+import { checkSupportFeature } from './check-support.mjs';
 
 const entries = await sourceEntries();
-const byOutput = new Map(entries.map((entry) => [entry.output, entry]));
+const built = new Map();
+for (const { source, output } of entries) built.set(output, await readFile(source));
+const seo = await generateSeoFiles(built);
+checkSupportFeature(built);
+await addSupportFooter(built);
 const scripts = [
   ...(await listFiles(path.join(projectRoot, 'src'))),
   ...(await listFiles(path.join(projectRoot, 'scripts'))),
@@ -40,6 +47,7 @@ for (const original of french) {
     assert.deepEqual(translated[key], original[key], `${original.id}: ${key} differs.`);
   }
   for (const activity of [original, translated]) {
+    assert.match(activity.slug, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
     for (const field of ['id', 'title', 'desc', 'tip']) {
       assert.ok(typeof activity[field] === 'string' && activity[field].trim(), original.id);
     }
@@ -54,32 +62,69 @@ for (const original of french) {
 function checkReference(from, reference) {
   if (!reference || /^(?:https?:|mailto:|data:|tel:|#)/.test(reference)) return;
   const [filename] = reference.split(/[?#]/);
-  let target = path.posix.normalize(path.posix.join(path.posix.dirname(from), filename));
+  let target = path.posix.normalize(
+    filename.startsWith('/')
+      ? filename.slice(1)
+      : path.posix.join(path.posix.dirname(from), filename),
+  );
   if (filename.endsWith('/')) target = path.posix.join(target, 'index.html');
-  assert.ok(byOutput.has(target), `Broken local reference: ${from} -> ${reference}`);
+  assert.ok(built.has(target), `Broken local reference: ${from} -> ${reference}`);
 }
 
-for (const { source, output } of entries) {
+const canonicals = new Set();
+let htmlCount = 0;
+for (const [output, bytes] of built) {
   if (output.endsWith('.html')) {
-    const html = await readFile(source, 'utf8');
+    const html = bytes.toString();
+    htmlCount++;
     assert.match(html, /<html\b[^>]*\blang="(?:fr|en)"/);
     for (const match of html.matchAll(/\b(?:src|href)="([^"]+)"/g)) {
       checkReference(output, match[1]);
     }
+    if (output !== '404.html') {
+      const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)[1];
+      assert.ok(!canonicals.has(canonical), `Duplicate canonical: ${canonical}`);
+      canonicals.add(canonical);
+      for (const language of ['fr', 'en']) {
+        const alternate = html.match(
+          new RegExp(`<link rel="alternate" hreflang="${language}" href="([^"]+)"`),
+        )[1];
+        const target = new URL(alternate).pathname.slice(1);
+        assert.ok(built.has(target.endsWith('/') || !target ? target + 'index.html' : target));
+      }
+      for (const match of html.matchAll(
+        /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g,
+      ))
+        JSON.parse(match[1]);
+    }
+    if (/^(activites|en\/activities)\//.test(output)) {
+      assert.equal((html.match(/<h1>/g) || []).length, 1);
+      assert.match(html, /<ul class="materials"><li>/);
+      assert.match(html, /<ol class="steps"><li>/);
+    }
   }
   if (output.endsWith('.css')) {
-    const css = await readFile(source, 'utf8');
+    const css = bytes.toString();
     for (const match of css.matchAll(/url\(\s*["']?([^\s"')]+)["']?\s*\)/g)) {
       checkReference(output, match[1]);
     }
   }
   if (output.endsWith('.webmanifest')) {
-    const manifest = JSON.parse(await readFile(source, 'utf8'));
+    const manifest = JSON.parse(bytes.toString());
     manifest.icons.forEach((icon) => checkReference(output, icon.src));
     checkReference(output, manifest.start_url);
   }
 }
+const sitemap = built.get('sitemap.xml').toString();
+const locations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
+assert.equal(locations.length, seo.pages);
+assert.equal(new Set(locations).size, locations.length);
+for (const canonical of canonicals) assert.ok(locations.includes(canonical));
+for (const language of ['fr', 'en']) {
+  const html = built.get(language === 'fr' ? 'index.html' : 'en/index.html').toString();
+  assert.equal((html.match(/class="card seo-card"/g) || []).length, french.length);
+}
 
 console.log(
-  `Checked ${scripts.length} JavaScript files, ${french.length} bilingual activities and local resource links.`,
+  `Checked ${scripts.length} JavaScript files, ${french.length} bilingual activities, ${htmlCount} HTML pages, SEO metadata, sitemap and local resource links.`,
 );

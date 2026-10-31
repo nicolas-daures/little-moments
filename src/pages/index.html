@@ -20,13 +20,28 @@
     <link href="style.css" rel="stylesheet" />
     <link href="legal.css" rel="stylesheet" />
     <link href="favorites.css" rel="stylesheet" />
+    <link href="planning.css" rel="stylesheet" />
     <link href="search.css" rel="stylesheet" />
+    <link href="active-filters.css" rel="stylesheet" />
+    <link href="sort.css" rel="stylesheet" />
     <link href="seasonal.css" rel="stylesheet" />
+    <link href="halloween.css" rel="stylesheet" />
     <link href="completed.css" rel="stylesheet" />
+    <link href="progress.css" rel="stylesheet" />
+    <link href="quick-start.css" rel="stylesheet" />
+    <link href="checklist.css" rel="stylesheet" />
+    <link href="shopping-list.css" rel="stylesheet" />
+    <link href="family-pick.css" rel="stylesheet" />
+    <link href="share-search.css" rel="stylesheet" />
+    <link href="timer.css" rel="stylesheet" />
+    <link href="guided.css" rel="stylesheet" />
     <link href="pwa.css" rel="stylesheet" />
     <link href="print.css" rel="stylesheet" />
+    <link href="seo.css" rel="stylesheet" />
+    <script defer="" src="activity-routes.js"></script>
     <script defer="" src="locale.js"></script>
     <script defer="" src="data/activities.fr.js"></script>
+    <script defer="" src="activity-actions.js"></script>
     <script defer="" src="app.js"></script>
     <link href="language.css" rel="stylesheet" />
   </head>
@@ -116,6 +131,29 @@
             <span aria-hidden="true">✦</span>
             <p>Pas besoin d’en faire beaucoup pour passer un bon moment.</p>
           </div>
+          <section aria-labelledby="progress-title" class="family-progress">
+            <div class="progress-heading">
+              <span aria-hidden="true">✦</span>
+              <div>
+                <h3 id="progress-title">Vos petits moments</h3>
+                <p aria-live="polite" id="progress-message"></p>
+              </div>
+            </div>
+            <dl class="progress-stats">
+              <div>
+                <dt>Activités</dt>
+                <dd id="progress-activities">0</dd>
+              </div>
+              <div>
+                <dt>Temps ensemble</dt>
+                <dd id="progress-time">0 min</dd>
+              </div>
+              <div>
+                <dt>Univers explorés</dt>
+                <dd id="progress-categories">0</dd>
+              </div>
+            </dl>
+          </section>
         </aside>
         <section aria-label="Idées d’activités" class="discover">
           <article class="spotlight" id="spotlight">
@@ -130,25 +168,89 @@
               <div class="feature-meta">
                 <span>6 ans et +</span><span>45 min</span><span>Sans achat</span>
               </div>
-              <button class="primary" id="featured-open">
+              <a
+                class="primary"
+                id="featured-open"
+                href="activites/construire-une-ville-en-carton/"
+              >
                 On essaie ! <span aria-hidden="true">✧</span>
-              </button>
+              </a>
             </div>
             <div class="spotlight-photo">
               <img
                 alt="Un parent et deux enfants fabriquent ensemble une ville miniature en carton"
-                height="900"
+                height="1024"
                 src="atelier.webp"
-                width="1200"
+                fetchpriority="high"
+                decoding="async"
+                width="1536"
               /><span class="photo-label">De petites mains.<br />De grandes idées.</span>
             </div>
           </article>
+          <section aria-labelledby="quick-start-title" class="quick-start">
+            <div class="quick-start-heading">
+              <p class="eyebrow">PAS LE TEMPS DE CHERCHER ?</p>
+              <h2 id="quick-start-title">Choisissez votre moment</h2>
+            </div>
+            <div class="quick-start-options">
+              <button aria-pressed="false" data-preset="quick" type="button">
+                <span aria-hidden="true" class="quick-start-icon">⚡</span>
+                <span
+                  ><strong>Express et sans achat</strong
+                  ><small>20 min avec ce que vous avez</small></span
+                >
+              </button>
+              <button aria-pressed="false" data-preset="cozy" type="button">
+                <span aria-hidden="true" class="quick-start-icon">⌂</span>
+                <span
+                  ><strong>Un moment au chaud</strong
+                  ><small>Une idée calme à l’intérieur</small></span
+                >
+              </button>
+              <button aria-pressed="false" data-preset="outside" type="button">
+                <span aria-hidden="true" class="quick-start-icon">☀</span>
+                <span
+                  ><strong>Prendre le grand air</strong
+                  ><small>Une sortie simple et gratuite</small></span
+                >
+              </button>
+            </div>
+          </section>
+          <section aria-labelledby="family-pick-heading" class="family-pick">
+            <span aria-hidden="true" class="family-pick-mark">3</span>
+            <div>
+              <p class="eyebrow">LE CHOIX EN FAMILLE</p>
+              <h2 id="family-pick-heading">Trois idées, à vous de trancher</h2>
+              <p>Un petit tirage au sort parmi les activités qui correspondent à vos critères.</p>
+            </div>
+            <button class="primary" id="family-pick-open" type="button">
+              Proposer 3 idées <span aria-hidden="true">→</span>
+            </button>
+          </section>
           <div class="results-heading">
             <div>
               <p class="eyebrow">À VOUS DE CHOISIR</p>
               <h2>Une envie pour aujourd’hui ?</h2>
             </div>
-            <span aria-live="polite" id="count"></span>
+            <div class="results-tools">
+              <span aria-live="polite" id="count"></span>
+              <span class="share-search-wrap">
+                <button class="share-search" id="share-search" type="button">
+                  <span aria-hidden="true">↗</span> Partager la recherche
+                </button>
+                <span aria-live="polite" id="share-search-status" role="status"></span>
+              </span>
+              <label class="sort-control" for="sort">
+                <span>Trier par</span>
+                <select id="sort">
+                  <option value="recommended">Ordre proposé</option>
+                  <option value="untried">Non vécues d’abord</option>
+                  <option value="time">Plus rapides d’abord</option>
+                  <option value="cost">Moins chères d’abord</option>
+                  <option value="age">Plus jeunes d’abord</option>
+                </select>
+              </label>
+            </div>
           </div>
           <div class="activity-search">
             <span aria-hidden="true" class="search-icon">⌕</span
@@ -160,6 +262,11 @@
               type="search"
             /><span class="search-examples">Ex. carton, œufs, mémoire</span>
           </div>
+          <div aria-label="Filtres actifs" class="active-filters" hidden id="active-filters">
+            <span class="active-filters-title">Filtres actifs</span>
+            <div class="active-filter-list" id="active-filter-list"></div>
+            <button class="clear-active-filters" id="clear-active-filters">Tout effacer</button>
+          </div>
           <div aria-label="Type d’activité" class="categories">
             <button aria-pressed="true" data-category="all">Tout explorer</button
             ><button aria-pressed="false" data-category="Créer">✂ Créer</button
@@ -167,12 +274,24 @@
             ><button aria-pressed="false" data-category="Jouer">✧ Jouer</button
             ><button aria-pressed="false" data-category="Cuisiner">♧ Cuisiner</button
             ><button aria-pressed="false" data-category="Découvrir">⌕ Découvrir</button
+            ><button aria-pressed="false" class="halloween-filter" id="halloween-filter">
+              🎃 Spécial Halloween <span id="halloween-count">0</span></button
             ><button aria-pressed="false" class="seasonal-filter" id="seasonal-filter">
               🍂 Spécial automne <span id="seasonal-count">0</span></button
             ><button aria-pressed="false" class="completed-filter" id="completed-filter">
               ✓ Déjà vécues <span id="completed-count">0</span></button
             ><button aria-pressed="false" class="favorites-filter" id="favorites-filter">
               ♡ Mes favoris <span id="favorites-count">0</span>
+            </button>
+          </div>
+          <div class="favorites-prep" hidden id="favorites-prep">
+            <span aria-hidden="true" class="favorites-prep-icon">♧</span>
+            <p>
+              <strong>Préparez vos activités favorites</strong>
+              <span>Rassemblez tout le matériel dans une seule liste.</span>
+            </p>
+            <button id="shopping-list-open" type="button">
+              Voir la liste · <span id="shopping-list-count">0</span>
             </button>
           </div>
           <div class="grid" id="results"></div>
@@ -202,5 +321,28 @@
       <button aria-label="Fermer la fiche" class="close" id="close-detail">×</button>
       <div id="detail-content"></div>
     </dialog>
+    <dialog aria-labelledby="shopping-list-title" id="shopping-list-dialog">
+      <button aria-label="Fermer la liste" class="close" id="shopping-list-close">×</button>
+      <div id="shopping-list-content"></div>
+    </dialog>
+    <dialog aria-labelledby="family-pick-title" id="family-pick-dialog">
+      <button aria-label="Fermer les propositions" class="close" id="family-pick-close">×</button>
+      <div id="family-pick-content"></div>
+    </dialog>
+    <dialog aria-labelledby="guided-title" id="guided-dialog">
+      <button aria-label="Fermer le mode pas à pas" class="close" id="guided-close">×</button>
+      <div id="guided-content"></div>
+    </dialog>
+    <aside aria-label="Minuteur de l’activité" class="activity-timer" hidden id="activity-timer">
+      <div class="timer-identity">
+        <span>MINUTEUR</span>
+        <strong id="timer-activity-title"></strong>
+      </div>
+      <output id="timer-display">00:00</output>
+      <button id="timer-toggle" type="button"></button>
+      <button id="timer-reset" type="button"></button>
+      <button aria-label="Fermer et arrêter le minuteur" id="timer-close" type="button">×</button>
+      <span aria-live="assertive" id="timer-status" role="status"></span>
+    </aside>
   </body>
 </html>
