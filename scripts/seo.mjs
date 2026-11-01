@@ -454,10 +454,7 @@ export async function generateSeoFiles(files) {
           /(<div\b[^>]*\bid="results"[^>]*>)[\s\S]*?(<\/div>)/,
           `$1${catalogs[lang].map((activity) => card(activity, lang, output)).join('')}$2`,
         );
-        html = html.replace(
-          '<footer class="legal-footer">',
-          selectionLinks(lang, output) + '<footer class="legal-footer">',
-        );
+        html = html.replace('<!-- catalogue-selections -->', selectionLinks(lang, output));
       }
       const title = html.match(/<title>(.*?)<\/title>/s)[1].replace(/&amp;/g, '&');
       const meta =

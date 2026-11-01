@@ -2,6 +2,33 @@
 (function () {
   const t = (...args) => window.SITE_I18N.t(...args);
   const $ = (id) => document.getElementById(id);
+  const RECENT_KEY = 'les-petits-moments-recent';
+  function recentActivities() {
+    try {
+      const value = JSON.parse(localStorage.getItem(RECENT_KEY) || '[]');
+      return Array.isArray(value)
+        ? [
+            ...new Set(value.filter((id) => typeof id === 'string' && /^[a-z0-9-]+$/.test(id))),
+          ].slice(0, 3)
+        : [];
+    } catch {
+      return [];
+    }
+  }
+  function recordRecentActivity(id) {
+    if (typeof id !== 'string' || !/^[a-z0-9-]+$/.test(id)) return recentActivities();
+    const recent = [id, ...recentActivities().filter((value) => value !== id)].slice(0, 3);
+    try {
+      localStorage.setItem(RECENT_KEY, JSON.stringify(recent));
+    } catch {}
+    return recent;
+  }
+  function clearRecentActivities() {
+    try {
+      localStorage.removeItem(RECENT_KEY);
+    } catch {}
+    return [];
+  }
   async function shareActivity(a, url) {
     const id = a.id;
     const data = {
@@ -100,5 +127,11 @@
     share: shareActivity,
     calendar: addToCalendar,
     localDate: localDateValue,
+    recent: {
+      key: RECENT_KEY,
+      read: recentActivities,
+      record: recordRecentActivity,
+      clear: clearRecentActivities,
+    },
   };
 })();

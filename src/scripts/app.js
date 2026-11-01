@@ -48,13 +48,10 @@ const state = {
   weather: 'all',
   place: 'all',
   category: 'all',
-  favoritesOnly: false,
-  completedOnly: false,
   seasonalOnly: false,
   halloweenOnly: false,
   query: '',
   sort: 'recommended',
-  preset: null,
   sharedSelection: null,
 };
 const SHAREABLE_DEFAULTS = {
@@ -86,7 +83,9 @@ const FAVORITES_KEY = 'les-petits-moments-favorites';
 const COMPLETED_KEY = 'les-petits-moments-completed';
 let favorites = new Set();
 let completed = new Set();
-let previousFamilyPick = new Set();
+let suggestedIds = null;
+let momentsView = 'favorites';
+const restoreSuggestions = location.hash === '#ideas';
 const timerState = {
   activityId: null,
   duration: 0,
@@ -178,8 +177,6 @@ function filtered() {
       (state.weather !== 'rain' || a.place === 'inside') &&
       (state.place === 'all' || state.place === a.place) &&
       (state.category === 'all' || state.category === a.category) &&
-      (!state.favoritesOnly || favorites.has(a.id)) &&
-      (!state.completedOnly || completed.has(a.id)) &&
       (!state.seasonalOnly || seasonalIds.has(a.id)) &&
       (!state.halloweenOnly || halloweenIds.has(a.id)) &&
       (!state.sharedSelection || state.sharedSelection.has(a.id)) &&
@@ -239,40 +236,109 @@ function renderActivityCard(activity) {
   `;
 }
 
-function familyPickActivities() {
+function focusSection(id) {
+  const target = $(id);
+  target.focus({ preventScroll: true });
+  target.scrollIntoView({
+    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+    block: 'start',
+  });
+}
+
+function invalidateSuggestions() {
+  suggestedIds = null;
+  $('suggestions').hidden = true;
+}
+
+function renderSuggestions() {
+  $('suggestions').hidden = suggestedIds === null;
+  if (suggestedIds === null) return;
   const matches = filtered();
-  let pool = matches.filter((activity) => !previousFamilyPick.has(activity.id));
-  if (pool.length < Math.min(3, matches.length)) pool = [...matches];
-  for (let index = pool.length - 1; index > 0; index--) {
-    const target = Math.floor(Math.random() * (index + 1));
-    [pool[index], pool[target]] = [pool[target], pool[index]];
-  }
-  const selection = pool.slice(0, 3);
-  previousFamilyPick = new Set(selection.map((activity) => activity.id));
-  return selection;
+  const selection = suggestedIds
+    .map((id) => matches.find((activity) => activity.id === id))
+    .filter(Boolean);
+  const count = selection.length;
+  $('suggestions-title').textContent = t(
+    count === 3
+      ? 'suggestionsThree'
+      : count === 2
+        ? 'suggestionsTwo'
+        : count === 1
+          ? 'suggestionsOne'
+          : 'suggestionsNone',
+  );
+  $('suggestions-summary').textContent = count
+    ? t('suggestionsSummary')
+    : t('suggestionsNoneSummary');
+  $('suggestions-list').innerHTML = selection.map(renderActivityCard).join('');
+  $('suggestions-empty').hidden = count > 0;
+  $('suggestions-actions').hidden = count === 0;
+  $('suggestions-refresh').hidden = matches.length <= 3;
+  $('show-matches').hidden = matches.length <= 3;
+  $('matching-count').textContent = `(${matches.length})`;
 }
 
-function renderFamilyPick() {
-  const selection = familyPickActivities();
-  $('family-pick-content').innerHTML = `
-    <div class="family-pick-dialog-head">
-      <p class="eyebrow">${I18N.lang === 'en' ? 'THE FAMILY PICK' : 'LE CHOIX EN FAMILLE'}</p>
-      <h2 id="family-pick-title">${t('familyPickTitle')}</h2>
-      <p>${t('familyPickIntro')}</p>
-      <button class="family-pick-refresh" data-family-pick-refresh type="button">
-        ${t('familyPickRefresh')}
-      </button>
-    </div>
-    <div class="family-pick-grid">${selection.map(renderActivityCard).join('')}</div>
-  `;
+function suggestActivities(refresh = false) {
+  // The main journey only uses the criteria actually shown in its form.
+  Object.assign(state, {
+    category: 'all',
+    query: '',
+    seasonalOnly: false,
+    halloweenOnly: false,
+    sharedSelection: null,
+    sort: 'recommended',
+  });
+  $('search').value = '';
+  $('sort').value = state.sort;
+  suggestedIds = window.SITE_HOME_SELECTION.select(
+    filtered(),
+    refresh ? suggestedIds || [] : [],
+  ).map((activity) => activity.id);
+  $('catalogue').open = false;
+  updateButtons();
+  render();
+  focusSection('suggestions-title');
 }
 
-function openFamilyPick() {
-  if (!filtered().length) return;
-  renderFamilyPick();
-  $('family-pick-dialog').showModal();
-  $('family-pick-dialog').scrollTop = 0;
+function openCatalogue() {
+  $('catalogue').open = true;
+  render();
+  focusSection('catalogue-title');
+}
+
+function renderMoments() {
+  const list =
+    momentsView === 'recent'
+      ? recentActivities()
+      : activities.filter((activity) =>
+          (momentsView === 'favorites' ? favorites : completed).has(activity.id),
+        );
+  $('favorites-filter').setAttribute('aria-pressed', String(momentsView === 'favorites'));
+  $('completed-filter').setAttribute('aria-pressed', String(momentsView === 'completed'));
+  $('recent-filter').setAttribute('aria-pressed', String(momentsView === 'recent'));
+  $('favorites-prep').hidden = momentsView !== 'favorites' || !favorites.size;
+  $('moments-list').hidden = momentsView === 'recent';
+  $('moments-list').innerHTML =
+    momentsView === 'recent' ? '' : list.map(renderActivityCard).join('');
+  $('moments-empty').hidden = list.length > 0;
+  $('moments-empty').textContent = t(
+    momentsView === 'recent'
+      ? 'emptyRecent'
+      : momentsView === 'favorites'
+        ? 'emptyFavorites'
+        : 'emptyCompleted',
+  );
+  renderRecentlyViewed();
+}
+
+function openMoments() {
+  renderMoments();
+  $('moments-dialog').showModal();
   document.body.style.overflow = 'hidden';
+}
+
+function syncDialogScroll() {
+  document.body.style.overflow = document.querySelector('dialog[open]') ? 'hidden' : '';
 }
 
 function activeFilterItems() {
@@ -295,8 +361,6 @@ function activeFilterItems() {
     });
   }
   if (state.query) items.push({ key: 'query', label: t('queryFilter', { query: state.query }) });
-  if (state.favoritesOnly) items.push({ key: 'favoritesOnly', label: t('activeFavorites') });
-  if (state.completedOnly) items.push({ key: 'completedOnly', label: t('activeCompleted') });
   if (state.seasonalOnly) items.push({ key: 'seasonalOnly', label: t('activeAutumn') });
   if (state.halloweenOnly) items.push({ key: 'halloweenOnly', label: t('activeHalloween') });
   if (state.sharedSelection)
@@ -342,6 +406,32 @@ function renderProgress() {
   );
 }
 
+function recentActivities() {
+  return window.SITE_ACTIVITY_ACTIONS.recent
+    .read()
+    .map((id) => activities.find((activity) => activity.id === id))
+    .filter(Boolean);
+}
+
+function renderRecentlyViewed() {
+  const recent = recentActivities();
+  $('recently-viewed').hidden = momentsView !== 'recent' || !recent.length;
+  $('recent-list').innerHTML = recent
+    .map((activity) => {
+      const [tint, tone] = palettes[activity.category];
+      return `<a class="recent-card" data-recent-id="${activity.id}" href="${activityUrl(activity.id)}"
+        style="--tint:${tint};--tone:${tone}"
+        aria-label="${t('viewActivity', { title: activity.title })}">
+        <span class="recent-card-icon">${icon(activity.category)}</span>
+        <span class="recent-card-copy">
+          <strong>${activity.title}</strong>
+          <small>${t('minutes', { time: activity.time })} · ${costLabel(activity)}</small>
+        </span>
+      </a>`;
+    })
+    .join('');
+}
+
 function shareableSearchParams() {
   const params = new URLSearchParams();
   if (state.sharedSelection) params.set('selection', [...state.sharedSelection].join(','));
@@ -363,10 +453,13 @@ function syncShareableUrl() {
   const current = new URL(location.href);
   for (const key of SHAREABLE_PARAMS) current.searchParams.delete(key);
   for (const [key, value] of params) current.searchParams.set(key, value);
+  if (suggestedIds !== null && !$('catalogue').open) current.hash = 'ideas';
+  else if (current.hash === '#ideas') current.hash = '';
   history.replaceState(null, '', current);
   document.querySelectorAll('[data-language]').forEach((link) => {
     const target = new URL(link.href);
     target.search = params.toString();
+    target.hash = current.hash;
     link.href = target;
   });
 }
@@ -407,18 +500,8 @@ function render() {
   const list = filtered();
   syncShareableUrl();
   $('share-search-status').textContent = '';
-  $('count').textContent = I18N.count(
-    state.completedOnly
-      ? 'completed'
-      : state.favoritesOnly
-        ? 'favorites'
-        : state.halloweenOnly
-          ? 'halloween'
-          : 'ideas',
-    list.length,
-  );
+  $('count').textContent = I18N.count(state.halloweenOnly ? 'halloween' : 'ideas', list.length);
   $('favorites-count').textContent = favorites.size;
-  $('favorites-prep').hidden = !favorites.size;
   $('shopping-list-count').textContent = favorites.size;
   $('completed-count').textContent = completed.size;
   $('seasonal-count').textContent = seasonalIds.size;
@@ -426,57 +509,14 @@ function render() {
   $('results').innerHTML = list.map(renderActivityCard).join('');
   renderActiveFilters();
   renderProgress();
+  renderMoments();
+  renderSuggestions();
   $('empty').hidden = list.length > 0;
   $('empty-message').textContent = state.query
     ? t('emptyQuery', { query: state.query })
-    : state.completedOnly && !completed.size
-      ? t('emptyCompleted')
-      : state.favoritesOnly && !favorites.size
-        ? t('emptyFavorites')
-        : t('empty');
-  $('spotlight').hidden =
-    Boolean(state.query) ||
-    state.favoritesOnly ||
-    state.completedOnly ||
-    state.seasonalOnly ||
-    state.halloweenOnly ||
-    state.sharedSelection ||
-    !list.some((a) => a.id === 'ville');
-  document.querySelectorAll('.surprise').forEach((b) => {
-    b.disabled = !list.length;
-    b.title = t(list.length ? 'surpriseHint' : 'surpriseDisabled');
-  });
-  $('family-pick-open').disabled = !list.length;
-  $('family-pick-open').title = list.length ? '' : t('familyPickDisabled');
+    : t('empty');
   $('share-search').disabled = !hasShareableSearch();
   $('share-search').title = t(hasShareableSearch() ? 'shareSearchHint' : 'shareSearchDisabled');
-}
-
-function applyPreset(name) {
-  const presets = {
-    quick: { duration: '20', budget: '0', weather: 'all', place: 'all', sort: 'time' },
-    cozy: { duration: '45', budget: '5', weather: 'rain', place: 'inside', sort: 'recommended' },
-    outside: { duration: '60', budget: '0', weather: 'sun', place: 'outside', sort: 'recommended' },
-  };
-  const preset = presets[name];
-  if (!preset) return;
-  Object.assign(state, preset, {
-    category: 'all',
-    favoritesOnly: false,
-    completedOnly: false,
-    seasonalOnly: false,
-    halloweenOnly: false,
-    query: '',
-    preset: name,
-    sharedSelection: null,
-  });
-  updateSharedSelectionLinks();
-  ['duration', 'budget', 'weather'].forEach((key) => ($(key).value = state[key]));
-  $('search').value = '';
-  $('sort').value = state.sort;
-  updateButtons();
-  render();
-  $('count').scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 function clearFilter(key) {
@@ -488,15 +528,13 @@ function clearFilter(key) {
     place: 'all',
     category: 'all',
     query: '',
-    favoritesOnly: false,
-    completedOnly: false,
     seasonalOnly: false,
     halloweenOnly: false,
     sharedSelection: null,
   };
   if (!(key in defaults)) return;
+  invalidateSuggestions();
   state[key] = defaults[key];
-  state.preset = null;
   if (key === 'sharedSelection') updateSharedSelectionLinks();
   if (['age', 'duration', 'budget', 'weather'].includes(key)) $(key).value = state[key];
   if (key === 'query') $('search').value = '';
@@ -504,6 +542,7 @@ function clearFilter(key) {
   render();
 }
 function reset() {
+  invalidateSuggestions();
   Object.assign(state, {
     age: 'all',
     duration: '999',
@@ -511,13 +550,10 @@ function reset() {
     weather: 'all',
     place: 'all',
     category: 'all',
-    favoritesOnly: false,
-    completedOnly: false,
     seasonalOnly: false,
     halloweenOnly: false,
     query: '',
     sort: 'recommended',
-    preset: null,
     sharedSelection: null,
   });
   updateSharedSelectionLinks();
@@ -534,15 +570,8 @@ function updateButtons() {
   document
     .querySelectorAll('[data-category]')
     .forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.category === state.category)));
-  $('favorites-filter').setAttribute('aria-pressed', String(state.favoritesOnly));
-  $('completed-filter').setAttribute('aria-pressed', String(state.completedOnly));
   $('seasonal-filter').setAttribute('aria-pressed', String(state.seasonalOnly));
   $('halloween-filter').setAttribute('aria-pressed', String(state.halloweenOnly));
-  document
-    .querySelectorAll('[data-preset]')
-    .forEach((button) =>
-      button.setAttribute('aria-pressed', String(button.dataset.preset === state.preset)),
-    );
 }
 function toggleFavorite(id) {
   if (favorites.has(id)) favorites.delete(id);
@@ -825,7 +854,6 @@ function openSharedActivity() {
   }
   if (activities.some((a) => a.id === id)) openActivity(id);
 }
-let previousId = null;
 const activityChecklists = new Map();
 
 function updateActivityProgress() {
@@ -946,7 +974,8 @@ function syncGuidedStepToDetail(activityId, index, checked) {
 function openActivity(id) {
   const a = activities.find((a) => a.id === id);
   if (!a) throw new Error(t('unknownActivity'));
-  previousId = id;
+  window.SITE_ACTIVITY_ACTIONS.recent.record(a.id);
+  renderMoments();
   const [tint, tone] = palettes[a.category];
   const isFavorite = favorites.has(a.id),
     isCompleted = completed.has(a.id);
@@ -1069,7 +1098,7 @@ function openActivity(id) {
 ['age', 'duration', 'budget', 'weather'].forEach((k) =>
   $(k).addEventListener('change', (e) => {
     state[k] = e.target.value;
-    state.preset = null;
+    invalidateSuggestions();
     updateButtons();
     render();
   }),
@@ -1077,7 +1106,7 @@ function openActivity(id) {
 document.querySelectorAll('[data-place]').forEach((b) =>
   b.addEventListener('click', () => {
     state.place = b.dataset.place;
-    state.preset = null;
+    invalidateSuggestions();
     updateButtons();
     render();
   }),
@@ -1085,44 +1114,43 @@ document.querySelectorAll('[data-place]').forEach((b) =>
 document.querySelectorAll('[data-category]').forEach((b) =>
   b.addEventListener('click', () => {
     state.category = b.dataset.category;
-    state.preset = null;
+    invalidateSuggestions();
     updateButtons();
     render();
   }),
 );
 $('favorites-filter').addEventListener('click', () => {
-  state.favoritesOnly = !state.favoritesOnly;
-  state.preset = null;
-  updateButtons();
-  render();
+  momentsView = 'favorites';
+  renderMoments();
 });
 $('completed-filter').addEventListener('click', () => {
-  state.completedOnly = !state.completedOnly;
-  state.preset = null;
-  updateButtons();
-  render();
+  momentsView = 'completed';
+  renderMoments();
+});
+$('recent-filter').addEventListener('click', () => {
+  momentsView = 'recent';
+  renderMoments();
 });
 $('seasonal-filter').addEventListener('click', () => {
   state.seasonalOnly = !state.seasonalOnly;
-  state.preset = null;
+  invalidateSuggestions();
   updateButtons();
   render();
 });
 $('halloween-filter').addEventListener('click', () => {
   state.halloweenOnly = !state.halloweenOnly;
-  state.preset = null;
+  invalidateSuggestions();
   updateButtons();
   render();
 });
 $('search').addEventListener('input', (e) => {
   state.query = e.target.value.trim();
-  state.preset = null;
+  invalidateSuggestions();
   updateButtons();
   render();
 });
 $('sort').addEventListener('change', (e) => {
   state.sort = e.target.value;
-  state.preset = null;
   updateButtons();
   render();
 });
@@ -1131,19 +1159,50 @@ $('active-filter-list').addEventListener('click', (e) => {
   if (button) clearFilter(button.dataset.clearFilter);
 });
 $('clear-active-filters').addEventListener('click', reset);
-$('shopping-list-open').addEventListener('click', openShoppingList);
-$('family-pick-open').addEventListener('click', openFamilyPick);
+$('moment-form').addEventListener('submit', (event) => {
+  event.preventDefault();
+  suggestActivities();
+});
+$('suggestions-refresh').addEventListener('click', () => suggestActivities(true));
+$('show-matches').addEventListener('click', openCatalogue);
+$('catalogue').addEventListener('toggle', syncShareableUrl);
+$('edit-criteria').addEventListener('click', () => focusSection('moment-title'));
+$('moments-open').addEventListener('click', openMoments);
+$('moments-close').addEventListener('click', () => $('moments-dialog').close());
+$('shopping-list-open').addEventListener('click', () => {
+  $('moments-dialog').close();
+  openShoppingList();
+});
 $('share-search').addEventListener('click', shareCurrentSearch);
-document
-  .querySelectorAll('[data-preset]')
-  .forEach((button) => button.addEventListener('click', () => applyPreset(button.dataset.preset)));
-$('results').addEventListener('click', (e) => {
+$('recent-clear').addEventListener('click', () => {
+  window.SITE_ACTIVITY_ACTIONS.recent.clear();
+  renderMoments();
+});
+$('recent-list').addEventListener('click', (event) => {
+  const card = event.target.closest('[data-recent-id]');
+  if (
+    card &&
+    event.button === 0 &&
+    !event.metaKey &&
+    !event.ctrlKey &&
+    !event.shiftKey &&
+    !event.altKey
+  ) {
+    event.preventDefault();
+    $('moments-dialog').close();
+    openActivity(card.dataset.recentId);
+  }
+});
+function openCard(e) {
   const card = e.target.closest('[data-id]');
   if (card && e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey) {
     e.preventDefault();
+    if ($('moments-dialog').open) $('moments-dialog').close();
     openActivity(card.dataset.id);
   }
-});
+}
+for (const id of ['results', 'suggestions-list', 'moments-list'])
+  $(id).addEventListener('click', openCard);
 $('detail-content').addEventListener('click', (e) => {
   const c = e.target.closest('[data-completed-id]');
   if (c) toggleCompleted(c.dataset.completedId);
@@ -1193,25 +1252,6 @@ $('shopping-list-content').addEventListener('click', (e) => {
   if (e.target.closest('[data-copy-shopping-list]')) copyShoppingList();
   if (e.target.closest('[data-share-shopping-list]')) shareFavoriteSelection();
 });
-$('family-pick-content').addEventListener('click', (event) => {
-  if (event.target.closest('[data-family-pick-refresh]')) {
-    renderFamilyPick();
-    return;
-  }
-  const card = event.target.closest('[data-id]');
-  if (
-    card &&
-    event.button === 0 &&
-    !event.metaKey &&
-    !event.ctrlKey &&
-    !event.shiftKey &&
-    !event.altKey
-  ) {
-    event.preventDefault();
-    $('family-pick-dialog').close();
-    openActivity(card.dataset.id);
-  }
-});
 $('guided-content').addEventListener('click', (event) => {
   const activity = guidedActivity();
   if (!activity) return;
@@ -1234,24 +1274,9 @@ $('guided-content').addEventListener('click', (event) => {
     renderGuided();
   }
 });
-$('reset').addEventListener('click', reset);
 $('empty-reset').addEventListener('click', reset);
-$('featured-open').addEventListener('click', (event) => {
-  if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
-    return;
-  event.preventDefault();
-  openActivity('ville');
-});
-document.querySelectorAll('.surprise').forEach((b) =>
-  b.addEventListener('click', () => {
-    let list = filtered();
-    if (list.length > 1) list = list.filter((a) => a.id !== previousId);
-    if (list.length) openActivity(list[Math.floor(Math.random() * list.length)].id);
-  }),
-);
 $('close-detail').addEventListener('click', () => $('detail').close());
 $('shopping-list-close').addEventListener('click', () => $('shopping-list-dialog').close());
-$('family-pick-close').addEventListener('click', () => $('family-pick-dialog').close());
 $('guided-close').addEventListener('click', () => $('guided-dialog').close());
 $('timer-toggle').addEventListener('click', toggleTimer);
 $('timer-reset').addEventListener('click', resetTimer);
@@ -1264,7 +1289,7 @@ $('detail').addEventListener('click', (e) => {
   }
 });
 $('detail').addEventListener('close', () => {
-  document.body.style.overflow = '';
+  syncDialogScroll();
 });
 $('shopping-list-dialog').addEventListener('click', (e) => {
   if (e.target === $('shopping-list-dialog')) {
@@ -1279,26 +1304,24 @@ $('shopping-list-dialog').addEventListener('click', (e) => {
   }
 });
 $('shopping-list-dialog').addEventListener('close', () => {
-  document.body.style.overflow = '';
+  syncDialogScroll();
 });
-$('family-pick-dialog').addEventListener('click', (event) => {
-  if (event.target === $('family-pick-dialog')) {
-    const rect = $('family-pick-dialog').getBoundingClientRect();
+$('moments-dialog').addEventListener('click', (event) => {
+  if (event.target === $('moments-dialog')) {
+    const rect = $('moments-dialog').getBoundingClientRect();
     if (
       event.clientX < rect.left ||
       event.clientX > rect.right ||
       event.clientY < rect.top ||
       event.clientY > rect.bottom
     )
-      $('family-pick-dialog').close();
+      $('moments-dialog').close();
   }
 });
-$('family-pick-dialog').addEventListener('close', () => {
-  document.body.style.overflow = '';
-});
+$('moments-dialog').addEventListener('close', syncDialogScroll);
 $('guided-dialog').addEventListener('close', () => {
   releaseGuidedWakeLock();
-  if ($('detail').open) document.body.style.overflow = 'hidden';
+  syncDialogScroll();
 });
 $('guided-dialog').addEventListener('click', (event) => {
   if (event.target !== $('guided-dialog')) return;
@@ -1330,11 +1353,38 @@ document.addEventListener('visibilitychange', () => {
 ['age', 'duration', 'budget', 'weather'].forEach((key) => ($(key).value = state[key]));
 $('search').value = state.query;
 $('sort').value = state.sort;
+$('catalogue').open = hasShareableSearch();
+$('moment-options').open = state.budget !== '999' || state.weather !== 'all';
+if (state.category !== 'all' || state.seasonalOnly || state.halloweenOnly)
+  document.querySelector('.catalogue-themes').open = true;
 updateButtons();
 updateSharedSelectionLinks();
 render();
+if (restoreSuggestions) suggestActivities();
 openSharedActivity();
 window.addEventListener('hashchange', openSharedActivity);
+window.addEventListener('storage', (event) => {
+  for (const [key, values] of [
+    [FAVORITES_KEY, favorites],
+    [COMPLETED_KEY, completed],
+  ]) {
+    if (event.key !== key && event.key !== null) continue;
+    try {
+      const stored = JSON.parse(localStorage.getItem(key) || '[]');
+      values.clear();
+      if (Array.isArray(stored))
+        for (const id of stored) {
+          if (activities.some((activity) => activity.id === id)) values.add(id);
+        }
+    } catch {}
+  }
+  if (
+    [FAVORITES_KEY, COMPLETED_KEY, window.SITE_ACTIVITY_ACTIONS.recent.key, null].includes(
+      event.key,
+    )
+  )
+    render();
+});
 if (!window.__DEV__ && 'serviceWorker' in navigator)
   window.addEventListener('load', () =>
     navigator.serviceWorker.register(I18N.workerUrl).catch(() => {}),
@@ -1404,6 +1454,8 @@ if (document.modelContext?.registerTool) {
       for (const [key, value] of Object.entries(input))
         if (!allowed[key]?.includes(value)) throw new Error(t('invalidFilter', { key }));
       Object.assign(state, input);
+      invalidateSuggestions();
+      $('catalogue').open = true;
       ['age', 'duration', 'budget', 'weather'].forEach((key) => ($(key).value = state[key]));
       $('sort').value = state.sort;
       updateButtons();

@@ -1,0 +1,429 @@
+/* The home page has one main task. Secondary tools live in the catalogue or My moments. */
+html[data-page='home'] main {
+  max-width: 1120px;
+  padding-top: 46px;
+}
+
+.home-intro {
+  max-width: 680px;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+
+.home-intro h1 {
+  margin-bottom: 15px;
+}
+
+.home-intro > p:last-child {
+  max-width: 530px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.moments-open,
+.home-secondary,
+.moments-tabs button {
+  min-height: 44px;
+  padding: 10px 15px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  color: var(--green);
+  background: #fff;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.moments-open:hover,
+.home-secondary:hover,
+.moments-tabs button:hover {
+  background: #f1f5ec;
+  border-color: #b4c5b4;
+}
+
+.moment-form {
+  padding: 27px 30px;
+  background: #fff;
+  border: 1px solid #dce5d8;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px #183e3206;
+}
+
+.moment-form h2 {
+  margin: 0 0 22px;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+}
+
+.moment-fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.moment-field {
+  min-width: 0;
+}
+
+.moment-field > label,
+.moment-field > legend {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.moment-field > select {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 1px solid #dce4da;
+  border-radius: 9px;
+  color: var(--ink);
+  background: #fbfcf8;
+}
+
+fieldset.moment-field {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.moment-field .segmented {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid #dce4da;
+  border-radius: 9px;
+  background: #fbfcf8;
+}
+
+.moment-field .segmented button {
+  flex: 1;
+  min-width: 0;
+  min-height: 38px;
+  padding: 6px 7px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.moment-field .segmented button[aria-pressed='true'] {
+  background: #e7eedf;
+  color: var(--green);
+  font-weight: 700;
+}
+
+.moment-options {
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+.moment-options > summary,
+.catalogue > summary,
+.catalogue-themes > summary {
+  cursor: pointer;
+  color: var(--green);
+  text-underline-offset: 4px;
+}
+
+.moment-options > summary:focus-visible,
+.catalogue > summary:focus-visible,
+.catalogue-themes > summary:focus-visible {
+  outline: 3px solid #cc8c00;
+  outline-offset: 5px;
+  border-radius: 4px;
+}
+
+.moment-options-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.moment-submit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 23px;
+}
+
+.moment-submit > p {
+  margin: 0;
+  max-width: 330px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.moment-submit .primary {
+  min-height: 49px;
+  justify-content: center;
+}
+
+.suggestions {
+  margin-top: 34px;
+  scroll-margin-top: 24px;
+}
+
+.suggestions h2 {
+  margin: 0 0 7px;
+  font-size: 25px;
+  letter-spacing: -0.7px;
+}
+
+.suggestions-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+}
+
+.suggestions-summary {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.suggestions .grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.suggestions .card {
+  min-height: 280px;
+}
+
+.suggestions-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px 20px;
+  margin-top: 20px;
+}
+
+.home-text-link {
+  min-height: 44px;
+  padding: 10px 0;
+  border: 0;
+  background: transparent;
+  color: var(--green);
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.suggestions-empty {
+  padding: 22px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #f4f7ef;
+}
+
+.suggestions-empty p {
+  margin: 0 0 14px;
+}
+
+.catalogue {
+  margin-top: 30px;
+  padding-top: 23px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 25px;
+}
+
+.catalogue > summary {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 9px;
+  font-size: 14px;
+}
+
+.catalogue[open] > summary {
+  margin-bottom: 24px;
+}
+
+.catalogue .results-heading {
+  align-items: start;
+  margin-top: 0;
+}
+
+.catalogue .results-heading h2 {
+  font-size: 23px;
+}
+
+.catalogue .results-tools {
+  justify-content: flex-end;
+}
+
+.catalogue-themes {
+  margin: 0 0 20px;
+  font-size: 13px;
+}
+
+.catalogue-themes .categories {
+  margin-top: 13px;
+  margin-bottom: 0;
+}
+
+#moments-dialog {
+  max-width: 960px;
+}
+
+.moments-content {
+  padding: 32px;
+}
+
+.moments-content > h2 {
+  margin: 0 40px 5px 0;
+  font-size: 27px;
+  letter-spacing: -0.6px;
+}
+
+.moments-intro {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.moments-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 20px;
+}
+
+.moments-tabs button[aria-pressed='true'] {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+}
+
+.moments-content .grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.moments-content .recently-viewed {
+  margin-top: 0;
+}
+
+.moments-content .recent-list {
+  grid-template-columns: 1fr;
+}
+
+.moments-content .recent-heading h2,
+.moments-content .family-progress h3 {
+  font-family: Manrope, sans-serif;
+  font-weight: 700;
+}
+
+.moments-content .family-progress {
+  margin-top: 24px;
+}
+
+.moments-empty {
+  padding: 22px;
+  background: #f5f8f0;
+  border-radius: 12px;
+  color: var(--muted);
+}
+
+.moments-content .install-app {
+  margin-top: 18px;
+}
+
+@media (max-width: 760px) {
+  html[data-page='home'] main {
+    padding-top: 30px;
+  }
+  .home-intro {
+    margin-bottom: 23px;
+  }
+  .home-intro h1 {
+    font-size: 32px;
+  }
+  .home-intro > p:last-child {
+    font-size: 15px;
+  }
+  .moment-form {
+    padding: 22px;
+  }
+  .moment-fields {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  fieldset.moment-field {
+    grid-column: 1 / -1;
+  }
+  .moment-submit {
+    align-items: stretch;
+    flex-direction: column-reverse;
+    gap: 11px;
+  }
+  .moment-submit > p {
+    max-width: none;
+    text-align: center;
+    font-size: 12px;
+  }
+  .suggestions .grid {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+  .suggestions .card {
+    min-height: 0;
+    padding: 20px;
+  }
+  .suggestions .card-top {
+    margin-bottom: 12px;
+  }
+  .suggestions .card h3 {
+    min-height: 0;
+  }
+  .catalogue .results-heading {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .catalogue .results-tools {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 440px) {
+  html[data-page='home'] > body > header {
+    padding: 12px 16px;
+    min-height: 80px;
+  }
+  .moments-open {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  .moment-fields,
+  .moment-options-fields {
+    grid-template-columns: 1fr;
+  }
+  .moment-fields {
+    gap: 15px;
+  }
+  .moment-form {
+    padding: 19px;
+  }
+  .moment-form h2 {
+    font-size: 18px;
+    margin-bottom: 18px;
+  }
+  .moment-field > select {
+    font-size: 16px;
+  }
+  .moments-content {
+    padding: 24px 18px;
+  }
+  .moments-content .grid {
+    grid-template-columns: 1fr;
+  }
+}

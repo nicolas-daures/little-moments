@@ -49,7 +49,8 @@
     importInput = document.getElementById('import-local-preferences'),
     backupStatus = document.getElementById('backup-local-status'),
     favoritesKey = 'les-petits-moments-favorites',
-    completedKey = 'les-petits-moments-completed';
+    completedKey = 'les-petits-moments-completed',
+    recentKey = 'les-petits-moments-recent';
 
   function readStoredIds(key) {
     const value = JSON.parse(localStorage.getItem(key) || '[]');
@@ -58,14 +59,17 @@
   }
 
   function validateBackup(data) {
-    if (!data || data.app !== 'les-petits-moments' || data.version !== 1) return null;
+    if (!data || data.app !== 'les-petits-moments' || ![1, 2].includes(data.version)) return null;
     if (!Array.isArray(data.favorites) || !Array.isArray(data.completed)) return null;
+    const recent = data.version === 2 ? data.recent : [];
+    if (!Array.isArray(recent)) return null;
     const validIds = (ids) =>
       ids.length <= 500 && ids.every((id) => typeof id === 'string' && /^[a-z0-9-]+$/.test(id));
-    if (!validIds(data.favorites) || !validIds(data.completed)) return null;
+    if (!validIds(data.favorites) || !validIds(data.completed) || !validIds(recent)) return null;
     return {
       favorites: [...new Set(data.favorites)],
       completed: [...new Set(data.completed)],
+      recent: [...new Set(recent)].slice(0, 3),
     };
   }
 
@@ -74,12 +78,14 @@
       try {
         const favorites = readStoredIds(favoritesKey),
           completed = readStoredIds(completedKey),
+          recent = readStoredIds(recentKey).slice(0, 3),
           backup = {
             app: 'les-petits-moments',
-            version: 1,
+            version: 2,
             exportedAt: new Date().toISOString(),
             favorites,
             completed,
+            recent,
           },
           blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' }),
           url = URL.createObjectURL(blob),
@@ -93,6 +99,7 @@
         backupStatus.textContent = t('backupExported', {
           favorites: favorites.length,
           completed: completed.length,
+          recent: recent.length,
         });
       } catch {
         backupStatus.textContent = t('backupBlocked');
@@ -112,9 +119,11 @@
         }
         localStorage.setItem(favoritesKey, JSON.stringify(backup.favorites));
         localStorage.setItem(completedKey, JSON.stringify(backup.completed));
+        localStorage.setItem(recentKey, JSON.stringify(backup.recent));
         backupStatus.textContent = t('backupImported', {
           favorites: backup.favorites.length,
           completed: backup.completed.length,
+          recent: backup.recent.length,
         });
       } catch (error) {
         backupStatus.textContent =
@@ -138,6 +147,7 @@
       try {
         localStorage.removeItem(favoritesKey);
         localStorage.removeItem(completedKey);
+        localStorage.removeItem(recentKey);
         eraseStatus.textContent = t('eraseSuccess');
       } catch {
         eraseStatus.textContent = t('eraseBlocked');

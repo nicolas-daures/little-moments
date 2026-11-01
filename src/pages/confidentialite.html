@@ -131,6 +131,11 @@
                 <td>Jusqu’à leur suppression par vous ou par votre navigateur.</td>
               </tr>
               <tr>
+                <td>Consultations récentes</td>
+                <td>Identifiants des trois dernières fiches ouvertes ; stockage local.</td>
+                <td>Jusqu’à leur effacement depuis l’accueil, cette page ou votre navigateur.</td>
+              </tr>
+              <tr>
                 <td>Cache hors ligne</td>
                 <td>
                   Copies des pages, fiches, styles, images, polices et fichiers de l’application
@@ -163,17 +168,17 @@
           </table>
         </div>
         <p>
-          L’application ne transmet pas vos deux listes à l’éditeur ou à un outil de statistiques.
-          Toute personne utilisant le même profil de navigateur sur le même appareil peut toutefois
-          les retrouver. Elles sont communes aux pages françaises et anglaises du même site, mais ne
+          L’application ne transmet pas ces listes à l’éditeur ou à un outil de statistiques. Toute
+          personne utilisant le même profil de navigateur sur le même appareil peut toutefois les
+          retrouver. Elles sont communes aux pages françaises et anglaises du même site, mais ne
           sont pas synchronisées entre appareils.
         </p>
         <div class="privacy-control privacy-backup">
           <strong>Sauvegarder ou transférer votre carnet</strong>
           <p>
-            Téléchargez une petite sauvegarde de vos favoris et activités vécues. Vous pourrez la
-            restaurer sur cet appareil ou sur un autre. Le fichier est créé et lu localement : il
-            n’est jamais envoyé au site.
+            Téléchargez une petite sauvegarde de vos favoris, activités vécues et consultations
+            récentes. Vous pourrez la restaurer sur cet appareil ou sur un autre. Le fichier est
+            créé et lu localement : il n’est jamais envoyé au site.
           </p>
           <div class="privacy-actions">
             <button class="primary" id="export-local-preferences" type="button">
@@ -192,13 +197,14 @@
           <p aria-live="polite" id="backup-local-status" role="status"></p>
         </div>
         <div class="privacy-control">
-          <strong>Effacer vos listes sur cet appareil</strong>
+          <strong>Effacer vos données locales sur cet appareil</strong>
           <p>
-            Vous pouvez supprimer chaque favori ou activité vécue depuis sa fiche, ou effacer les
-            deux listes ici. Cela ne supprime pas le cache hors ligne ni la langue choisie.
+            Vous pouvez supprimer chaque favori ou activité vécue depuis sa fiche, effacer les
+            consultations récentes depuis l’accueil, ou tout supprimer ici. Cela ne supprime pas le
+            cache hors ligne ni la langue choisie.
           </p>
           <button class="primary" id="erase-local-preferences" type="button">
-            Effacer mes favoris et activités vécues
+            Effacer mes favoris, activités vécues et consultations récentes
           </button>
           <p aria-live="polite" id="erase-local-status" role="status"></p>
         </div>

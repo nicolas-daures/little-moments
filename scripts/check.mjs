@@ -7,6 +7,7 @@ import { listFiles, projectRoot, sourceEntries } from './project.mjs';
 import { generateSeoFiles } from './seo.mjs';
 import { addSupportFooter } from './support.mjs';
 import { checkSupportFeature } from './check-support.mjs';
+import { checkHomeFlow } from './check-home.mjs';
 
 const entries = await sourceEntries();
 const built = new Map();
@@ -35,10 +36,39 @@ async function loadCatalog(language) {
 
 const french = await loadCatalog('fr');
 const english = await loadCatalog('en');
+await checkHomeFlow(built, { fr: french, en: english });
 assert.ok(french.length > 0, 'The activity catalog cannot be empty.');
 assert.equal(new Set(french.map((activity) => activity.id)).size, french.length);
 assert.equal(new Set(english.map((activity) => activity.id)).size, english.length);
 assert.equal(french.length, english.length, 'Both languages need the same activities.');
+
+const localValues = new Map();
+const recentContext = {
+  window: { SITE_I18N: { t: (key) => key } },
+  document: { getElementById: () => null },
+  localStorage: {
+    getItem: (key) => localValues.get(key) ?? null,
+    setItem: (key, value) => localValues.set(key, value),
+    removeItem: (key) => localValues.delete(key),
+  },
+  URL,
+  Blob,
+  setTimeout,
+};
+vm.runInNewContext(
+  await readFile(path.join(projectRoot, 'src/scripts/activity-actions.js'), 'utf8'),
+  recentContext,
+);
+const recent = recentContext.window.SITE_ACTIVITY_ACTIONS.recent;
+assert.deepEqual([...recent.read()], []);
+for (const id of ['ville', 'bingo-nature', 'photo', 'oiseaux']) recent.record(id);
+assert.deepEqual([...recent.read()], ['oiseaux', 'photo', 'bingo-nature']);
+recent.record('photo');
+assert.deepEqual([...recent.read()], ['photo', 'oiseaux', 'bingo-nature']);
+recent.record('../invalid');
+assert.deepEqual([...recent.read()], ['photo', 'oiseaux', 'bingo-nature']);
+recent.clear();
+assert.deepEqual([...recent.read()], []);
 
 for (const original of french) {
   const translated = english.find((activity) => activity.id === original.id);
@@ -123,6 +153,9 @@ for (const canonical of canonicals) assert.ok(locations.includes(canonical));
 for (const language of ['fr', 'en']) {
   const html = built.get(language === 'fr' ? 'index.html' : 'en/index.html').toString();
   assert.equal((html.match(/class="card seo-card"/g) || []).length, french.length);
+  assert.match(html, /id="recently-viewed"/);
+  assert.match(html, /id="recent-list"/);
+  assert.match(html, /recent\.css/);
 }
 
 console.log(

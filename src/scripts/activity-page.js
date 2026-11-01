@@ -3,6 +3,7 @@
   const activity = JSON.parse(document.getElementById('activity-data').textContent);
   const i18n = window.SITE_I18N;
   const actions = window.SITE_ACTIVITY_ACTIONS;
+  actions.recent.record(activity.id);
   const t = (key) => i18n.t(key);
   const favorite = document.querySelector('[data-favorite-id]');
   const completed = document.querySelector('[data-completed-id]');

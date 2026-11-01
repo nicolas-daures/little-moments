@@ -139,6 +139,11 @@
                 <td>Until you or your browser delete them.</td>
               </tr>
               <tr>
+                <td>Recent views</td>
+                <td>Identifiers of the last three activity cards you opened; local storage.</td>
+                <td>Until cleared from the home page, this page or your browser.</td>
+              </tr>
+              <tr>
                 <td>Offline cache</td>
                 <td>
                   Copies of pages, activity cards, styles, images, fonts and application files so
@@ -165,7 +170,7 @@
           </table>
         </div>
         <p>
-          The application does not send your two lists to the publisher or to an analytics service.
+          The application does not send these lists to the publisher or to an analytics service.
           Anyone using the same browser profile on the same device may still see them. They are
           shared between the French and English pages on the same site, but are not synchronised
           between devices.
@@ -173,9 +178,9 @@
         <div class="privacy-control privacy-backup">
           <strong>Back up or transfer your collection</strong>
           <p>
-            Download a small backup of your favourites and completed activities. You can restore it
-            on this device or another one. The file is created and read locally: it is never sent to
-            the website.
+            Download a small backup of your favourites, completed activities and recent views. You
+            can restore it on this device or another one. The file is created and read locally: it
+            is never sent to the website.
           </p>
           <div class="privacy-actions">
             <button class="primary" id="export-local-preferences" type="button">
@@ -194,13 +199,14 @@
           <p aria-live="polite" id="backup-local-status" role="status"></p>
         </div>
         <div class="privacy-control">
-          <strong>Delete your lists on this device</strong>
+          <strong>Delete your local data on this device</strong>
           <p>
-            You can remove each favourite or completed activity from its card, or delete both lists
-            here. This does not delete the offline cache or your chosen language.
+            You can remove each favourite or completed activity from its card, clear recent views
+            from the home page, or delete everything here. This does not delete the offline cache or
+            your chosen language.
           </p>
           <button class="primary" id="erase-local-preferences" type="button">
-            Delete my favourites and completed activities
+            Delete my favourites, completed activities and recent views
           </button>
           <p aria-live="polite" id="erase-local-status" role="status"></p>
         </div>

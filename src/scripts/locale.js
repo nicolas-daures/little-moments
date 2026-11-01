@@ -20,6 +20,16 @@
   const strings = {
     fr: {
       noPurchase: 'Sans achat',
+      suggestionsThree: 'Trois idées pour votre moment',
+      suggestionsTwo: 'Deux idées pour votre moment',
+      suggestionsOne: 'Une idée pour votre moment',
+      suggestionsNone: 'Ajustons votre petit programme',
+      suggestionsSummary:
+        'Ces idées respectent vos critères. Choisissez celle qui vous donne envie.',
+      suggestionsNoneSummary:
+        'Nous n’avons pas trouvé d’activité qui corresponde à tous vos critères.',
+      emptyRecent:
+        'Aucune fiche consultée pour le moment. Vos trois dernières idées ouvertes apparaîtront ici.',
       home: 'À la maison',
       outside: 'Au grand air',
       age: 'Dès {age} ans',
@@ -143,24 +153,33 @@
       missingImage: 'la provenance de l’illustration',
       completionNote:
         'Informations restant à renseigner : {items}. Cette notice doit être finalisée avant une mise à disposition publique.',
-      eraseConfirm: 'Confirmer l’effacement des favoris et activités vécues',
+      eraseConfirm:
+        'Confirmer l’effacement des favoris, activités vécues et consultations récentes',
       eraseArmed:
-        'Cette action efface vos deux listes sur ce navigateur. Cliquez à nouveau pour confirmer.',
+        'Cette action efface vos favoris, activités vécues et consultations récentes sur ce navigateur. Cliquez à nouveau pour confirmer.',
       eraseSuccess:
-        'Vos favoris et activités vécues ont été effacés de ce navigateur. Rechargez les éventuels autres onglets du site.',
+        'Vos favoris, activités vécues et consultations récentes ont été effacés de ce navigateur. Rechargez les éventuels autres onglets du site.',
       eraseBlocked:
         'Le navigateur empêche l’accès au stockage. Utilisez ses réglages pour supprimer les données de ce site.',
-      eraseButton: 'Effacer mes favoris et activités vécues',
+      eraseButton: 'Effacer mes favoris, activités vécues et consultations récentes',
       backupExported:
-        'Sauvegarde téléchargée : {favorites} favori(s) et {completed} activité(s) vécue(s).',
+        'Sauvegarde téléchargée : {favorites} favori(s), {completed} activité(s) vécue(s) et {recent} consultation(s) récente(s).',
       backupImported:
-        'Sauvegarde restaurée : {favorites} favori(s) et {completed} activité(s) vécue(s).',
+        'Sauvegarde restaurée : {favorites} favori(s), {completed} activité(s) vécue(s) et {recent} consultation(s) récente(s).',
       backupInvalid: 'Ce fichier ne correspond pas à une sauvegarde valide des Petits moments.',
       backupBlocked:
         'Le navigateur empêche l’accès au stockage ou au fichier. Vérifiez ses autorisations.',
     },
     en: {
       noPurchase: 'No purchases',
+      suggestionsThree: 'Three ideas for your moment',
+      suggestionsTwo: 'Two ideas for your moment',
+      suggestionsOne: 'One idea for your moment',
+      suggestionsNone: 'Let’s adjust your plans',
+      suggestionsSummary:
+        'These ideas match your preferences. Choose the one you feel like trying.',
+      suggestionsNoneSummary: 'We couldn’t find an activity matching all your preferences.',
+      emptyRecent: 'No activities viewed yet. Your last three opened ideas will appear here.',
       home: 'At home',
       outside: 'Outdoors',
       age: 'Ages {age}+',
@@ -281,17 +300,18 @@
       missingImage: 'the illustration’s provenance',
       completionNote:
         'Information still to be completed: {items}. This notice must be finalised before the site is made publicly available.',
-      eraseConfirm: 'Confirm deletion of favourites and completed activities',
-      eraseArmed: 'This will delete both lists in this browser. Click again to confirm.',
+      eraseConfirm: 'Confirm deletion of favourites, completed activities and recent views',
+      eraseArmed:
+        'This will delete your favourites, completed activities and recent views in this browser. Click again to confirm.',
       eraseSuccess:
-        'Your favourites and completed activities have been deleted from this browser. Reload any other open tabs of the site.',
+        'Your favourites, completed activities and recent views have been deleted from this browser. Reload any other open tabs of the site.',
       eraseBlocked:
         'Your browser is blocking storage access. Use its settings to delete this site’s data.',
-      eraseButton: 'Delete my favourites and completed activities',
+      eraseButton: 'Delete my favourites, completed activities and recent views',
       backupExported:
-        'Backup downloaded: {favorites} favourite(s) and {completed} completed activity/activities.',
+        'Backup downloaded: {favorites} favourite(s), {completed} completed activity/activities and {recent} recent view(s).',
       backupImported:
-        'Backup restored: {favorites} favourite(s) and {completed} completed activity/activities.',
+        'Backup restored: {favorites} favourite(s), {completed} completed activity/activities and {recent} recent view(s).',
       backupInvalid: 'This file is not a valid Les petits moments backup.',
       backupBlocked: 'The browser blocked storage or file access. Check its permissions.',
     },
@@ -366,7 +386,9 @@
       const activity = detail?.open
         ? detail.querySelector('[data-favorite-id]')?.dataset.favoriteId
         : null;
-      link.href = activity ? api.activityUrl(activity, target) : languageUrl(target) + hash;
+      link.href = activity
+        ? api.activityUrl(activity, target)
+        : languageUrl(target) + location.search + hash;
     });
   });
   // Only a visit to the bare French homepage follows a saved English choice.
