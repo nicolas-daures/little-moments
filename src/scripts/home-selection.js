@@ -16,9 +16,20 @@
     const recycled = shuffle(unique.filter((activity) => oldIds.has(activity.id)));
     const selection = [];
     for (const pool of [fresh, recycled]) {
+      // Surface one of the fully prepared kits when possible, while freshness stays the priority.
+      const ready = pool.find(
+        (activity) =>
+          activity.ready &&
+          !selection.includes(activity) &&
+          !selection.some((item) => item.category === activity.category),
+      );
+      if (ready && selection.length < 3) selection.push(ready);
       for (const activity of pool) {
         if (selection.length === 3) break;
-        if (!selection.some((item) => item.category === activity.category))
+        if (
+          !selection.includes(activity) &&
+          !selection.some((item) => item.category === activity.category)
+        )
           selection.push(activity);
       }
       for (const activity of pool) {

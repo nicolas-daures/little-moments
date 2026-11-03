@@ -48,16 +48,21 @@ function fixture(html, url, catalog, language, scripts) {
         return child;
       });
     }
-    get innerHTML() { return this._innerHTML; }
+    get innerHTML() {
+      return this._innerHTML;
+    }
     querySelectorAll(selector) {
       const match = selector.match(/^\[([\w-]+)(?:="([^"]*)")?\]$/);
       assert.ok(match, 'Unhandled child selector: ' + selector);
-      return this.children.filter((child) =>
-        child.attributes.has(match[1]) &&
-        (match[2] === undefined || child.attributes.get(match[1]) === match[2]),
+      return this.children.filter(
+        (child) =>
+          child.attributes.has(match[1]) &&
+          (match[2] === undefined || child.attributes.get(match[1]) === match[2]),
       );
     }
-    querySelector(selector) { return this.querySelectorAll(selector)[0] || null; }
+    querySelector(selector) {
+      return this.querySelectorAll(selector)[0] || null;
+    }
     fire(name, extra = {}) {
       const event = { target: this, preventDefault() {}, ...extra };
       for (const callback of this.events.get(name) || []) callback(event);
@@ -190,7 +195,9 @@ function fixture(html, url, catalog, language, scripts) {
     storage(key) {
       windowEvents.get('storage')({ key });
     },
-    get overflow() { return document.body.style.overflow; },
+    get overflow() {
+      return document.body.style.overflow;
+    },
     language(target) {
       const link = datasets.language.find((element) => element.dataset.language === target);
       link.fire('click');
@@ -207,6 +214,7 @@ export async function checkHomeFlow(files, catalogs) {
   const scripts = [
     await script('locale.js'),
     await script('activity-actions.js'),
+    await script('activity-ready.js'),
     selection,
     await script('app.js'),
   ];
@@ -230,6 +238,16 @@ export async function checkHomeFlow(files, catalogs) {
     if (count >= 6) assert.ok(second.every((activity) => !first.includes(activity)));
   }
   assert.equal(pick([sample[0], sample[0], sample[1]]).length, 2);
+  const qualitySample = [
+    { id: 'plain-a', category: 'A' },
+    { id: 'plain-b', category: 'B' },
+    { id: 'plain-c', category: 'C' },
+    { id: 'prepared', category: 'A', ready: {} },
+  ];
+  assert.ok(
+    pick(qualitySample, [], () => 0.4).some((activity) => activity.ready),
+    'A fresh ready-to-use activity should be surfaced when it matches the criteria',
+  );
   for (const lang of ['fr', 'en']) {
     const name = lang === 'fr' ? 'index.html' : 'en/index.html';
     const html = files.get(name).toString();
@@ -256,8 +274,45 @@ export async function checkHomeFlow(files, catalogs) {
     );
     assert.equal(app.element('catalogue').open, false);
     assert.equal(app.element('suggestions').hidden, true);
+    for (const activity of catalog.filter((item) => item.ready)) {
+      app.run('openActivity(' + JSON.stringify(activity.id) + ')');
+      const before = app.run(
+        'window.SITE_READY.before(activities.find((item) => item.id === ' +
+          JSON.stringify(activity.id) +
+          '), I18N.lang)',
+      );
+      const after = app.run(
+        'window.SITE_READY.after(activities.find((item) => item.id === ' +
+          JSON.stringify(activity.id) +
+          '), I18N.lang)',
+      );
+      assert.ok(app.element('detail-content').innerHTML.includes(before));
+      assert.ok(app.element('detail-content').innerHTML.includes(after));
+      assert.ok(
+        app
+          .element('detail-content')
+          .innerHTML.includes(
+            'value="' + (activity.time - activity.ready.prepMinutes) + '" selected',
+          ),
+      );
+      assert.equal(
+        app.element('activity-progress').getAttribute('aria-valuemax'),
+        String(activity.steps.length),
+      );
+      app.run('openGuided(' + JSON.stringify(activity.id) + ')');
+      assert.ok(app.element('guided-content').innerHTML.includes(before));
+      assert.ok(app.element('guided-content').innerHTML.includes(after));
+      app.element('guided-close').fire('click');
+      app.element('close-detail').fire('click');
+    }
     app.element('moment-form').fire('submit');
     assert.equal(app.cards('suggestions-list').length, 3);
+    assert.ok(
+      app
+        .cards('suggestions-list')
+        .some((id) => catalog.find((activity) => activity.id === id).ready),
+    );
+    assert.match(app.element('suggestions-list').innerHTML, /class="ready-badge"/);
     assert.equal(app.element('catalogue').open, false);
     assert.equal(app.focused, 'suggestions-title');
     const initial = app.cards('suggestions-list');
@@ -276,7 +331,11 @@ export async function checkHomeFlow(files, catalogs) {
     assert.equal(app.overflow, '');
     const stable = app.cards('suggestions-list');
     app.run('toggleFavorite(' + JSON.stringify(chosenId) + ')');
-    assert.deepEqual(app.cards('suggestions-list'), stable, 'Saving a favourite must not reroll the shortlist');
+    assert.deepEqual(
+      app.cards('suggestions-list'),
+      stable,
+      'Saving a favourite must not reroll the shortlist',
+    );
 
     app.set('age', '3');
     assert.equal(
@@ -373,11 +432,20 @@ export async function checkHomeFlow(files, catalogs) {
     const single = fixture(html, 'https://example.test/', catalog.slice(0, 1), lang, scripts);
     single.element('moment-form').fire('submit');
     assert.equal(single.cards('suggestions-list').length, 1);
-    assert.equal(single.element('suggestions-title').textContent, lang === 'fr' ? 'Une idée pour votre moment' : 'One idea for your moment');
-    const oldHash = fixture(html, 'https://example.test/#activity=' + saved.id, catalog, lang, scripts);
+    assert.equal(
+      single.element('suggestions-title').textContent,
+      lang === 'fr' ? 'Une idée pour votre moment' : 'One idea for your moment',
+    );
+    const oldHash = fixture(
+      html,
+      'https://example.test/#activity=' + saved.id,
+      catalog,
+      lang,
+      scripts,
+    );
     assert.equal(oldHash.element('detail').open, true, 'Legacy activity links remain usable');
   }
   console.log(
-    'Checked simplified home in FR/EN: single entry, 0–3 suggestions, refresh, strict criteria, saved collections, storage events and shared searches.',
+    'Checked simplified home in FR/EN: single entry, 0–3 suggestions, ready-kit priority, refresh, strict criteria, saved collections, storage events and shared searches.',
   );
 }

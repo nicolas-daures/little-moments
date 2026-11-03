@@ -16,6 +16,28 @@ Les catégories internes restent `Créer`, `Explorer`, `Jouer`, `Cuisiner` et `D
 
 Les budgets sont indicatifs et en euros dans les deux langues. Les recettes gardent les quantités métriques et les températures en degrés Celsius.
 
+## Fiches prêtes à utiliser
+
+Vingt fiches disposent d’un objet facultatif `ready`, directement dans les deux catalogues. Elles couvrent quatre activités dans chacun des cinq univers. Elles fournissent le matériel précis, un déroulé réellement jouable, les consignes à recopier ou lire, une adaptation et une alternative sans le matériel prévu.
+
+| Champ                     | Rôle                                                                             |
+| ------------------------- | -------------------------------------------------------------------------------- |
+| `prepMinutes`             | Préparation comprise dans `time`, pas ajoutée à la durée du filtre               |
+| `group`                   | Nombre de participants ou de portions, rôle de l’adulte                          |
+| `setup`                   | Au moins deux consignes de préparation                                           |
+| `exampleTitle`, `example` | Scénario, cartes, grille, programme ou quantités prêts à utiliser                |
+| `younger`, `older`        | Variante plus accessible et prolongement                                         |
+| `substitute`              | Alternative concrète quand il manque du matériel                                 |
+| `solutions`               | Facultatif : objets `label`, `hint`, `answer`, réservés à la lecture de l’adulte |
+
+`src/scripts/activity-ready.js` rend les mêmes compléments dans la fiche de l’accueil, dans le mode pas à pas et lors de la génération des pages HTML. Les pages dédiées ne nécessitent pas JavaScript pour lire le kit. Les solutions sont repliées par défaut et exclues de l’impression par `activity-ready.css`, même si elles étaient ouvertes. L’impression reste une fiche complète : découpez ou recopiez les cartes pour les remettre seules aux enfants.
+
+Pour ces vingt fiches, `time` représente le total préparation + activité ; la partie « ensemble » est calculée par différence. Les durées sont indicatives. Une attente extérieure à ce total, comme le beurre à sortir à l’avance, doit être explicitement signalée. Les autres fiches conservent leur estimation précédente.
+
+Les identifiants et slugs restent inchangés. Ne marquez pas une fiche comme testée en famille sans retour réel : cette passe est une préparation éditoriale, accompagnée de contrôles automatiques de cohérence, pas une validation pratique des durées ou des recettes.
+
+Les contrôles vérifient les vingt paires FR/EN, les temps, les exemples, le chiffrement, le code unique de l’escape game, les grilles 8 × 8 et la présence des compléments sur les pages statiques. Ils ne remplacent pas l’essai avec des enfants.
+
 ## Interface et pages
 
 Les messages dynamiques sont centralisés dans `src/scripts/locale.js`. Les pages HTML se trouvent dans `src/pages/`, avec les versions anglaises dans `src/pages/en/`.

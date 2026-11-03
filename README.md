@@ -51,7 +51,7 @@ Pour changer de port : `npm run dev -- --port 3000` ou `npm run preview -- --por
 
 Le build rassemble les fichiers locaux sans framework ni compilation JavaScript, puis génère le service worker. La version du cache dépend du contenu : une modification d’un fichier publié change automatiquement cette version. Deux builds des mêmes sources produisent les mêmes fichiers.
 
-**Ne modifiez pas `dist/` directement** : son contenu est remplacé au prochain build. Le ZIP inclut un résultat déjà généré pour permettre aussi un envoi manuel immédiat.
+**Ne modifiez pas `dist/` directement** : son contenu est remplacé au prochain build. Une archive de sources pour GitHub ne nécessite pas ce dossier : générez-le avec `npm run build` avant un envoi manuel.
 
 ## Publier sur GitHub et Cloudflare Pages
 
@@ -70,6 +70,10 @@ Dans Cloudflare Pages, reliez votre dépôt et utilisez :
 Pour un envoi manuel, exécutez `npm run build`, puis envoyez tout le contenu de `dist/`, y compris `en/`, `data/` et `fonts/`. Les anciennes URL partagées avec `#activity=` continuent d’ouvrir la fiche dans l’accueil. Les nouveaux partages pointent vers les pages dédiées.
 
 ## Modifier les activités ou les langues
+
+Vingt fiches proposent un kit prêt à utiliser : préparation, matériel détaillé, déroulé, exemples ou cartes fournis, variantes et alternatives. Les énigmes comprennent des indices et solutions repliés pour l’adulte, exclus de l’impression. Ces compléments sont identiques dans la fiche de l’accueil et sur la page dédiée. Ils sont également accessibles en référence dans le mode pas à pas. Toutes les pages dédiées permettent de cocher le matériel et les étapes, de suivre la progression et de lancer un minuteur ; pour les kits enrichis, celui-ci exclut automatiquement le temps de préparation.
+
+Le parcours principal donne la priorité à une fiche « Kit prêt » parmi les trois suggestions lorsqu’elle respecte les critères, sans relâcher les filtres ni sacrifier le renouvellement des idées.
 
 Les catalogues se trouvent dans `src/data/activities.fr.js` et `src/data/activities.en.js`. Les détails sont expliqués dans [docs/CONTENT.md](docs/CONTENT.md).
 

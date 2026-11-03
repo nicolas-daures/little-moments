@@ -65,6 +65,46 @@ a.primary {
 .activity-page-body {
   padding: clamp(24px, 5vw, 48px);
 }
+.page-timer-panel {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  padding: 18px clamp(24px, 5vw, 48px);
+  background: #f5f6e9;
+}
+.page-timer-panel #page-timer-display {
+  min-width: 72px;
+  align-self: center;
+  color: #275c47;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 24px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+.page-timer-note,
+#page-timer-status {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #52695c;
+  font-size: 12px;
+}
+.page-timer-panel.is-done {
+  background: #fff6dc;
+}
+.page-timer-panel.is-done #page-timer-status {
+  color: #8a5b12;
+  font-weight: 800;
+}
+.page-timer-reset {
+  min-height: 42px;
+  border: 1px solid #b9c9bc;
+  border-radius: 7px;
+  background: #fff;
+  color: #315d49;
+  padding: 9px 14px;
+  font-weight: 700;
+}
 .activity-page-body section + section {
   margin-top: 32px;
 }
@@ -170,7 +210,8 @@ a.primary {
   html[data-page='activity'] .seo-selections,
   html[data-page='activity'] footer,
   html[data-page='activity'] .page-actions,
-  html[data-page='activity'] .plan-panel {
+  html[data-page='activity'] .plan-panel,
+  html[data-page='activity'] .page-timer-panel {
     display: none !important;
   }
   .activity-page {

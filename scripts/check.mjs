@@ -8,6 +8,7 @@ import { generateSeoFiles } from './seo.mjs';
 import { addSupportFooter } from './support.mjs';
 import { checkSupportFeature } from './check-support.mjs';
 import { checkHomeFlow } from './check-home.mjs';
+import { checkReadyActivities } from './check-ready.mjs';
 
 const entries = await sourceEntries();
 const built = new Map();
@@ -37,6 +38,7 @@ async function loadCatalog(language) {
 const french = await loadCatalog('fr');
 const english = await loadCatalog('en');
 await checkHomeFlow(built, { fr: french, en: english });
+checkReadyActivities(built, { fr: french, en: english });
 assert.ok(french.length > 0, 'The activity catalog cannot be empty.');
 assert.equal(new Set(french.map((activity) => activity.id)).size, french.length);
 assert.equal(new Set(english.map((activity) => activity.id)).size, english.length);
@@ -129,8 +131,24 @@ for (const [output, bytes] of built) {
     }
     if (/^(activites|en\/activities)\//.test(output)) {
       assert.equal((html.match(/<h1>/g) || []).length, 1);
-      assert.match(html, /<ul class="materials"><li>/);
-      assert.match(html, /<ol class="steps"><li>/);
+      const activity = JSON.parse(
+        html.match(/<script id="activity-data" type="application\/json">([\s\S]*?)<\/script>/)[1],
+      );
+      assert.match(html, /checklist\.css/);
+      assert.match(html, /timer\.css/);
+      assert.match(html, /data-page-timer-toggle/);
+      assert.match(html, /data-page-timer-panel/);
+      assert.match(html, /id="page-activity-progress"/);
+      assert.equal(
+        (html.match(/data-page-check="material"/g) || []).length,
+        activity.materials.length,
+      );
+      assert.equal((html.match(/data-page-check="step"/g) || []).length, activity.steps.length);
+      const activeMinutes = activity.time - (activity.ready?.prepMinutes || 0);
+      assert.match(
+        html,
+        new RegExp(`<option value="${activeMinutes}" selected>${activeMinutes} min<\\/option>`),
+      );
     }
   }
   if (output.endsWith('.css')) {

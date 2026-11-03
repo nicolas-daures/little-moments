@@ -196,6 +196,9 @@ function filtered() {
 function renderActivityCard(activity) {
   const [tint, tone] = palettes[activity.category];
   const badges = [];
+  if (activity.ready) {
+    badges.push(`<span class="ready-badge" aria-hidden="true">${t('readyBadge')}</span>`);
+  }
   if (favorites.has(activity.id)) {
     badges.push(`
       <span class="favorite-badge" aria-label="${t('favoriteLabel')}">
@@ -216,7 +219,7 @@ function renderActivityCard(activity) {
       class="card"
       data-id="${activity.id}"
       style="--tint:${tint};--tone:${tone}"
-      aria-label="${t('viewActivity', { title: activity.title })}"
+      aria-label="${t(activity.ready ? 'viewReadyActivity' : 'viewActivity', { title: activity.title })}"
     >
       <div class="card-top">
         <span class="card-icon">${icon(activity.category)}</span>
@@ -941,8 +944,13 @@ function renderGuided() {
         <ul>${activity.materials.map((material) => `<li>${material}</li>`).join('')}</ul>
       </details>
       <details class="guided-reference">
-        <summary>${t('tip')}</summary>
-        <p>${activity.tip}</p>
+        <summary>${t(activity.ready ? 'readyReference' : 'tip')}</summary>
+        ${
+          activity.ready
+            ? window.SITE_READY.before(activity, I18N.lang) +
+              window.SITE_READY.after(activity, I18N.lang)
+            : `<p>${activity.tip}</p>`
+        }
       </details>
     </div>
   `;
@@ -974,6 +982,7 @@ function syncGuidedStepToDetail(activityId, index, checked) {
 function openActivity(id) {
   const a = activities.find((a) => a.id === id);
   if (!a) throw new Error(t('unknownActivity'));
+  const activeMinutes = a.time - (a.ready?.prepMinutes || 0);
   window.SITE_ACTIVITY_ACTIONS.recent.record(a.id);
   renderMoments();
   const [tint, tone] = palettes[a.category];
@@ -994,12 +1003,13 @@ function openActivity(id) {
       <span class="card-category">
         ${I18N.category(a.category)} · ${t(a.place === 'inside' ? 'home' : 'outside')}
       </span>
+      ${a.ready ? `<span class="ready-badge">${t('readyBadge')}</span>` : ''}
       <h2 id="detail-title">${a.title}</h2>
       <a class="full-activity-link" href="${activityUrl(a.id)}">${t('fullActivityPage')} ↗</a>
       <p>${a.desc}</p>
       <div class="detail-meta">
         <span>${t('age', { age: a.age })}</span>
-        <span>${t('minutes', { time: a.time })}</span>
+        <span>${t(a.ready ? 'totalMinutes' : 'minutes', { time: a.time })}</span>
         <span>${t('familyCost', { cost: costLabel(a) })}</span>
       </div>
       <div class="detail-actions">
@@ -1026,14 +1036,16 @@ function openActivity(id) {
       <div class="timer-panel" data-timer-panel hidden>
         <strong>${t('timerTitle')}</strong>
         <label>${t('timerDuration')}
-          <select id="timer-duration">${timerOptions(a.time)}</select>
+          <select id="timer-duration">${timerOptions(activeMinutes)}</select>
         </label>
-        <output id="timer-inline-display">${formatTimer(a.time * 60)}</output>
+        <output id="timer-inline-display">${formatTimer(activeMinutes * 60)}</output>
+        ${a.ready ? `<p>${t('readyTimerNote')}</p>` : ''}
         <button class="timer-start" data-timer-start="${a.id}">${t('timerStart')}</button>
         <span id="timer-panel-status" role="status" aria-live="polite"></span>
       </div>
     </div>
     <div class="detail-body">
+      ${window.SITE_READY.before(a, I18N.lang)}
       <p class="checklist-hint">${t('checklistHint')}</p>
       <h3>${t('materials')}</h3>
       <ul class="materials checklist-materials">
@@ -1072,10 +1084,14 @@ function openActivity(id) {
           )
           .join('')}
       </ol>
-      <div class="extra">
+      ${
+        a.ready
+          ? window.SITE_READY.after(a, I18N.lang)
+          : `<div class="extra">
         <strong>${t('tip')}</strong>
         <p>${a.tip}</p>
-      </div>
+      </div>`
+      }
       <p class="estimate">
         ${t('estimate')}
         <a class="safety-link" href="${I18N.url('terms')}#precautions">${t('safety')}</a>.

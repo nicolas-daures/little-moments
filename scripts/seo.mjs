@@ -52,6 +52,13 @@ const words = {
     share: 'Partager',
     print: 'Imprimer la fiche',
     plan: 'Planifier',
+    timer: '◷ Minuteur',
+    timerTitle: 'Minuteur de l’activité',
+    timerDuration: 'Durée',
+    timerStart: 'Démarrer',
+    timerReset: 'Recommencer',
+    checklistHint: 'Rassemblez le matériel, puis cochez chaque étape au fil de l’activité.',
+    stepsProgress: (done, total) => `${done}/${total} étapes cochées`,
     planTitle: 'Un petit rendez-vous en famille',
     date: 'Date',
     hour: 'Heure',
@@ -85,6 +92,13 @@ const words = {
     share: 'Share',
     print: 'Print activity',
     plan: 'Plan ahead',
+    timer: '◷ Timer',
+    timerTitle: 'Activity timer',
+    timerDuration: 'Duration',
+    timerStart: 'Start',
+    timerReset: 'Reset',
+    checklistHint: 'Gather the materials, then tick off each step as you go.',
+    stepsProgress: (done, total) => `${done}/${total} steps checked`,
     planTitle: 'A little family date',
     date: 'Date',
     hour: 'Time',
@@ -245,6 +259,12 @@ export async function generateSeoFiles(files) {
     path.join(projectRoot, 'src/templates/content-page.html'),
     'utf8',
   );
+  const readyContext = { window: {} };
+  vm.runInNewContext(
+    await readFile(path.join(projectRoot, 'src/scripts/activity-ready.js'), 'utf8'),
+    readyContext,
+  );
+  const readyView = readyContext.window.SITE_READY;
   const sitemap = [];
   const legalPaths = {
     fr: ['mentions-legales.html', 'confidentialite.html', 'conditions-utilisation.html'],
@@ -310,6 +330,7 @@ export async function generateSeoFiles(files) {
     const w = words[lang];
     return `<a class="card seo-card" data-id="${escapeHtml(activity.id)}" href="${escapeHtml(href(output, activityPath(activity, lang)))}">
       <span class="card-category">${categories[lang][activity.category]}</span>
+      ${activity.ready ? `<span class="ready-badge">${lang === 'fr' ? '✦ Kit prêt' : '✦ Ready kit'}</span>` : ''}
       <h3>${escapeHtml(activity.title)}</h3><p>${escapeHtml(activity.desc)}</p>
       <div class="card-bottom"><span>${w.age(activity.age)} · ${w.time(activity.time)}</span><span>${w.cost(activity.cost)}</span></div>
     </a>`;
@@ -374,15 +395,31 @@ export async function generateSeoFiles(files) {
         .sort((a, b) => Math.abs(a.age - activity.age) - Math.abs(b.age - activity.age))
         .slice(0, 3);
       const prefix = '../'.repeat(output.split('/').length - 1);
+      const activeMinutes = activity.time - (activity.ready?.prepMinutes || 0);
+      const timerDurations = [...new Set([5, 10, 15, 20, 30, 45, 60, activeMinutes])]
+        .filter((value) => Number.isInteger(value) && value > 0)
+        .sort((a, b) => a - b);
       const main = `<article class="activity-page" data-activity-id="${escapeHtml(activity.id)}">
         <div class="activity-page-head"><p class="eyebrow">${w.activity} · ${categories[lang][activity.category]}</p>
+        ${activity.ready ? `<span class="ready-badge">${lang === 'fr' ? '✦ Kit prêt' : '✦ Ready kit'}</span>` : ''}
         <h1>${escapeHtml(activity.title)}</h1><p class="activity-description">${escapeHtml(activity.desc)}</p>
-        <div class="detail-meta"><span>${w.age(activity.age)}</span><span>${w.time(activity.time)}</span><span>${w.cost(activity.cost)}</span><span>${w[activity.place]}</span></div>
-        <div class="detail-actions page-actions" hidden><button class="favorite-toggle" data-favorite-id="${escapeHtml(activity.id)}" aria-pressed="false">${w.favorite}</button><button class="completed-toggle" data-completed-id="${escapeHtml(activity.id)}" aria-pressed="false">${w.completed}</button><button class="share-activity" data-share-id="${escapeHtml(activity.id)}">${w.share}</button><button class="plan-activity" data-plan-toggle aria-expanded="false">${w.plan}</button><button class="print-activity" data-print-activity>${w.print}</button><span id="share-status" role="status" aria-live="polite"></span></div>
+        <div class="detail-meta"><span>${w.age(activity.age)}</span><span>${w.time(activity.time)}${activity.ready ? (lang === 'fr' ? ' au total' : ' in total') : ''}</span><span>${w.cost(activity.cost)}</span><span>${w[activity.place]}</span></div>
+        <div class="detail-actions page-actions" hidden><button class="favorite-toggle" data-favorite-id="${escapeHtml(activity.id)}" aria-pressed="false">${w.favorite}</button><button class="completed-toggle" data-completed-id="${escapeHtml(activity.id)}" aria-pressed="false">${w.completed}</button><button class="share-activity" data-share-id="${escapeHtml(activity.id)}">${w.share}</button><button class="plan-activity" data-plan-toggle aria-expanded="false">${w.plan}</button><button class="timer-activity" data-page-timer-toggle aria-expanded="false">${w.timer}</button><button class="print-activity" data-print-activity>${w.print}</button><span id="share-status" role="status" aria-live="polite"></span></div>
         <div class="plan-panel" data-plan-panel hidden><strong>${w.planTitle}</strong><label>${w.date}<input id="plan-date" type="date" required /></label><label>${w.hour}<input id="plan-time" type="time" value="14:00" /></label><button class="plan-save" data-plan-save>${w.calendar}</button><span id="plan-status" role="status" aria-live="polite"></span></div></div>
-        <div class="activity-page-body"><section><h2>${w.materials}</h2><ul class="materials">${activity.materials.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul></section>
-        <section><h2>${w.steps}</h2><ol class="steps">${activity.steps.map((step) => `<li>${escapeHtml(step)}</li>`).join('')}</ol></section>
-        <aside class="extra"><strong>${w.tip}</strong><p>${escapeHtml(activity.tip)}</p></aside>
+        <div class="timer-panel page-timer-panel" data-page-timer-panel hidden>
+          <strong>${w.timerTitle}</strong>
+          <label>${w.timerDuration}<select id="page-timer-duration">${timerDurations.map((minutes) => `<option value="${minutes}"${minutes === activeMinutes ? ' selected' : ''}>${w.time(minutes)}</option>`).join('')}</select></label>
+          <output id="page-timer-display">${String(activeMinutes).padStart(2, '0')}:00</output>
+          ${activity.ready ? `<p class="page-timer-note">${lang === 'fr' ? 'Durée de l’activité, hors préparation.' : 'Activity time, excluding preparation.'}</p>` : ''}
+          <button class="timer-start" data-page-timer-start>${w.timerStart}</button>
+          <button class="page-timer-reset" data-page-timer-reset>${w.timerReset}</button>
+          <span id="page-timer-status" role="status" aria-live="polite"></span>
+        </div>
+        <div class="activity-page-body">${readyView.before(activity, lang, 2)}
+        <p class="checklist-hint">${w.checklistHint}</p>
+        <section><h2>${w.materials}</h2><ul class="materials checklist-materials">${activity.materials.map((item, index) => `<li><label><input type="checkbox" data-page-check="material" data-page-check-index="${index}" /><span>${escapeHtml(item)}</span></label></li>`).join('')}</ul></section>
+        <section><h2>${w.steps}</h2><div class="activity-progress" id="page-activity-progress" role="progressbar" aria-valuemin="0" aria-valuemax="${activity.steps.length}" aria-valuenow="0"><span id="page-activity-progress-label">${w.stepsProgress(0, activity.steps.length)}</span><span class="activity-progress-track" aria-hidden="true"><span id="page-activity-progress-bar"></span></span></div><ol class="steps checklist-steps">${activity.steps.map((step, index) => `<li><label><input type="checkbox" data-page-check="step" data-page-check-index="${index}" /><span>${escapeHtml(step)}</span></label></li>`).join('')}</ol></section>
+        ${activity.ready ? readyView.after(activity, lang, 2) : `<aside class="extra"><strong>${w.tip}</strong><p>${escapeHtml(activity.tip)}</p></aside>`}
         <p class="estimate">${w.estimate} <a href="${href(output, legalPaths[lang][2])}#precautions">${w.safety}</a>.</p></div>
       </article><section class="related-activities"><h2>${w.related}</h2><div class="seo-card-grid">${related.map((item) => card(item, lang, output)).join('')}</div></section>${selectionLinks(lang, output)}
       <script id="activity-data" type="application/json">${json(activity)}</script>`;

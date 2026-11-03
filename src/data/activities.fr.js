@@ -9,15 +9,44 @@ window.SITE_ACTIVITIES = [
     cost: 0,
     place: 'inside',
     desc: 'Quelques carrés de couleur pour devenir des personnages de jeu vidéo.',
-    materials: ['Papier quadrillé ou grille dessinée à la main', 'Crayons de couleur'],
+    materials: [
+      'Une feuille quadrillée par personne, ou une grille de 8 × 8 cases dessinée',
+      'Un crayon',
+      'Quatre crayons de couleur',
+    ],
     steps: [
-      'Dessinez une grille de douze cases sur douze et choisissez quatre couleurs chacun.',
-      'Coloriez les cases pour créer un visage, avec une coiffure et un détail reconnaissable.',
-      'Échangez les portraits et essayez de reconnaître les membres de la famille.',
-      'Réunissez les personnages sur une affiche et inventez le nom de votre équipe.',
+      'Délimitez une grille de huit colonnes et huit lignes. Choisissez une couleur de fond, une de visage, une de cheveux et une pour les détails.',
+      'Recopiez le modèle fourni, une ligne après l’autre. Chaque caractère représente une case à colorier.',
+      'Modifiez au moins trois cases pour ajouter votre coiffure, des lunettes ou un sourire différent.',
+      'Cachez les noms et essayez de reconnaître les portraits. Chacun explique le détail qu’il a choisi.',
+      'Réunissez les portraits sur une feuille et donnez un nom à votre équipe.',
     ],
     tip: 'Les petits dictent les couleurs à un adulte. Les ados créent aussi une version de profil en gardant la même palette.',
     slug: 'vos-portraits-en-pixels',
+    ready: {
+      prepMinutes: 5,
+      group: '2 à 6 personnes',
+      setup: [
+        'Dessinez ou délimitez une grille 8 × 8 par personne ; numérotez les lignes de 1 à 8.',
+        'Pour le modèle : . = fond, C = cheveux, V = visage, N = détails foncés. Choisissez librement les couleurs.',
+      ],
+      exampleTitle: 'Un visage de départ, ligne par ligne',
+      example: [
+        '1 : ..CCCC..',
+        '2 : .CCCCCC.',
+        '3 : .CVVVVC.',
+        '4 : .VVNVNV.',
+        '5 : .VVVVVV.',
+        '6 : ..VNNV..',
+        '7 : ..VVVV..',
+        '8 : ........',
+      ],
+      younger:
+        'L’adulte pointe une case et l’enfant choisit sa couleur ; une grille 4 × 4 suffit aussi.',
+      older: 'Créez une seconde version exprimant une autre émotion en ne changeant que six cases.',
+      substitute:
+        'Sans papier quadrillé, dessinez huit bandes dans chaque sens, même irrégulières. Deux couleurs suffisent pour une version monochrome.',
+    },
   },
   {
     id: 'balade-miniatures',
@@ -161,15 +190,54 @@ window.SITE_ACTIVITIES = [
     cost: 0,
     place: 'inside',
     desc: 'Inventez une clé, codez un message et apprenez à le déchiffrer.',
-    materials: ['Papier', 'Crayons'],
+    materials: [
+      'Deux feuilles',
+      'Un crayon par joueur',
+      'Un livre et un petit message « Bravo », facultatifs',
+    ],
     steps: [
-      'Écrivez l’alphabet en majuscules sur une ligne, puis une seconde ligne commençant par D : après Z, continuez avec A, B et C.',
-      'Pour coder, remplacez chaque lettre de la première ligne par celle juste en dessous ; gardez les espaces et écrivez sans accents.',
-      'Codez un message de cinq mots et confiez-le à un autre joueur avec la clé.',
-      'Déchiffrez en faisant le chemin inverse, puis choisissez ensemble un autre décalage.',
+      'Recopiez les deux alphabets fournis, l’un sous l’autre. Pour coder, chaque lettre de la ligne normale est remplacée par celle située dessous.',
+      'Décodez ensemble le premier exemple : ERQMRXU. Pour décoder, retrouvez la lettre sur la ligne codée et remontez à la ligne normale.',
+      'Confiez le message complet fourni ci-dessous à un autre joueur. Les espaces restent visibles ; les accents sont supprimés.',
+      'Vérifiez le résultat avec la solution réservée à l’adulte. Si vous avez préparé le message « Bravo », laissez le joueur le chercher.',
+      'Codez ensuite une phrase de trois mots de votre choix, puis échangez les rôles.',
     ],
     tip: 'A devient D, B devient E et Z devient C. Ce code est un jeu facile à casser : il ne sert pas à protéger des informations personnelles.',
     slug: 'le-code-secret-des-espions',
+    ready: {
+      prepMinutes: 5,
+      group: '2 à 4 personnes sachant lire, ou en binôme avec un adulte',
+      setup: [
+        'Écrivez les alphabets avec soin pour garder les lettres alignées.',
+        'Pour un petit final, l’adulte consulte la solution et place discrètement le message « Bravo » à l’endroit indiqué.',
+      ],
+      exampleTitle: 'La clé et les messages sont fournis',
+      example: [
+        'Alphabet normal : ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+        'Alphabet codé : DEFGHIJKLMNOPQRSTUVWXYZABC',
+        'Premier essai : ERQMRXU',
+        'Message à déchiffrer : OH WUHVRU HVW VRXV OH OLYUH',
+      ],
+      younger:
+        'Travaillez en binôme : l’enfant cherche une lettre et l’adulte la note. Commencez seulement par le premier mot.',
+      older:
+        'Choisissez un autre décalage et donnez un exemple de lettre à votre partenaire pour l’aider à retrouver la clé.',
+      substitute:
+        'Sans livre ni trésor, déchiffrez le message comme un jeu de papier. Ce code ludique ne protège pas des informations personnelles.',
+      solutions: [
+        {
+          label: 'Premier essai',
+          hint: 'E remonte vers B ; R vers O ; Q vers N.',
+          answer: 'ERQMRXU donne BONJOUR.',
+        },
+        {
+          label: 'Message complet',
+          hint: 'OH est un mot de deux lettres : L puis E.',
+          answer:
+            'LE TRESOR EST SOUS LE LIVRE. Si vous utilisez le final, placez le message « Bravo » sous un livre accessible.',
+        },
+      ],
+    },
   },
   {
     id: 'pain-perdu',
@@ -248,15 +316,44 @@ window.SITE_ACTIVITIES = [
     cost: 0,
     place: 'inside',
     desc: 'Un parcours, un objectif et des règles que vous testez vraiment.',
-    materials: ['Papier', 'Crayons', 'Petits pions en papier', 'Six papiers numérotés de 1 à 6'],
+    materials: [
+      'Une grande feuille',
+      'Un crayon',
+      'Un grand pion en papier par joueur',
+      'Six papiers numérotés de 1 à 6',
+      'Un bol',
+    ],
     steps: [
-      'Dessinez un parcours de vingt cases, avec un départ et une arrivée. Chacun fabrique un pion en papier.',
-      'À chaque tour, tirez un numéro, avancez d’autant de cases et remettez le papier dans le tas à mélanger.',
-      'Ajoutez trois cases spéciales simples, par exemple avancer de deux ou aider un autre joueur à avancer d’une case.',
-      'Jouez une partie courte, puis changez une seule règle pour rendre la seconde plus amusante.',
+      'Dessinez un chemin de vingt cases, numérotées de 1 à 20. Posez les pions avant la case 1 et marquez les cases 5, 10 et 15.',
+      'Recopiez les règles fournies. À tour de rôle, tirez un nombre, avancez votre pion, remettez le papier dans le bol et mélangez.',
+      'Appliquez la règle d’une case spéciale uniquement quand vous y terminez un déplacement normal ; un déplacement bonus n’en déclenche pas une autre.',
+      'Terminez quand tous les pions ont atteint ou dépassé la case 20. Notez une situation amusante et une règle moins claire.',
+      'Changez une seule règle par accord commun et jouez une seconde partie. Comparez ce que cela change.',
     ],
     tip: 'Notez les règles avant de jouer pour éviter les changements en pleine partie. Les ados inventent une version où tous les pions doivent arriver ensemble.',
     slug: 'inventez-votre-jeu-de-plateau',
+    ready: {
+      prepMinutes: 5,
+      group: '2 à 4 joueurs',
+      setup: [
+        'Découpez des pions assez grands pour les enfants présents ; utilisez simplement des initiales sur du papier.',
+        'Lisez les règles avant de jouer. Les modifications attendent la fin de la première partie.',
+      ],
+      exampleTitle: 'Une première règle complète',
+      example: [
+        'Départ : chacun commence avant la case 1. Le plus jeune commence, puis on tourne dans le même sens.',
+        'Case 5 : avancez immédiatement de 2 cases.',
+        'Case 10 : faites avancer de 1 case le pion d’un autre joueur.',
+        'Case 15 : choisissez de rester ici ou d’avancer de 1 case.',
+        'Arrivée : inutile d’obtenir le nombre exact. Un pion arrivé attend la fin et son joueur encourage les autres.',
+      ],
+      younger:
+        'Dessinez dix cases et utilisez trois papiers 1, 2 et 3, sans cases spéciales au premier tour.',
+      older:
+        'Testez une version coopérative : partagez les déplacements pour faire arriver tout le monde en un minimum de tours.',
+      substitute:
+        'Sans bol, mélangez les papiers face cachée sur la table. Sans grande feuille, dessinez deux rangées de dix cases.',
+    },
   },
   {
     id: 'papier-absorbant',
@@ -643,15 +740,38 @@ window.SITE_ACTIVITIES = [
     cost: 0,
     place: 'outside',
     desc: 'Une feuille, six trouvailles et un regard neuf sur le parc.',
-    materials: ['Feuille', 'Crayon'],
+    materials: ['Une feuille par équipe', 'Un crayon', 'Un support rigide facultatif'],
     steps: [
-      'Dessinez six choses à observer : feuille, fleur, oiseau, pierre, branche et insecte.',
-      'Partez dans un espace connu avec un adulte et cherchez sans cueillir ni capturer.',
-      'Cochez chaque découverte en montrant où elle se trouve.',
-      'Si une case reste vide, remplacez-la ensemble par une découverte inattendue.',
+      'Dessinez six cases et recopiez ou dessinez les six missions proposées ci-dessous.',
+      'Choisissez avec l’adulte une courte boucle piétonne connue. Restez ensemble et sur les chemins autorisés.',
+      'Pour valider une case, montrez votre observation aux autres, puis cochez-la. On observe sans cueillir, capturer ni goûter.',
+      'Après vingt minutes environ, arrêtez la recherche même si des cases sont vides. Chaque équipe peut remplacer une seule case par sa découverte personnelle.',
+      'Au retour, chacun présente une trouvaille surprenante. Le but est d’observer, pas de tout compléter.',
     ],
     tip: 'Les plus grands cherchent des relations : un insecte sur une fleur, une plante dans une fissure ou une ombre en mouvement.',
     slug: 'le-bingo-des-petits-explorateurs',
+    ready: {
+      prepMinutes: 5,
+      group: '1 à 6 enfants avec un adulte',
+      setup: [
+        'Choisissez un jardin ou un parc accessible ; adaptez la longueur du trajet au plus jeune.',
+        'Lisez les six missions avant de partir. Aucun téléphone ni prélèvement n’est nécessaire.',
+      ],
+      exampleTitle: 'Votre grille de six observations',
+      example: [
+        'Une feuille avec au moins deux couleurs.',
+        'Un oiseau vu ou entendu.',
+        'Une pierre ou un caillou observé depuis le chemin.',
+        'Une branche tombée.',
+        'Une ombre dessinant une forme reconnaissable.',
+        'Un petit détail que personne n’avait encore remarqué.',
+      ],
+      younger: 'Gardez trois cases illustrées et laissez l’enfant pointer plutôt que nommer.',
+      older:
+        'Pour trois cases, expliquez un lien entre deux observations : une ombre et un arbre, par exemple.',
+      substitute:
+        'Sans parc, faites une courte boucle sur un trottoir sûr. Sans sortie possible, observez depuis une fenêtre et remplacez les cases impossibles ensemble.',
+    },
   },
   {
     id: 'bataille-papier',
@@ -681,15 +801,44 @@ window.SITE_ACTIVITIES = [
     cost: 0,
     place: 'inside',
     desc: 'Prédire, tester, puis se laisser surprendre.',
-    materials: ['Bassine peu profonde', 'Eau', 'Gros objets lavables', 'Serviette'],
+    materials: [
+      'Une bassine peu profonde',
+      'Deux à trois centimètres d’eau',
+      'Une grande cuillère métallique',
+      'Un gobelet en plastique léger',
+      'Un morceau de bois propre sans écharde, plus gros que la bouche d’un enfant',
+      'Un gant de toilette',
+      'Une serviette',
+    ],
     steps: [
-      'Installez une petite quantité d’eau sur une surface protégée, avec un adulte présent.',
-      'Choisissez des objets assez gros pour ne pas être avalés, sans pile ni élément électrique.',
-      'Avant chaque essai, dites si vous pensez que l’objet va flotter, puis posez-le doucement.',
-      'Classez les résultats et cherchez si votre règle fonctionne pour tous les objets. Videz la bassine après le jeu.',
+      'Posez la bassine sur une surface protégée et stable. Un adulte reste à portée de main pendant toute l’activité.',
+      'Montrez les quatre objets. Pour chacun, l’enfant prédit « reste en haut » ou « va au fond » ; notez ou dessinez son choix.',
+      'Posez doucement chaque objet à la surface, sans le lancer. Observez quelques secondes et notez le résultat réel, même s’il diffère de la prédiction.',
+      'Refaites un essai en changeant seulement l’orientation du gobelet : ouverture vers le haut, puis vers le côté. Décrivez ce qui change sans exiger un résultat donné.',
+      'Séchez et rangez le matériel. L’adulte vide immédiatement la bassine et essuie les éclaboussures.',
     ],
     tip: 'Les plus grands peuvent tester une boule puis une barquette fabriquées avec la même feuille d’aluminium, manipulée par l’adulte.',
     slug: 'le-laboratoire-de-ce-qui-flotte',
+    ready: {
+      prepMinutes: 3,
+      group: '1 à 3 enfants, adulte présent en permanence',
+      setup: [
+        'Choisissez uniquement de gros objets lavables, sans pile, électricité ni partie détachable.',
+        'Le gant peut changer de comportement en s’imbibant : gardez cette surprise comme une observation, pas comme une erreur.',
+      ],
+      exampleTitle: 'Quatre lignes pour votre carnet',
+      example: [
+        'Cuillère : je prédis … ; j’observe …',
+        'Gobelet vide : je prédis … ; j’observe …',
+        'Bois : je prédis … ; j’observe …',
+        'Gant sec : je prédis … ; après quelques secondes …',
+      ],
+      younger: 'L’adulte manipule les objets et l’enfant pointe le haut ou le fond de la bassine.',
+      older:
+        'Cherchez pourquoi la forme et l’air emprisonné peuvent compter, en comparant le même gobelet dans deux positions.',
+      substitute:
+        'Sans bassine, un grand saladier incassable suffit sous surveillance. Sans eau possible, faites uniquement les prédictions et gardez les essais pour une autre fois.',
+    },
   },
   {
     id: 'wraps',
@@ -702,19 +851,44 @@ window.SITE_ACTIVITIES = [
     desc: 'Composez un repas coloré à rouler ensemble.',
     materials: [
       '4 grandes tortillas',
-      '200 g de pois chiches cuits égouttés',
+      '200 g de pois chiches cuits et égouttés',
       '1 carotte',
       'Un demi-concombre',
       '120 g de fromage frais',
+      'Une fourchette',
+      'Des bols',
+      'Une planche et des ustensiles de découpe gérés par l’adulte',
     ],
     steps: [
-      'Lavez-vous les mains, vérifiez les allergies et lavez les légumes. L’adulte râpe la carotte et coupe le concombre.',
-      'Écrasez les pois chiches à la fourchette et préparez les garnitures dans des bols.',
-      'Tartinez chaque tortilla de fromage frais, ajoutez les légumes et les pois chiches sans trop remplir.',
-      'Repliez le bas puis roulez les côtés. Dégustez ensemble ou gardez au réfrigérateur jusqu’au repas.',
+      'Lavez-vous les mains, vérifiez les allergies et lavez les légumes. L’adulte râpe la carotte et coupe le concombre finement, en adaptant les morceaux aux enfants.',
+      'Écrasez les pois chiches à la fourchette. Répartissez chaque garniture en quatre parts approximatives.',
+      'Sur chaque tortilla, étalez environ 30 g de fromage frais en laissant deux centimètres libres autour. Posez environ 50 g de pois chiches et un quart des légumes au centre.',
+      'Repliez le bas de la tortilla sur la garniture, rabattez les deux côtés et roulez doucement. Si le wrap ne ferme pas, retirez un peu de garniture.',
+      'L’adulte coupe si besoin. Dégustez ou gardez les wraps au réfrigérateur jusqu’au repas.',
     ],
     tip: 'Les plus petits peuvent tartiner et assembler. Les ados calculent le coût approximatif par wrap avec les prix de vos achats.',
     slug: 'les-wraps-arc-en-ciel',
+    ready: {
+      prepMinutes: 10,
+      group: '4 grands wraps, à ajuster à l’appétit',
+      setup: [
+        'Préparez les bols et une zone de montage par personne.',
+        'L’adulte gère la râpe et les couteaux. Les enfants peuvent écraser, tartiner et répartir.',
+      ],
+      exampleTitle: 'Un wrap témoin pour commencer',
+      example: [
+        'Tartiner : 30 g de fromage frais.',
+        'Garnir au centre : 50 g de pois chiches et un quart des légumes.',
+        'Fermer : bas, côtés, puis rouler.',
+        'Trop rempli ? Servez la garniture retirée à côté, sans la jeter.',
+      ],
+      younger:
+        'L’enfant prépare une tortilla ouverte ; l’adulte la roule et adapte la texture des aliments.',
+      older:
+        'Calculez les quantités pour six wraps : 300 g de pois chiches et 180 g de fromage, avec davantage de légumes selon leur taille.',
+      substitute:
+        'Sans tortillas, servez les mêmes garnitures sur du pain ou dans un bol. Sans concombre, répartissez simplement plus de carotte préparée par l’adulte.',
+    },
   },
   {
     id: 'mini-musee',
@@ -802,19 +976,43 @@ window.SITE_ACTIVITIES = [
     place: 'inside',
     desc: 'Des couches de fruits, de yaourt et de croustillant.',
     materials: [
-      '4 yaourts nature',
+      '4 yaourts nature de 125 g',
       '2 bananes',
-      '4 biscuits adaptés à l’âge',
-      '4 bols ou verres stables',
+      '4 biscuits adaptés à l’âge et aux allergies',
+      '4 bols ou récipients stables',
+      'Une fourchette',
+      'Une cuillère par personne',
     ],
     steps: [
-      'Lavez-vous les mains et vérifiez les ingrédients en cas d’allergie.',
-      'L’adulte prépare de petits morceaux de banane ; les enfants émiettent les biscuits dans un bol.',
-      'Alternez yaourt, banane et miettes dans chaque récipient.',
-      'Donnez un nom à votre dessert et dégustez-le, ou placez-le au réfrigérateur.',
+      'Lavez-vous les mains et vérifiez les étiquettes en cas d’allergie. L’adulte prépare les bananes en morceaux adaptés ou les écrase.',
+      'Émiettez les biscuits dans un bol ; pour les plus petits, l’adulte adapte la taille et la texture des miettes.',
+      'Dans chaque récipient, déposez la moitié d’un yaourt, environ un quart de banane et quelques miettes.',
+      'Ajoutez le reste du yaourt, encore un quart de banane et le reste du biscuit : chaque verrine contient un yaourt, une demi-banane et un biscuit.',
+      'Dégustez ou placez au réfrigérateur jusqu’au service. N’ajoutez pas de décoration dure ou de pique pour les jeunes enfants.',
     ],
     tip: 'Les petits peuvent écraser la banane. Changez les fruits selon ce que vous avez, en adaptant leur préparation à l’âge.',
     slug: 'les-verrines-du-gouter',
+    ready: {
+      prepMinutes: 3,
+      group: '4 goûters individuels',
+      setup: [
+        'Posez les quatre récipients sur une table stable ; des bols évitent les verres fragiles.',
+        'Préparez les ingrédients à portée de main et gardez une zone pour les épluchures.',
+      ],
+      exampleTitle: 'La recette d’un seul bol',
+      example: [
+        'Première couche : un demi-yaourt.',
+        'Deuxième couche : un quart de banane et quelques miettes.',
+        'Répétez une fois avec le reste des ingrédients.',
+        'Un yaourt + une demi-banane + un biscuit = une portion ; aucune pesée supplémentaire.',
+      ],
+      younger:
+        'Utilisez la banane écrasée et laissez l’enfant déposer les couches avec une cuillère.',
+      older:
+        'Calculez les quantités pour six personnes : six yaourts, trois bananes et six biscuits.',
+      substitute:
+        'Sans biscuits adaptés, faites simplement deux couches de yaourt et de fruit. Une compote peut remplacer la banane.',
+    },
   },
   {
     id: 'capsule-futur',
@@ -863,15 +1061,39 @@ window.SITE_ACTIVITIES = [
     cost: 0,
     place: 'inside',
     desc: 'Un jeu de précision où l’on apprend à mieux se comprendre.',
-    materials: ['Feuilles', 'Crayons'],
+    materials: [
+      'Deux feuilles par manche',
+      'Un crayon par personne',
+      'Un livre posé entre les joueurs pour masquer le dessin, facultatif',
+    ],
     steps: [
-      'Un joueur dessine en secret une image avec cinq formes simples.',
-      'Il décrit son dessin sans le montrer : position, taille et forme de chaque élément.',
-      'L’autre dessine ce qu’il comprend et peut poser des questions.',
-      'Comparez les deux dessins, puis échangez les rôles en améliorant les indications.',
+      'Un joueur devient le guide et lit le modèle ci-dessous sans le montrer. L’autre dispose d’une feuille vierge.',
+      'Le guide décrit les éléments un par un. Le dessinateur peut demander « au-dessus de quoi ? », « plus grand que quoi ? » ou faire répéter.',
+      'Après cinq minutes, comparez les deux images. Repérez une consigne claire et une qui pouvait se comprendre de plusieurs façons.',
+      'Échangez les rôles avec le second modèle, puis refaites la consigne la plus difficile en la précisant.',
+      'Terminez en inventant une image de trois formes seulement pour vérifier vos nouvelles règles de description.',
     ],
     tip: 'Les grands peuvent essayer une première manche sans questions, puis une seconde avec questions pour comparer les résultats.',
     slug: 'dessine-ce-que-je-te-raconte',
+    ready: {
+      prepMinutes: 2,
+      group: '2 personnes ou deux binômes',
+      setup: [
+        'Asseyez-vous de façon à ne pas voir le modèle de l’autre.',
+        'Convenez que « gauche » et « droite » désignent toujours celles de la feuille du dessinateur.',
+      ],
+      exampleTitle: 'Deux modèles prêts à décrire',
+      example: [
+        'Modèle 1 — Au centre : un grand carré. Sur le carré : un triangle dont la pointe monte. Dans le carré : une petite porte rectangulaire en bas au milieu et deux fenêtres rondes, une de chaque côté.',
+        'Modèle 2 — Dans la moitié basse : un long rectangle horizontal. Au-dessus, trois petits cercles alignés. Sous le rectangle, deux gros cercles, un près de chaque extrémité. Ajoutez un petit drapeau sur le cercle du milieu.',
+      ],
+      younger:
+        'Décrivez seulement un carré, un rond à l’intérieur et un trait en dessous ; montrez d’abord le sens des mots.',
+      older:
+        'Comparez une manche avec questions et une sans questions, en gardant un niveau de détail similaire.',
+      substitute:
+        'Sans écran ou cache, le guide tourne sa feuille vers lui. Sans dessin, placez trois objets selon les mêmes consignes de position.',
+    },
   },
   {
     id: 'robot-debranche',
@@ -882,15 +1104,48 @@ window.SITE_ACTIVITIES = [
     cost: 0,
     place: 'inside',
     desc: 'Découvrez les instructions précises avec un robot très humain.',
-    materials: ['Feuilles pour dessiner des flèches', 'Un objet à atteindre'],
+    materials: [
+      'Une feuille et un crayon',
+      'Un petit personnage dessiné ou un pion en papier assez grand',
+      'Un objet cible, par exemple un livre',
+      'Un espace dégagé si vous jouez en taille réelle',
+    ],
     steps: [
-      'Dégagez un petit parcours au sol et placez un objet à quelques pas du départ.',
-      'Définissez trois commandes : avancer d’un petit pas, tourner à gauche et tourner à droite.',
-      'L’enfant prépare une suite de flèches ; le parent-robot la suit doucement et s’arrête avant tout obstacle.',
-      'Corrigez ensemble les instructions, puis échangez les rôles.',
+      'Dessinez une grille de trois colonnes A, B, C et trois lignes 1, 2, 3. La ligne 1 est près de vous. Placez le robot en A1, tourné vers la ligne 3, et la cible en C3.',
+      'Définissez les commandes : AVANCE = une case devant soi ; DROITE ou GAUCHE = un quart de tour sur place. Une rotation ne fait pas avancer.',
+      'Testez le programme fourni ci-dessous avec le pion. L’enfant annonce les commandes et l’adulte suit exactement.',
+      'Inventez un autre programme. Si une commande sort de la grille, arrêtez-vous, repérez le problème et changez une instruction.',
+      'Échangez les rôles. Si la pièce le permet, rejouez avec un parent-robot à petits pas, qui s’arrête toujours avant un obstacle.',
     ],
     tip: 'Les ados ajoutent une instruction « répéter trois fois ». Une erreur devient une occasion de comprendre, jamais une pénalité.',
     slug: 'programme-ton-parent-robot',
+    ready: {
+      prepMinutes: 5,
+      group: '2 à 4 personnes',
+      setup: [
+        'Commencez sur papier : cela évite de devoir fixer des feuilles au sol.',
+        'En taille réelle, choisissez un sol plat dégagé, loin des escaliers. On ne joue ni les yeux fermés ni en courant.',
+      ],
+      exampleTitle: 'Un programme complet vers la cible',
+      example: [
+        'Départ : A1, regard vers A2 puis A3.',
+        'Programme : AVANCE · AVANCE · DROITE · AVANCE · AVANCE.',
+        'À chaque commande, pointez la case ou l’orientation obtenue avant de continuer.',
+      ],
+      younger:
+        'Faites une grille de deux cases et donnez une commande à la fois, avec une flèche dessinée.',
+      older:
+        'Réécrivez le programme avec « répéter 2 fois AVANCE ». Ajoutez ensuite une case interdite et cherchez un détour.',
+      substitute:
+        'Sans espace au sol, toute l’activité fonctionne avec un personnage dessiné sur la grille.',
+      solutions: [
+        {
+          label: 'Arrivée du programme',
+          hint: 'Après les deux premiers déplacements, le robot est en A3. DROITE l’oriente vers B3.',
+          answer: 'Le robot arrive en C3 après cinq commandes, dont une rotation.',
+        },
+      ],
+    },
   },
   {
     id: 'tartinade',
@@ -945,15 +1200,37 @@ window.SITE_ACTIVITIES = [
     cost: 0,
     place: 'outside',
     desc: 'Dessinez ce que vos oreilles découvrent autour de vous.',
-    materials: ['Feuille', 'Crayon', 'Support pour écrire'],
+    materials: ['Une feuille par personne', 'Un crayon', 'Un livre ou support pour écrire'],
     steps: [
-      'Choisissez un endroit calme et sûr, puis marquez votre position au centre de la feuille.',
-      'Écoutez une minute sans parler, en gardant les yeux ouverts.',
-      'Placez autour du centre un symbole pour chaque son entendu, selon sa direction.',
-      'Comparez vos cartes : quels sons avez-vous tous entendus, lesquels vous ont échappé ?',
+      'Installez-vous dans un lieu sûr, à l’écart de la circulation. Dessinez un point au centre de la feuille pour votre position et un repère vers lequel vous regardez.',
+      'Écoutez une minute sans parler, en gardant les yeux ouverts. On ne se déplace pas pour trouver la source d’un son.',
+      'Placez les symboles de la légende autour du point, selon la direction perçue. Un symbole proche du centre signifie un son qui semble proche.',
+      'Écoutez une seconde minute et ajoutez une découverte dans une autre couleur, ou entourez-la si vous n’avez qu’un crayon.',
+      'Comparez les cartes. Décrivez une différence sans chercher qui a raison : une direction peut rester incertaine.',
     ],
     tip: 'Les petits dessinent simplement trois sons. Les ados peuvent comparer deux endroits et décrire ce qui change.',
     slug: 'la-carte-des-sons-du-parc',
+    ready: {
+      prepMinutes: 5,
+      group: '2 à 6 personnes',
+      setup: [
+        'Choisissez un banc ou un emplacement où chacun peut rester confortablement quelques minutes.',
+        'Recopiez la légende. Un bruit inconnu peut être noté par un point d’interrogation, sans enquête.',
+      ],
+      exampleTitle: 'Une légende déjà prête',
+      example: [
+        'O : un oiseau.',
+        '~ : du vent ou des feuilles.',
+        'R : un bruit de roues.',
+        'V : des voix lointaines, sans écouter leur conversation.',
+        '? : un son dont on ne connaît pas la source.',
+      ],
+      younger: 'Dessinez ensemble trois sons, sans chercher à les positionner précisément.',
+      older:
+        'Refaites une carte à un second point sûr et comparez les sons dominants, sans prétendre mesurer leur volume.',
+      substitute:
+        'Sans sortie possible, écoutez près d’une fenêtre fermée ou dans une pièce calme. Remplacez la légende par les sons réellement présents.',
+    },
   },
   {
     id: 'golf-chaussettes',
@@ -1343,15 +1620,42 @@ window.SITE_ACTIVITIES = [
     cost: 0,
     place: 'inside',
     desc: 'Transformez vos emballages en maisons, en école ou en station spatiale.',
-    materials: ['Emballages propres', 'Feutres', 'Ruban adhésif', 'Ciseaux à bouts ronds'],
+    materials: [
+      '4 petites boîtes propres par groupe',
+      '1 grande feuille ou un carton plat',
+      'Feutres',
+      'Ruban adhésif',
+      'Ciseaux à bouts ronds utilisés avec l’adulte',
+    ],
     steps: [
-      'Choisissez ensemble ce qui existe dans votre ville : maisons, parc, bibliothèque… chacun propose une idée.',
-      'Répartissez les boîtes et dessinez les fenêtres. L’adulte réalise les découpes difficiles.',
-      'Assemblez les bâtiments sur une grande feuille et tracez les rues.',
-      'Inventez une visite guidée : qui habite ici et que se passe-t-il aujourd’hui ?',
+      'Posez la grande feuille à plat et tracez deux rues qui se croisent. Réservez un carré au centre pour le parc.',
+      'Attribuez les quatre boîtes : une maison, une école, une bibliothèque et un bâtiment inventé. Chacun choisit une façade à décorer.',
+      'Dessinez portes et fenêtres. L’adulte effectue les découpes difficiles ; des portes dessinées suffisent aussi.',
+      'Disposez les bâtiments sans les fixer. Vérifiez ensemble qu’un petit personnage imaginaire peut rejoindre le parc depuis chaque porte, puis fixez les boîtes.',
+      'Jouez la mission proposée ci-dessous et terminez par une visite guidée d’une minute par enfant.',
     ],
     tip: 'Les plus jeunes décorent les façades. Les plus grands dessinent le plan et inventent les règles de la ville.',
     slug: 'construire-une-ville-en-carton',
+    ready: {
+      prepMinutes: 5,
+      group: '2 à 5 personnes, un adulte pour les découpes',
+      setup: [
+        'Rassemblez quatre boîtes de tailles proches, retirez agrafes et éléments coupants.',
+        'Protégez la table. Une ville de quatre bâtiments suffit : aucun modèle parfait à reproduire.',
+      ],
+      exampleTitle: 'Votre première mission est fournie',
+      example: [
+        'La bibliothèque a reçu un livre géant : comment le faire entrer ?',
+        'Une famille arrive en ville : choisissez où elle habite et le chemin de l’école.',
+        'Le parc accueille une fête : ajoutez un banc et inventez un nom pour la place.',
+      ],
+      younger:
+        'Un enfant décore une boîte pendant qu’un autre trace les rues. Les plus petits dictent les noms.',
+      older:
+        'Ajoutez une contrainte : tous les bâtiments doivent rester accessibles sans traverser le parc.',
+      substitute:
+        'Sans boîtes, pliez quatre feuilles en deux pour former des façades debout. Sans adhésif, laissez les bâtiments simplement posés.',
+    },
   },
   {
     id: 'couleurs',
@@ -1362,15 +1666,38 @@ window.SITE_ACTIVITIES = [
     cost: 0,
     place: 'outside',
     desc: 'Une promenade ordinaire devient une mission d’explorateurs.',
-    materials: ['Une feuille', 'Des crayons de couleur'],
+    materials: [
+      'Une feuille',
+      'Crayons rouge, jaune, bleu et vert, ou un crayon pour écrire les noms',
+    ],
     steps: [
-      'Dessinez six ronds de couleurs différentes sur une feuille.',
-      'Partez dans un parc ou votre quartier et cherchez ensemble un élément de chaque couleur.',
-      'Montrez vos trouvailles sans cueillir ni toucher les plantes inconnues.',
-      'Pour finir, chacun choisit sa découverte préférée et raconte pourquoi.',
+      'Préparez quatre cases : rouge, jaune, bleu et vert. La mission n’est pas de ramasser les objets, mais de les montrer.',
+      'Partez ensemble sur un petit trajet piéton sûr, sans quitter les chemins ni entrer dans les propriétés.',
+      'Cherchez un élément de chaque couleur. L’enfant le montre et décrit un détail : petit, rugueux, brillant ou lointain.',
+      'Dessinez une trouvaille dans chaque case. Plusieurs personnes peuvent choisir le même élément.',
+      'Avant de rentrer, cherchez une dernière couleur absente de la grille et racontez votre découverte préférée.',
     ],
     tip: 'À partir de 9 ans, cherchez plutôt six textures, des formes géométriques ou des détails que personne n’avait remarqués.',
     slug: 'la-chasse-aux-couleurs',
+    ready: {
+      prepMinutes: 3,
+      group: '1 à 5 enfants avec un adulte',
+      setup: [
+        'Choisissez un parcours de dix minutes aller-retour environ et un point de retour clair.',
+        'Expliquez qu’on ne touche pas les plantes inconnues et qu’une couleur introuvable n’est pas un échec.',
+      ],
+      exampleTitle: 'Des pistes, pas une liste obligatoire',
+      example: [
+        'Rouge : un panneau ou une porte, observés depuis un endroit sûr.',
+        'Jaune : une feuille tombée ou une façade.',
+        'Bleu : le ciel ou un volet.',
+        'Vert : une feuille ou une barrière.',
+      ],
+      younger: 'Commencez avec deux couleurs et donnez un exemple visible pour chacune.',
+      older: 'Cherchez deux nuances d’une même couleur, puis expliquez ce qui les différencie.',
+      substitute:
+        'La pluie empêche de sortir ? Gardez les quatre missions et cherchez des objets dans une pièce, sans grimper ni ouvrir les placards.',
+    },
   },
   {
     id: 'ombres',
@@ -1381,15 +1708,35 @@ window.SITE_ACTIVITIES = [
     cost: 0,
     place: 'inside',
     desc: 'Une lampe, un mur… et des histoires qui prennent vie.',
-    materials: ['Lampe de poche', 'Mur clair', 'Papier et crayons'],
+    materials: ['Une lampe de poche à LED', 'Un mur clair', 'Deux feuilles de papier', 'Un crayon'],
     steps: [
-      'Installez la lampe devant un mur, dans une pièce un peu sombre, sans éclairer les yeux.',
-      'Testez les ombres de vos mains et observez leur taille en vous approchant de la lampe.',
-      'Choisissez deux personnages et un problème à résoudre.',
-      'Jouez une histoire de trois minutes, puis échangez les rôles.',
+      'Posez la lampe de façon stable, orientée vers le mur et jamais vers les yeux. Gardez le sol dégagé et assez éclairé pour circuler.',
+      'Une main devient un oiseau en battant doucement des doigts ; l’autre devient une montagne immobile. Testez ces deux ombres.',
+      'Lisez les trois scènes proposées et répartissez les rôles : oiseau, montagne et narrateur. Une personne peut avoir deux rôles.',
+      'Jouez chaque scène pendant environ une minute. Le narrateur peut souffler les répliques.',
+      'Échangez les rôles et rejouez avec une fin choisie par l’enfant.',
     ],
     tip: 'Les plus grands peuvent découper des silhouettes avec un adulte et ajouter un narrateur.',
     slug: 'le-theatre-des-ombres',
+    ready: {
+      prepMinutes: 5,
+      group: '2 à 4 personnes, même sans savoir lire',
+      setup: [
+        'Vérifiez que la lampe ne chauffe pas et ne placez aucun tissu dessus.',
+        'Installez les joueurs entre la lampe et le mur ; faites un essai avant de commencer l’histoire.',
+      ],
+      exampleTitle: 'Une histoire en trois scènes',
+      example: [
+        'Scène 1 — L’oiseau : « Je cherche un endroit pour dormir. » La montagne : « Ici, le vent souffle fort ! »',
+        'Scène 2 — L’oiseau se cache derrière la montagne. Le narrateur annonce une grosse pluie ; les mains font une pluie de doigts.',
+        'Scène 3 — La montagne protège l’oiseau. Il promet de revenir chanter chaque matin. Ensemble, faites apparaître le soleil avec vos mains.',
+      ],
+      younger: 'L’adulte raconte ; l’enfant anime seulement l’oiseau et choisit son cri.',
+      older:
+        'Refaites une scène avec un personnage qui paraît immense, puis minuscule, en changeant sa distance à la lampe.',
+      substitute:
+        'Sans mur clair, utilisez une grande feuille posée contre un meuble. Sans lampe adaptée, jouez la même histoire avec des personnages en papier, sans ombres.',
+    },
   },
   {
     id: 'cookies',
@@ -1406,15 +1753,41 @@ window.SITE_ACTIVITIES = [
       '1 œuf',
       '180 g de farine',
       '80 g de chocolat',
+      'Un saladier et une cuillère',
+      'Une balance',
+      'Une plaque et du papier cuisson',
+      'Un four utilisé par l’adulte',
     ],
     steps: [
-      'L’adulte préchauffe le four à 180 °C. Lavez-vous les mains et vérifiez les ingrédients en cas d’allergie.',
-      'Mélangez le beurre et le sucre, ajoutez l’œuf puis la farine et le chocolat en morceaux. Ne goûtez pas la pâte crue.',
-      'Formez environ douze petits tas espacés sur une plaque recouverte de papier cuisson.',
-      'L’adulte enfourne 10 à 12 minutes, jusqu’à ce que les bords dorent. Laissez refroidir avant de déguster.',
+      'Lavez-vous les mains, vérifiez les ingrédients en cas d’allergie et faites préchauffer le four à 180 °C par l’adulte.',
+      'Mélangez le beurre mou et le sucre à la cuillère. Ajoutez l’œuf, puis la farine et le chocolat découpé par l’adulte ; ne goûtez pas la pâte crue.',
+      'Partagez la pâte en douze petits tas espacés sur la plaque couverte de papier cuisson. Aplatissez-les légèrement.',
+      'L’adulte enfourne environ dix à douze minutes, en surveillant la cuisson : les bords doivent dorer. Il manipule seul la plaque chaude.',
+      'Laissez refroidir au moins dix minutes, puis l’adulte vérifie la température avant la dégustation. Profitez de l’attente pour ranger.',
     ],
     tip: 'Chacun peut décorer un cookie. Les plus grands recalculent les quantités pour une demi-recette.',
     slug: 'les-cookies-a-quatre-mains',
+    ready: {
+      prepMinutes: 5,
+      group: 'Environ 12 petits cookies, à partager à 4 à 6',
+      setup: [
+        'Sortez le beurre à l’avance pour qu’il soit mou ; ce temps d’attente n’est pas compris dans les 45 minutes.',
+        'Pesez les ingrédients et répartissez les rôles : peser, mélanger, former les tas. L’adulte gère œuf, découpes et four selon l’âge.',
+      ],
+      exampleTitle: 'Une répartition sans dispute',
+      example: [
+        'Personne 1 : pèse le sucre et la farine.',
+        'Personne 2 : mélange beurre et sucre.',
+        'Personne 3 : ajoute les ingrédients avec l’aide de l’adulte.',
+        'Tout le monde : forme quelques cookies ; l’adulte vérifie leur taille et leur espacement.',
+      ],
+      younger:
+        'L’enfant verse les ingrédients déjà pesés et forme les tas avec deux cuillères, sous surveillance.',
+      older:
+        'Pour une demi-recette, calculez 50 g de beurre, 35 g de sucre, 90 g de farine et 40 g de chocolat ; l’adulte bat un œuf et en utilise la moitié.',
+      substitute:
+        'Sans chocolat, gardez la pâte nature. Pour une allergie, choisissez une recette déjà adaptée et vérifiée pour la personne plutôt qu’une substitution improvisée.',
+    },
   },
   {
     id: 'cabane',
@@ -1482,15 +1855,36 @@ window.SITE_ACTIVITIES = [
     cost: 0,
     place: 'inside',
     desc: 'Des animaux, des métiers et beaucoup de fous rires.',
-    materials: ['Petits papiers', 'Un bol', 'Un crayon'],
+    materials: ['Douze papiers', 'Un bol', 'Un crayon'],
     steps: [
-      'Chacun propose des animaux ou actions simples. L’adulte les note ou les dessine.',
-      'Mélangez les papiers dans un bol et tirez-en un.',
-      'Faites deviner sans parler. Les autres peuvent proposer autant de réponses qu’ils veulent.',
-      'Pour la dernière manche, mimez tous ensemble une scène inventée.',
+      'Recopiez ou dessinez les douze propositions fournies et mélangez les papiers dans le bol.',
+      'Un joueur tire une proposition ; un adulte peut la lui lire à l’oreille. Il peut changer de papier ou passer son tour.',
+      'Le joueur mime sans parler pendant environ trente secondes. Les autres proposent des réponses ; aucun score n’est nécessaire.',
+      'Révélez la proposition si personne ne trouve, puis changez de mime. Reprenez une proposition facile pour donner un premier exemple.',
+      'Pour finir, deux joueurs miment ensemble « préparer une soupe sous la pluie » et les autres racontent ce qu’ils ont vu.',
     ],
     tip: 'À partir de 9 ans, essayez des expressions ou des scènes de films que tout le monde connaît.',
     slug: 'le-bocal-a-mimes',
+    ready: {
+      prepMinutes: 3,
+      group: '3 à 6 personnes ; à deux, alternez simplement',
+      setup: [
+        'Dégagez un petit espace sans objets fragiles.',
+        'Pour les non-lecteurs, dessinez les actions ou faites lire le papier discrètement par l’adulte.',
+      ],
+      exampleTitle: 'Douze idées déjà choisies',
+      example: [
+        'Un chat qui s’étire · Un éléphant · Une grenouille',
+        'Se brosser les dents · Porter un carton très lourd · Faire une crêpe',
+        'Marcher dans le vent · Chercher ses lunettes · Jouer de la guitare',
+        'Un robot au ralenti · Arroser une plante · Ouvrir un cadeau surprise',
+      ],
+      younger: 'Ne gardez que les trois animaux et mimez en duo avec l’adulte.',
+      older:
+        'Combinez deux papiers, comme un robot qui se brosse les dents ; acceptez une description plutôt qu’une formule exacte.',
+      substitute:
+        'Sans papiers, l’adulte choisit une proposition dans cette liste et la chuchote au mime.',
+    },
   },
   {
     id: 'pizza',
@@ -1501,15 +1895,45 @@ window.SITE_ACTIVITIES = [
     cost: 5,
     place: 'inside',
     desc: 'Chacun compose son petit chef-d’œuvre à croquer.',
-    materials: ['Pain', 'Coulis de tomate', 'Fromage râpé', 'Légumes au choix'],
+    materials: [
+      '4 grandes tranches de pain',
+      '4 cuillères à soupe de coulis de tomate',
+      '80 g de fromage râpé',
+      'Une petite tomate lavée',
+      'Un petit morceau de poivron lavé, facultatif',
+      'Une plaque de cuisson',
+      'Un four utilisé par l’adulte',
+    ],
     steps: [
-      'Lavez-vous les mains. L’adulte préchauffe le four à 180 °C et découpe les légumes en petits morceaux.',
-      'Étalez une fine couche de tomate sur les tranches de pain.',
-      'Ajoutez les légumes et le fromage en dessinant un visage ou un motif.',
-      'L’adulte enfourne 8 à 10 minutes, jusqu’à ce que le fromage fonde. Laissez tiédir.',
+      'Lavez-vous les mains et vérifiez les allergies. L’adulte préchauffe le four à 180 °C et coupe les légumes en petits morceaux adaptés.',
+      'Posez les quatre tranches sur une plaque et étalez une cuillère à soupe de coulis sur chacune.',
+      'Répartissez le fromage entre les quatre tartines. Dessinez ensuite un visage avec les légumes, sans empiler une grosse épaisseur.',
+      'L’adulte enfourne environ huit à dix minutes, jusqu’à ce que le fromage fonde et que le pain commence à dorer.',
+      'Laissez tiédir environ cinq minutes. L’adulte vérifie la température et coupe les portions si besoin avant de servir.',
     ],
     tip: 'Vérifiez les allergies et adaptez les garnitures. Les plus grands inventent le nom et la carte de leur pizzeria.',
     slug: 'des-tartines-facon-pizza',
+    ready: {
+      prepMinutes: 5,
+      group: '4 tartines, pour un petit repas ou à compléter selon l’appétit',
+      setup: [
+        'Préparez les légumes et posez les garnitures dans de petits bols.',
+        'Attribuez une tranche à chacun ; si vous êtes plus de quatre, préparez les quantités avant de commencer.',
+      ],
+      exampleTitle: 'Un visage facile à composer',
+      example: [
+        'Base : une tranche, une cuillère de tomate et un quart du fromage.',
+        'Deux yeux : deux petits morceaux de tomate.',
+        'Une bouche : une fine bande de poivron, ou trois morceaux de tomate.',
+        'À plusieurs : donnez un nom à chaque personnage avant la cuisson.',
+      ],
+      younger:
+        'L’adulte prépare et coupe ; l’enfant tartine avec une cuillère et place les morceaux.',
+      older:
+        'Doublez les quantités pour huit tartines, puis proposez une répartition équitable des garnitures.',
+      substitute:
+        'Sans poivron, utilisez seulement la tomate. Sans four, faites une version froide avec du fromage à tartiner adapté aux convives ; ce n’est plus une cuisson façon pizza.',
+    },
   },
   {
     id: 'carte',
@@ -1558,15 +1982,39 @@ window.SITE_ACTIVITIES = [
     cost: 0,
     place: 'outside',
     desc: 'Redécouvrez le monde à hauteur d’enfant.',
-    materials: ['Un téléphone ou appareil photo'],
+    materials: [
+      'Un téléphone ou appareil photo chargé, utilisé avec l’adulte',
+      'Une feuille et un crayon pour noter les missions',
+    ],
     steps: [
-      'Choisissez quatre thèmes : minuscule, rond, drôle et surprenant.',
-      'Promenez-vous ensemble et laissez chacun cadrer ses trouvailles.',
-      'Photographiez les détails sans viser des personnes reconnaissables.',
-      'À la maison, choisissez une photo par thème et inventez ses légendes.',
+      'Recopiez les quatre missions. Choisissez un trajet piéton connu et réglez l’appareil avant de partir.',
+      'À chaque arrêt, une personne cadre et une autre vérifie que le groupe est dans un endroit sûr. On s’immobilise avant de photographier.',
+      'Prenez au maximum deux photos par mission, sans personnes reconnaissables, plaques d’immatriculation ni adresses lisibles.',
+      'Au retour, retenez ensemble quatre images et donnez à chacune une légende de cinq mots maximum.',
+      'Présentez l’exposition sur l’appareil, sans publication obligatoire, puis choisissez les images à garder.',
     ],
     tip: 'Sans appareil, dessinez vos découvertes. Les ados peuvent raconter une histoire en cinq images.',
     slug: 'un-safari-photo-de-details',
+    ready: {
+      prepMinutes: 5,
+      group: '2 à 5 personnes avec un seul appareil',
+      setup: [
+        'Vérifiez la batterie et désactivez la localisation des photos si vous ne souhaitez pas enregistrer les lieux.',
+        'Convenez que le téléphone reste un appareil photo pendant cette mission, sans autre application nécessaire.',
+      ],
+      exampleTitle: 'Quatre photos à rapporter',
+      example: [
+        'Minuscule : un détail qu’on oublie souvent, comme une nervure de feuille.',
+        'Rond : un cercle réel ou suggéré, par exemple l’ombre d’un pot.',
+        'Drôle : un objet qui semble avoir un visage, sans photographier quelqu’un.',
+        'Surprenant : le même détail vu de près puis de loin ; choisissez ensuite votre cadrage préféré.',
+      ],
+      younger: 'L’enfant repère et cadre avec l’aide de l’adulte ; deux missions suffisent.',
+      older:
+        'Faites deviner ce que représente une photo très rapprochée, puis révélez la vue d’ensemble.',
+      substitute:
+        'Sans appareil ou sans batterie, dessinez un détail par mission. L’exposition fonctionne aussi sur papier.',
+    },
   },
   {
     id: 'pont',
@@ -1577,15 +2025,43 @@ window.SITE_ACTIVITIES = [
     cost: 0,
     place: 'inside',
     desc: 'Un défi d’ingénieur avec presque rien.',
-    materials: ['Feuilles de papier', 'Deux livres de même hauteur', 'Gommes'],
+    materials: [
+      'Trois feuilles A4 semblables',
+      'Deux livres de même hauteur',
+      'Une règle',
+      'Trois gommes similaires, manipulées hors de portée des jeunes enfants',
+    ],
     steps: [
-      'Écartez les livres d’environ 15 cm et posez une feuille à plat entre les deux.',
-      'Placez délicatement une gomme au centre : le pont résiste-t-il ?',
-      'Pliez une nouvelle feuille en accordéon et recommencez dans les mêmes conditions.',
-      'Comparez vos résultats et imaginez ensemble un pont encore plus solide.',
+      'Posez les livres à plat, avec quinze centimètres entre leurs bords. Orientez le grand côté de la feuille d’un livre à l’autre, sur les deux appuis, sans adhésif.',
+      'Testez une feuille à plat. Posez les gommes une par une au centre et notez combien elle en supporte, jusqu’à trois maximum.',
+      'Pliez une deuxième feuille en accordéon, avec des plis parallèles aux grands côtés : une bande d’environ deux centimètres dans un sens, puis la suivante dans l’autre. Recommencez avec le même écart et les mêmes gommes.',
+      'Sur la troisième feuille, relevez les deux longs bords d’environ deux centimètres pour former une gouttière, puis testez-la de la même manière.',
+      'Remplissez le tableau proposé et comparez les formes. Une feuille qui ne tient aucune gomme donne aussi un résultat utile.',
     ],
     tip: 'Faites une prédiction avant chaque essai. Avec un jeune enfant présent, gardez les petits objets hors de sa portée.',
     slug: 'un-pont-avec-une-feuille',
+    ready: {
+      prepMinutes: 3,
+      group: '2 à 4 personnes',
+      setup: [
+        'Travaillez au centre d’une table basse dégagée, avec un adulte pour les charges.',
+        'Utilisez des feuilles du même type. Changez seulement le pliage pour pouvoir comparer.',
+      ],
+      exampleTitle: 'Votre tableau d’essai à recopier',
+      example: [
+        'Forme | Prédiction | Gommes supportées, de 0 à 3',
+        'À plat | … | …',
+        'Accordéon | … | …',
+        'Gouttière | … | …',
+        'Qu’avez-vous gardé identique ? Qu’avez-vous changé ?',
+      ],
+      younger:
+        'L’adulte plie ; l’enfant prédit et compte une seule gomme. Ne cherchez pas la charge maximale.',
+      older:
+        'Testez un autre espacement des livres, puis expliquez pourquoi ce nouvel essai ne se compare pas directement au précédent.',
+      substitute:
+        'Sans gommes, utilisez trois objets identiques assez grands et légers. Si les charges diffèrent, notez seulement « tient » ou « plie » pour le même objet à chaque essai.',
+    },
   },
   {
     id: 'bd',
@@ -1596,15 +2072,39 @@ window.SITE_ACTIVITIES = [
     cost: 0,
     place: 'inside',
     desc: 'Une aventure épique, même sans savoir dessiner.',
-    materials: ['Papier', 'Crayons ou feutres'],
+    materials: ['Une feuille A4 par histoire', 'Une règle facultative', 'Crayons ou feutres'],
     steps: [
-      'Tracez six cases sur une feuille et choisissez un héros inspiré de votre famille.',
-      'Dans les deux premières cases, présentez le héros et un problème drôle.',
-      'Passez la feuille : chacun dessine une case de la suite, même avec des bonshommes bâtons.',
-      'Terminez ensemble l’histoire, ajoutez les bulles et un titre.',
+      'Posez la feuille à l’horizontale et tracez six cases : trois en haut, trois en bas.',
+      'Choisissez le héros : un membre de la famille, représenté par un bonhomme bâton avec un signe distinctif.',
+      'Suivez le scénario en six cases fourni ci-dessous. Passez la feuille après chaque case ou répartissez dessin et dialogues.',
+      'Ajoutez une bulle courte par case, puis un titre. Les personnages n’ont pas besoin d’être ressemblants.',
+      'Lisez la BD à voix haute. Chacun choisit un détail qu’il aime dans la contribution d’un autre.',
     ],
     tip: 'Les plus petits dictent les dialogues. Les ados peuvent détourner un petit incident du quotidien en aventure fantastique.',
     slug: 'votre-famille-en-bande-dessinee',
+    ready: {
+      prepMinutes: 5,
+      group: '2 à 6 auteurs, lecture accompagnée si besoin',
+      setup: [
+        'Préparez les six cadres et laissez une marge pour le titre.',
+        'Choisissez un crayon qui s’efface si l’enfant craint de se tromper.',
+      ],
+      exampleTitle: 'Scénario prêt à dessiner : la chaussette fugitive',
+      example: [
+        'Case 1 : le héros veut sortir, mais une chaussette manque. Bulle : « Encore toi ! »',
+        'Case 2 : une trace de petits pas mène sous le canapé.',
+        'Case 3 : la chaussette apparaît avec une valise : « Je pars en vacances. »',
+        'Case 4 : le héros propose de l’accompagner.',
+        'Case 5 : ils installent une plage imaginaire sur un coussin.',
+        'Case 6 : les deux chaussettes se retrouvent. Inventez leur dernière réplique.',
+      ],
+      younger:
+        'L’enfant choisit les couleurs et dicte deux répliques ; l’adulte dessine les autres cases.',
+      older:
+        'Racontez la même histoire du point de vue de la chaussette, ou sans utiliser aucun mot.',
+      substitute:
+        'Sans règle, tracez les cases à main levée. Sans six cases, gardez seulement début, problème et solution.',
+    },
   },
   {
     id: 'parcours',
@@ -1981,19 +2481,63 @@ window.SITE_ACTIVITIES = [
     title: 'Le mini escape game de la citrouille',
     category: 'Jouer',
     age: 9,
-    time: 45,
+    time: 30,
     cost: 0,
     place: 'inside',
     desc: 'Trois énigmes maison mènent au code qui libérera la citrouille imaginaire.',
-    materials: ['Papier', 'Crayons', 'Une boîte', 'Trois petits objets familiers'],
-    steps: [
-      'Le maître du jeu choisit un code à trois chiffres et cache chaque chiffre derrière une énigme courte.',
-      'Préparez une énigme d’observation, une de logique et une utilisant trois objets de la pièce.',
-      'Placez les énigmes dans l’ordre et donnez trente minutes aux enquêteurs pour reconstituer le code.',
-      'Quand le code est trouvé, ouvrez la boîte et échangez les rôles pour créer une nouvelle aventure.',
+    materials: [
+      '4 feuilles de papier',
+      'Un crayon',
+      'Une boîte qui s’ouvre librement, sans cadenas',
+      'Un petit message de félicitations',
     ],
-    tip: 'Le trésor peut être un message drôle ou le choix du film du soir : aucun achat n’est nécessaire.',
+    steps: [
+      'L’adulte prépare les trois cartes fournies et consulte les indices et solutions à part. Il garde la boîte accessible : personne n’est enfermé.',
+      'Annoncez : « La citrouille a oublié les trois chiffres de son coffre. Chaque carte vous donnera un chiffre, dans l’ordre 1, 2, 3. »',
+      'Donnez la carte 1 et laissez les joueurs compter. Notez le premier chiffre sans encore annoncer s’il est juste.',
+      'Donnez la carte 2. Si le groupe bloque, proposez l’indice correspondant, sans pénalité ni limite imposée.',
+      'Pour la carte 3, recopiez les quatre mots sur des papiers séparés et rangez-les dans quatre places numérotées de 1 à 4.',
+      'Les joueurs annoncent le code. L’adulte vérifie, ouvre la boîte et lit le message. Reprenez ensemble le raisonnement qui a été le plus intéressant.',
+    ],
+    tip: 'Le thème fonctionne toute l’année en remplaçant la citrouille par une boîte mystérieuse. Un mot drôle suffit comme trésor.',
     slug: 'le-mini-escape-game-de-la-citrouille',
+    ready: {
+      prepMinutes: 10,
+      group: '1 adulte meneur et 1 à 4 joueurs dès 9 ans',
+      setup: [
+        'Recopiez les trois cartes ci-dessous sur des feuilles numérotées, puis gardez-les avec vous. Aucun indice n’est à inventer ni à cacher.',
+        'Placez le message dans la boîte. Lisez les solutions avant de montrer l’écran aux joueurs.',
+      ],
+      exampleTitle: 'Les trois cartes à lire ou à recopier',
+      example: [
+        'CARTE 1 — Dans la liste entre crochets, combien de mots CITROUILLE ? [CITROUILLE · LUNE · CHAT · CITROUILLE · ÉTOILE · CITROUILLE] Ce nombre est votre premier chiffre.',
+        'CARTE 2 — Continuez la suite : 1, 2, 4, 7, … Les nombres ajoutés augmentent de 1 à chaque fois. Gardez seulement le chiffre des unités du prochain nombre.',
+        'CARTE 3 — Rangez LIVRE, CUILLÈRE, CRAYON et CLÉ de la place 1 à la place 4. Le livre est juste avant la cuillère. La clé est juste après le crayon. La cuillère est avant le crayon. Le numéro de la place de la clé est votre dernier chiffre.',
+      ],
+      younger:
+        'L’adulte lit les cartes et fait manipuler quatre papiers pour la dernière énigme. Pour un enfant plus jeune que l’âge conseillé, résolvez ensemble plutôt que de chronométrer.',
+      older:
+        'Après la partie, expliquez pourquoi les contraintes de la carte 3 ne laissent qu’un seul ordre possible.',
+      substitute:
+        'Sans boîte, pliez le message en deux : l’adulte le déplie quand le code est trouvé. Sans impression, lisez une carte à la fois.',
+      solutions: [
+        {
+          label: 'Carte 1',
+          hint: 'Pointez chaque mot en le lisant ; ne comptez pas les autres objets.',
+          answer: 'Trois occurrences : le premier chiffre est 3.',
+        },
+        {
+          label: 'Carte 2',
+          hint: 'Les écarts sont +1, +2, +3 ; ajoutez maintenant 4.',
+          answer: '7 + 4 = 11. Le chiffre des unités est 1.',
+        },
+        {
+          label: 'Carte 3',
+          hint: 'Formez deux blocs : LIVRE–CUILLÈRE et CRAYON–CLÉ. Quel bloc peut être en premier ?',
+          answer: 'LIVRE, CUILLÈRE, CRAYON, CLÉ : la clé est en position 4. Le code final est 314.',
+        },
+      ],
+    },
   },
   {
     id: 'pommes-monstres',
