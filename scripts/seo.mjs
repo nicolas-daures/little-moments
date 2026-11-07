@@ -409,7 +409,7 @@ export async function generateSeoFiles(files) {
         <div class="timer-panel page-timer-panel" data-page-timer-panel hidden>
           <strong>${w.timerTitle}</strong>
           <label>${w.timerDuration}<select id="page-timer-duration">${timerDurations.map((minutes) => `<option value="${minutes}"${minutes === activeMinutes ? ' selected' : ''}>${w.time(minutes)}</option>`).join('')}</select></label>
-          <output id="page-timer-display">${String(activeMinutes).padStart(2, '0')}:00</output>
+          <span id="page-timer-display" role="timer" aria-live="off">${String(activeMinutes).padStart(2, '0')}:00</span>
           ${activity.ready ? `<p class="page-timer-note">${lang === 'fr' ? 'Durée de l’activité, hors préparation.' : 'Activity time, excluding preparation.'}</p>` : ''}
           <button class="timer-start" data-page-timer-start>${w.timerStart}</button>
           <button class="page-timer-reset" data-page-timer-reset>${w.timerReset}</button>
