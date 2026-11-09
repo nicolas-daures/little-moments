@@ -138,7 +138,7 @@ for (const [output, bytes] of built) {
       assert.match(html, /timer\.css/);
       assert.match(html, /data-page-timer-toggle/);
       assert.match(html, /data-page-timer-panel/);
-      assert.match(html, /id="page-activity-progress"/);
+      assert.match(html, /id="page-activity-progress" role="progressbar" aria-label="(?:Progression des étapes|Step progress)"/);
       assert.equal(
         (html.match(/data-page-check="material"/g) || []).length,
         activity.materials.length,
