@@ -1064,7 +1064,7 @@ function openActivity(id) {
       </ul>
       <h3>${t('steps')}</h3>
       <div class="activity-progress" id="activity-progress" role="progressbar"
-        aria-valuemin="0" aria-valuemax="${a.steps.length}" aria-valuenow="0">
+        aria-label="${t('stepsProgressLabel')}" aria-valuemin="0" aria-valuemax="${a.steps.length}" aria-valuenow="0">
         <span id="activity-progress-label"></span>
         <span class="activity-progress-track" aria-hidden="true">
           <span id="activity-progress-bar"></span>
