@@ -116,6 +116,7 @@
       steps: 'À vous de jouer',
       checklistHint: 'Préparez le matériel, puis cochez chaque étape au fur et à mesure.',
       stepsProgress: '{done}/{total} étapes cochées',
+      stepsProgressLabel: 'Progression des étapes',
       stepsComplete: 'Toutes les étapes sont cochées !',
       shoppingListTitle: 'La liste de préparation',
       shoppingListIntro:
@@ -271,6 +272,7 @@
       steps: 'Let’s get started',
       checklistHint: 'Gather the materials, then tick off each step as you go.',
       stepsProgress: '{done}/{total} steps checked',
+      stepsProgressLabel: 'Step progress',
       stepsComplete: 'All the steps are checked!',
       shoppingListTitle: 'Your preparation list',
       shoppingListIntro: 'Materials for {n} favourite activity/activities, gathered in one place.',
