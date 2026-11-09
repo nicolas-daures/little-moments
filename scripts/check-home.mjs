@@ -299,6 +299,10 @@ export async function checkHomeFlow(files, catalogs) {
         app.element('activity-progress').getAttribute('aria-valuemax'),
         String(activity.steps.length),
       );
+      assert.equal(
+        app.element('activity-progress').getAttribute('aria-label'),
+        lang === 'fr' ? 'Progression des étapes' : 'Step progress',
+      );
       app.run('openGuided(' + JSON.stringify(activity.id) + ')');
       assert.ok(app.element('guided-content').innerHTML.includes(before));
       assert.ok(app.element('guided-content').innerHTML.includes(after));
