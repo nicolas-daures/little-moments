@@ -59,6 +59,7 @@ const words = {
     timerReset: 'Recommencer',
     checklistHint: 'Rassemblez le matériel, puis cochez chaque étape au fil de l’activité.',
     stepsProgress: (done, total) => `${done}/${total} étapes cochées`,
+    stepsProgressLabel: 'Progression des étapes',
     planTitle: 'Un petit rendez-vous en famille',
     date: 'Date',
     hour: 'Heure',
@@ -99,6 +100,7 @@ const words = {
     timerReset: 'Reset',
     checklistHint: 'Gather the materials, then tick off each step as you go.',
     stepsProgress: (done, total) => `${done}/${total} steps checked`,
+    stepsProgressLabel: 'Step progress',
     planTitle: 'A little family date',
     date: 'Date',
     hour: 'Time',
@@ -418,7 +420,7 @@ export async function generateSeoFiles(files) {
         <div class="activity-page-body">${readyView.before(activity, lang, 2)}
         <p class="checklist-hint">${w.checklistHint}</p>
         <section><h2>${w.materials}</h2><ul class="materials checklist-materials">${activity.materials.map((item, index) => `<li><label><input type="checkbox" data-page-check="material" data-page-check-index="${index}" /><span>${escapeHtml(item)}</span></label></li>`).join('')}</ul></section>
-        <section><h2>${w.steps}</h2><div class="activity-progress" id="page-activity-progress" role="progressbar" aria-valuemin="0" aria-valuemax="${activity.steps.length}" aria-valuenow="0"><span id="page-activity-progress-label">${w.stepsProgress(0, activity.steps.length)}</span><span class="activity-progress-track" aria-hidden="true"><span id="page-activity-progress-bar"></span></span></div><ol class="steps checklist-steps">${activity.steps.map((step, index) => `<li><label><input type="checkbox" data-page-check="step" data-page-check-index="${index}" /><span>${escapeHtml(step)}</span></label></li>`).join('')}</ol></section>
+        <section><h2>${w.steps}</h2><div class="activity-progress" id="page-activity-progress" role="progressbar" aria-label="${w.stepsProgressLabel}" aria-valuemin="0" aria-valuemax="${activity.steps.length}" aria-valuenow="0"><span id="page-activity-progress-label">${w.stepsProgress(0, activity.steps.length)}</span><span class="activity-progress-track" aria-hidden="true"><span id="page-activity-progress-bar"></span></span></div><ol class="steps checklist-steps">${activity.steps.map((step, index) => `<li><label><input type="checkbox" data-page-check="step" data-page-check-index="${index}" /><span>${escapeHtml(step)}</span></label></li>`).join('')}</ol></section>
         ${activity.ready ? readyView.after(activity, lang, 2) : `<aside class="extra"><strong>${w.tip}</strong><p>${escapeHtml(activity.tip)}</p></aside>`}
         <p class="estimate">${w.estimate} <a href="${href(output, legalPaths[lang][2])}#precautions">${w.safety}</a>.</p></div>
       </article><section class="related-activities"><h2>${w.related}</h2><div class="seo-card-grid">${related.map((item) => card(item, lang, output)).join('')}</div></section>${selectionLinks(lang, output)}
