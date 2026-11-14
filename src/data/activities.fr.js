@@ -2646,7 +2646,7 @@ window.SITE_ACTIVITIES = [
     steps: [
       'Choisissez trois endroits où chercher sans rien déplacer : une couverture de livre, un calendrier et un emballage propre, par exemple.',
       'Notez cinq nombres rencontrés et, à côté de chacun, l’objet sur lequel il apparaît.',
-      'Classez les nombres du plus petit au plus grand. Si deux nombres sont identiques, cherchez une autre façon de les départager.',
+      'Classez les nombres du plus petit au plus grand. Si deux nombres sont identiques, notez aussi les objets qui les portent pour les distinguer.',
       'Choisissez un nombre et imaginez une question à laquelle il pourrait répondre : une quantité, une date, une durée ou un numéro de page.',
       'Échangez vos listes et inventez une devinette dont la réponse est l’un des nombres trouvés.',
     ],
