@@ -1,6 +1,6 @@
 # Les petits moments
 
-Un site gratuit, en français et en anglais, pour trouver des activités à vivre en famille. Il propose 100 fiches, des filtres, une recherche, des favoris, un historique local, le partage, l’impression et un mode hors ligne.
+Un site gratuit, en français et en anglais, pour trouver des activités à vivre en famille. Il propose 103 fiches, des filtres, une recherche, des favoris, un historique local, le partage, l’impression et un mode hors ligne.
 
 L’accueil suit un parcours principal : indiquez l’âge, le temps et le lieu, puis demandez trois idées. Le budget et la météo sont facultatifs. Le catalogue reste accessible dans une section repliable ; les favoris, activités vécues et dernières consultations sont regroupés dans « Mes moments ». Les liens de recherches et de sélections partagés ouvrent directement le catalogue avec leurs critères. Sans JavaScript, les 100 fiches restent accessibles.
 
