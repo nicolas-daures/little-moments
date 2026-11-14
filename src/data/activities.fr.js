@@ -2589,7 +2589,7 @@ window.SITE_ACTIVITIES = [
     slug: 'l-orchestre-des-objets-du-quotidien',
   },
   {
-    id: 'enquete-glaçon',
+    id: 'enquete-glacon',
     title: 'L’enquête du glaçon',
     category: 'Découvrir',
     age: 6,
