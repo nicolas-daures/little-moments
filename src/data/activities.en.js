@@ -2582,7 +2582,12 @@ window.SITE_ACTIVITIES = [
     cost: 0,
     place: 'inside',
     desc: 'Compare two ice cubes to find out what salt does to melting ice.',
-    materials: ['Two similarly sized ice cubes', 'Two small plates', 'One teaspoon of salt', 'A timer, optional'],
+    materials: [
+      'Two similarly sized ice cubes',
+      'Two small plates',
+      'One teaspoon of salt',
+      'A timer, optional',
+    ],
     steps: [
       'Put one ice cube on each plate, side by side in the same room. Before you begin, predict which one will melt faster.',
       'Sprinkle one teaspoon of salt over the first ice cube and leave the second one as it is.',
@@ -2633,5 +2638,4 @@ window.SITE_ACTIVITIES = [
     tip: 'Do not use addresses, phone numbers or personal documents. For younger children, look only for digits from 1 to 5 and count matching objects.',
     slug: 'the-everyday-numbers-hunt',
   },
-
 ];
