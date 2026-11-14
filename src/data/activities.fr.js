@@ -2597,7 +2597,12 @@ window.SITE_ACTIVITIES = [
     cost: 0,
     place: 'inside',
     desc: 'Comparez deux glaçons pour découvrir ce que le sel change à leur fonte.',
-    materials: ['Deux glaçons de taille proche', 'Deux petites assiettes', 'Une cuillère à café de sel', 'Un minuteur facultatif'],
+    materials: [
+      'Deux glaçons de taille proche',
+      'Deux petites assiettes',
+      'Une cuillère à café de sel',
+      'Un minuteur facultatif',
+    ],
     steps: [
       'Posez un glaçon sur chaque assiette, côte à côte, dans la même pièce. Avant de commencer, prévoyez lequel fondra le plus vite.',
       'Saupoudrez le premier glaçon avec une cuillère à café de sel et ne mettez rien sur le second.',
@@ -2648,5 +2653,4 @@ window.SITE_ACTIVITIES = [
     tip: 'Ne consultez ni adresse, ni numéro de téléphone, ni document personnel. Pour les plus jeunes, cherchez seulement les chiffres de 1 à 5 et comptez les objets correspondants.',
     slug: 'la-chasse-aux-nombres-du-quotidien',
   },
-
 ];
