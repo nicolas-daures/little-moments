@@ -2574,7 +2574,7 @@ window.SITE_ACTIVITIES = [
     slug: 'the-everyday-object-orchestra',
   },
   {
-    id: 'enquete-glaçon',
+    id: 'enquete-glacon',
     title: 'The ice-cube investigation',
     category: 'Découvrir',
     age: 6,
